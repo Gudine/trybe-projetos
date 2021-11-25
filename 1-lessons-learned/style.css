@@ -80,9 +80,10 @@ tr:nth-child(odd) > *:nth-child(odd) {
   background-color: #ebebac;
 }
 
-
-
-
+article {
+  line-height: 1.5em;
+  font-size: 1.1em;
+}
 
 aside {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
