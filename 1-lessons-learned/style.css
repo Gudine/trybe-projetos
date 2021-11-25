@@ -70,13 +70,11 @@ td , th {
   padding: 10px;
 }
 
-tr:nth-child( even ) > *:nth-child( odd ) , 
-tr:nth-child( odd ) > *:nth-child( even ) {
+tr:nth-child( even ) > *:nth-child( odd ) , tr:nth-child( odd ) > *:nth-child( even ) {
   background-color: beige;
 }
 
-tr:nth-child( even ) > *:nth-child( even ) , 
-tr:nth-child( odd ) > *:nth-child( odd ) {
+tr:nth-child( even ) > *:nth-child( even ) , tr:nth-child( odd ) > *:nth-child( odd ) {
   background-color: rgb(235, 235, 172);
 }
 
