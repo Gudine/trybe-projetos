@@ -45,9 +45,44 @@ main {
   margin: 25px 15px;
 }
 
+#licoes div, #minha_foto {
+  display: inline-block;
+  margin: 0 5%;
+  vertical-align: middle;
+}
+
 #minha_foto {
   width: 300px;
+  border-radius: 50%;
 }
+
+/*  Tabelas  */
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+td, th {
+  padding: 10px;
+}
+
+tr:nth-child(even) > *:nth-child(odd),
+tr:nth-child(odd) > *:nth-child(even) {
+  background-color: beige;
+}
+
+tr:nth-child(even) > *:nth-child(even),
+tr:nth-child(odd) > *:nth-child(odd) {
+  background-color: #ebebac;
+}
+
+
+
+
 
 aside {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
