@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 
-#cabecalho, #rodape {
+#cabecalho , #rodape {
   position: fixed;
   text-align: center;
   width: 100%;
@@ -11,8 +11,9 @@ body {
   color: rgb(253, 251, 251);
 }
 
-#cabecalho {top: 0;}
-#rodape {bottom: 0;}
+#cabecalho { top: 0;}
+
+#rodape { bottom: 0;}
 
 #navlist {
   padding: 0;
