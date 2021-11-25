@@ -16,6 +16,10 @@ body {
   height: 80px;
 }
 
+main {
+  margin: 25px 15px;
+}
+
 #minha_foto {
   width: 300px;
 }
