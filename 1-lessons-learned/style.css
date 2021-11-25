@@ -77,7 +77,7 @@ tr:nth-child(odd) > *:nth-child(even) {
 
 tr:nth-child(even) > *:nth-child(even),
 tr:nth-child(odd) > *:nth-child(odd) {
-  background-color: #ebebac;
+  background-color: rgb(235, 235, 172);
 }
 
 article {
@@ -86,7 +86,7 @@ article {
 }
 
 aside {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
   font-style: oblique;
   background-color: darkmagenta;
   padding: 10px;
