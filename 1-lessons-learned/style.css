@@ -48,3 +48,13 @@ main {
 #minha_foto {
   width: 300px;
 }
+
+aside {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: oblique;
+  background-color: darkmagenta;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  color: rgb(253, 251, 251);
+}
