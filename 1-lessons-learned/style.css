@@ -11,3 +11,11 @@ body {
   background-color: navy;
   color: white;
 }
+
+#filler {
+  height: 80px;
+}
+
+#minha_foto {
+  width: 300px;
+}
