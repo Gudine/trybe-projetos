@@ -8,14 +8,32 @@ body {
   text-align: center;
   width: 100%;
   background-color: navy;
-  color: white;
+  color: rgb(253, 251, 251);
 }
 
 #cabecalho {top: 0;}
 #rodape {bottom: 0;}
 
+#navlist {
+  padding: 0;
+}
+
+#navlist li {
+  display: inline-block;
+  margin: 0 80px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: rgb(253, 251, 251);
+}
+
+#navlist li a {
+  color: navy;
+  list-style: none;
+  text-decoration: none;
+}
+
 #filler {
-  height: 80px;
+  height: 120px;
 }
 
 #fillerend {
