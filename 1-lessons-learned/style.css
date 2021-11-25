@@ -94,3 +94,16 @@ aside {
   text-align: center;
   color: rgb(253, 251, 251);
 }
+
+.lado-esquerdo {
+  display: inline-block;
+  width: 70%;
+  vertical-align: middle;
+}
+
+.lado-direito {
+  display: inline-block;
+  width: 25%;
+  margin-left: 2%;
+  vertical-align: middle;
+}
