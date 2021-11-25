@@ -3,17 +3,23 @@ body {
   margin: 0;
 }
 
-#cabecalho {
+#cabecalho, #rodape {
   position: fixed;
-  top: 0;
   text-align: center;
   width: 100%;
   background-color: navy;
   color: white;
 }
 
+#cabecalho {top: 0;}
+#rodape {bottom: 0;}
+
 #filler {
   height: 80px;
+}
+
+#fillerend {
+  height: 50px;
 }
 
 main {
