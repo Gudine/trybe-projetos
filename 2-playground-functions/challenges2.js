@@ -18,15 +18,19 @@ function incrementObject(value) {
   }
   return 1;
 }
-
+function verifyNumber(number, repeat, max) {
+  if (repeat >= max) {
+    return true;
+  }
+  if (number < 0 || number > 9) {
+    return true;
+  }
+}
 function maxRepeat(numbers, max) {
   let repetidos = {};
   for (let x of numbers) {
     repetidos[x] = incrementObject(repetidos[x]);
-    if (repetidos[x] >= max) {
-      return true;
-    }
-    if (x < 0 || x > 9) {
+    if (verifyNumber(x, repetidos[x], max)) {
       return true;
     }
   }
@@ -80,7 +84,6 @@ function hydrate(drinks) {
     return `${amount} copo de água`;
   }
   return `${amount} copos de água`;
-
 }
 
 module.exports = {
