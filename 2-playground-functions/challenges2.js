@@ -13,9 +13,9 @@ function techList(array, name) {
 
 // Desafio 11
 function incrementObject(value) {
-  if (value !== undefined) {
-    return value + 1;
-  }
+  // Encurtamento do código feito por
+  // sugestão de Raphael Martins (19-A)
+  if (value) { return value + 1; }
   return 1;
 }
 function verifyNumber(number, repeat, max) {
