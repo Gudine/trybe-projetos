@@ -1,4 +1,4 @@
-#color-palette {
+#color-palette, #pixel-board {
   /* Desabilita espaço entre elementos inline */
   font-size: 0;
 }
@@ -11,7 +11,16 @@
   margin: 0px 10px;
 }
 
-.color.black { background-color: black;}
-.color.red { background-color: red;}
-.color.green { background-color: green;}
-.color.blue { background-color: blue;}
+.pixel {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.blank { background-color: white;}
+
+.black { background-color: black;}
+.red { background-color: red;}
+.green { background-color: green;}
+.blue { background-color: blue;}
