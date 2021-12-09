@@ -9,6 +9,7 @@ section {
 #color-palette, #pixel-board {
   /* Desabilita espaço entre elementos inline */
   font-size: 0;
+  white-space: nowrap;
 }
 
 #board-size {
@@ -29,10 +30,3 @@ section {
   border: 1px solid black;
   display: inline-block;
 }
-
-.blank { background-color: white;}
-
-.black { background-color: black;}
-.red { background-color: red;}
-.green { background-color: green;}
-.blue { background-color: blue;}
