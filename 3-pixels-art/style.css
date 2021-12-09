@@ -6,7 +6,8 @@ section {
   margin: 20px 0;
 }
 
-#color-palette, #pixel-board {
+#color-palette , #pixel-board {
+
   /* Desabilita espaço entre elementos inline */
   font-size: 0;
   white-space: nowrap;
@@ -21,7 +22,7 @@ section {
   height: 75px;
   border: 1px solid black;
   display: inline-block;
-  margin: 0px 10px;
+  margin: 0 10px;
 }
 
 .pixel {
