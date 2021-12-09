@@ -2,6 +2,7 @@
 const [w, h] = [5, 5];
 // Faz lista de cores da paleta
 const colors = document.querySelectorAll('.color');
+const clear = document.getElementById('clear-board');
 // Guarda o quadro de pixels numa var
 const board = document.getElementById('pixel-board');
 // Guarda a cor selecionada numa var
@@ -32,6 +33,13 @@ function fillBoard() {
   }
 }
 
+function clearBoard() {
+  const pixels = document.querySelectorAll('.pixel');
+  pixels.forEach(
+    (pixel) => { pixel.className = 'pixel blank'; },
+  );
+}
+
 function selectColor(color) {
   if (selected) { selected.classList.remove('selected'); }
   selected = color;
@@ -45,10 +53,8 @@ colors.forEach(
   (color) => color.addEventListener('click',
     (ev) => selectColor(ev.target)),
 );
-colors.forEach(
-  (color) => color.addEventListener('click',
-    (ev) => selectColor(ev.target)),
-);
+
+clear.addEventListener('click', clearBoard);
 
 fillBoard();
 
