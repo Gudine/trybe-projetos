@@ -1,0 +1,17 @@
+#color-palette {
+  /* Desabilita espaço entre elementos inline */
+  font-size: 0;
+}
+
+.color {
+  width: 75px;
+  height: 75px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+.color.red { background-color: red;}
+.color.green { background-color: green;}
+.color.blue { background-color: blue;}
+.color.yellow { background-color: yellow;}
