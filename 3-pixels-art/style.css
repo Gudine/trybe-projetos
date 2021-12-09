@@ -11,6 +11,10 @@ section {
   font-size: 0;
 }
 
+#board-size {
+  width: 50px;
+}
+
 .color {
   width: 75px;
   height: 75px;

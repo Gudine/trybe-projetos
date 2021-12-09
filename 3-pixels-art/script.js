@@ -1,8 +1,10 @@
 // Declara largura e altura, respectivamente
-const [w, h] = [5, 5];
+let [w, h] = [5, 5];
 // Faz lista de cores da paleta
 const colors = document.querySelectorAll('.color');
 const clear = document.getElementById('clear-board');
+const boardsize = document.getElementById('board-size');
+const generate = document.getElementById('generate-board');
 // Guarda o quadro de pixels numa var
 const board = document.getElementById('pixel-board');
 // Guarda a cor selecionada numa var
@@ -19,7 +21,7 @@ function paintPixel(ev) {
 
 // Preenche a pixel-board com uma grade de pixels,
 // usando os valores de largura e altura definidos
-function fillBoard() {
+function generateBoard() {
   for (let i = 0; i < w * h; i += 1) {
     const pixel = document.createElement('div');
     pixel.classList.add('pixel');
@@ -56,7 +58,26 @@ colors.forEach(
 
 clear.addEventListener('click', clearBoard);
 
-fillBoard();
+generate.addEventListener('click', function() {
+  if (!boardsize.value) {
+    alert("Board inválido!");
+    return;
+  }
+  let input = parseInt(boardsize.value);
+  if (input < 5) {input = 5}
+  else if (input > 50) {input = 50};
+  w = input;
+  h = input;
+
+  const elems = board.children;
+  while (elems.length) {
+    elems[0].remove();
+  }
+
+  generateBoard();
+});
+
+generateBoard();
 
 if (!selected) {
   selectColor(colors[0]);
