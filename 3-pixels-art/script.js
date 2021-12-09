@@ -7,6 +7,8 @@ const board = document.getElementById('pixel-board');
 // Guarda a cor selecionada numa var
 let selected = document.querySelector('.selected');
 
+// Preenche a pixel-board com uma grade de pixels,
+// usando os valores de largura e altura definidos
 function fillBoard() {
   for (let i = 0; i < w * h; i += 1) {
     const pixel = document.createElement('div');
@@ -25,6 +27,14 @@ function selectColor(color) {
   selected = color;
   selected.classList.add("selected");
 }
+
+// Passa por todas as cores e adiciona um evento
+// quando clicadas, que adiciona a classe selected.
+// (O Lint não gosta de for/of, aparentemente)
+colors.forEach(
+  (color) => color.addEventListener("click",
+    (ev) => selectColor(ev.target)),
+);
 
 fillBoard();
 
