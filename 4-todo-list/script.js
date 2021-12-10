@@ -1,5 +1,7 @@
 const input = document.getElementById('texto-tarefa');
-const button = document.getElementById('criar-tarefa');
+const addButton = document.getElementById('criar-tarefa');
+const eraseAllButton = document.getElementById('apaga-tudo');
+const eraseCompletedButton = document.getElementById('remover-finalizados');
 const ol = document.getElementById('lista-tarefas');
 
 function selectTask(ev) {
@@ -24,4 +26,23 @@ function createTask() {
   input.value = '';
 }
 
-button.addEventListener('click', createTask);
+function clearTasks() {
+  const elems = ol.children;
+  while (elems.length) {
+    elems[0].remove();
+  }
+}
+
+function clearCompletedTasks() {
+  const elems = ol.children;
+  for (let i = 0; i < elems.length; i += 1) {
+    if (elems[i].classList.contains('completed')) {
+      elems[i].remove();
+      i -= 1;
+    }
+  }
+}
+
+addButton.addEventListener('click', createTask);
+eraseAllButton.addEventListener('click', clearTasks);
+eraseCompletedButton.addEventListener('click', clearCompletedTasks);
