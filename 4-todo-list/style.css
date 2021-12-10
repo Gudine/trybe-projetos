@@ -5,3 +5,65 @@
 .completed {
   text-decoration: line-through;
 }
+
+body {
+  background-color: rgb(21 , 121 , 21);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+#container {
+  background-color: white;
+  padding: 40px 50px;
+  margin: 40px 50px;
+  border-radius: 50px;
+}
+
+#container h1 {
+  margin-top: 0;
+}
+
+ol {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 15px;
+  color: white;
+  margin: 0 10px;
+}
+
+#criar-tarefa , #remover-finalizados {
+  background-color: hsl(210 , 100% , 40%);
+}
+
+:hover:is( #criar-tarefa , #remover-finalizados ) {
+  background-color: hsl(210 , 100% , 45%);
+}
+
+#remover-selecionado , #apaga-tudo {
+  background-color: hsl(0 , 100% , 30%);
+}
+
+:hover:is( #remover-selecionado , #apaga-tudo ) {
+  background-color: hsl(0 , 100% , 38%);
+}
+
+#mover-cima , #mover-baixo {
+  background-color: hsl(40 , 100% , 45%);
+}
+
+:hover:is( #mover-cima , #mover-baixo ) {
+  background-color: hsl(40 , 100% , 50%);
+}
+
+#salvar-tarefas {
+  background-color: green;
+}
+
+#salvar-tarefas:hover {
+  background-color: hsl(120 , 100% , 30%);
+}
