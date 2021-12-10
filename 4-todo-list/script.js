@@ -50,7 +50,10 @@ function createTask(name, completed) {
 
 // Pega o texto do input, e cria
 // uma tarefa com esses dados
-function createTaskFromInput() {
+function createTaskFromInput(ev) {
+  if (ev.type === 'keyup' && ev.key !== 'Enter') {
+    return;
+  }
   const name = input.value;
   createTask(name, false);
   input.value = '';
@@ -148,6 +151,7 @@ function moveTaskDown() {
 // Adiciona escutadores de cada função
 // para o respective botão
 addButton.addEventListener('click', createTaskFromInput);
+input.addEventListener('keyup', createTaskFromInput);
 eraseAllButton.addEventListener('click', eraseTasks);
 eraseCompletedButton.addEventListener('click', eraseCompletedTasks);
 eraseSelectedButton.addEventListener('click', eraseSelectedTask);
