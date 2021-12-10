@@ -10,10 +10,15 @@ function selectTask(ev) {
   ev.target.classList.add('selected');
 }
 
+function strikeTask(ev) {
+  ev.target.classList.toggle('completed');
+}
+
 function createTask() {
   const li = document.createElement('li');
   li.innerText = input.value;
   li.addEventListener('click', selectTask);
+  li.addEventListener('dblclick', strikeTask);
 
   ol.appendChild(li);
   input.value = '';
