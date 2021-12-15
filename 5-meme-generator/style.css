@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+#meme-image-container {
+  margin: 20px;
+  width: 400px;
+  height: 400px;
+  display: grid;
+}
+
+#meme-image-container > * {
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+
+#meme-text {
+  align-self: end;
+  margin: 0 0 20px 20px;
+  font-size: 2em;
+  font-family: Anton, Impact, sans-serif;
+}
