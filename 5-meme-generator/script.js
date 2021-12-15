@@ -6,6 +6,7 @@ const textDisplay = document.getElementById('meme-text');
 const imgDisplay = document.getElementById('meme-image');
 
 const buttons = document.querySelectorAll('#meme-borders button');
+const defaultImgs = document.querySelectorAll('#meme-defaults img');
 
 function printMemeText() {
   if (textInput.value.length >= 60) {
@@ -14,7 +15,7 @@ function printMemeText() {
   textDisplay.innerText = textInput.value;
 }
 
-function fileUpload(ev) {
+function uploadImage(ev) {
   const file = ev.target.files[0];
   const reader = new FileReader();
 
@@ -29,7 +30,12 @@ function changeBorder(ev) {
   container.className = ev.target.id;
 }
 
+function useDefaultImage(ev) {
+  imgDisplay.src = ev.target.src;
+}
+
 textInput.addEventListener('keyup', printMemeText);
-imgInput.addEventListener('change', fileUpload);
+imgInput.addEventListener('change', uploadImage);
 
 buttons.forEach((btn) => btn.addEventListener('click', changeBorder));
+defaultImgs.forEach((img) => img.addEventListener('click', useDefaultImage));

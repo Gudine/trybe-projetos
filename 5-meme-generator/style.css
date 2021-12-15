@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(255 , 180 , 255);
+}
+
 #meme-inputs > * {
   display: block;
   margin: 10px;
@@ -8,8 +16,10 @@
 #meme-image-container {
   width: 400px;
   height: 400px;
-  display: grid;
   background-color: white;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
 }
 
 #meme-image-container.default {
@@ -48,7 +58,7 @@
   align-self: end;
   margin: 20px;
   font-size: 30px;
-  text-align: center;
+  word-wrap: break-word;
   font-family: Anton, Impact, sans-serif;
   text-shadow: black 5px 5px 5px;
   color: white;
@@ -59,6 +69,7 @@
   padding: 5px 10px;
   margin: 0 20px;
   border-radius: 10px;
+  color: white;
 }
 
 #meme-borders .fire {
@@ -77,4 +88,9 @@
   border-color: darkgreen;
   color: lightgreen;
   background-color: green;
+}
+
+#meme-defaults img {
+  width: 100px;
+  border: 1px solid black;
 }
