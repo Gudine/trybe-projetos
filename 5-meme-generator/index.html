@@ -14,12 +14,16 @@
   <main>
     <section id="meme-inputs">
       <label>Texto: 
-        <input type="text" id="text-input">
+        <input id="text-input" type="text">
+      </label>
+      <label>Imagem: 
+        <input id="meme-insert" type="file" accept="image/*">
       </label>
     </section>
 
     <section id="meme-display">
       <div id="meme-image-container">
+        <img id="meme-image">
         <span id="meme-text"></span>
       </div>
     </section>
