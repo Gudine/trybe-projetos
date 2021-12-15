@@ -4,8 +4,10 @@ const imgInput = document.getElementById('meme-insert');
 const textDisplay = document.getElementById('meme-text');
 const imgDisplay = document.getElementById('meme-image');
 
-
 function printMemeText() {
+  if (textInput.value.length >= 60) {
+    textInput.value = textInput.value.slice(0, 60);
+  }
   textDisplay.innerText = textInput.value;
 }
 
