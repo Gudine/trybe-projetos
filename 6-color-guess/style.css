@@ -14,3 +14,7 @@ section {
   border: 2px solid black;
   margin: 5px;
 }
+
+.selected {
+  outline: blue solid 2px;
+}

@@ -1,6 +1,7 @@
 const colorPrompt = document.getElementById('rgb-color');
 const colorSect = document.getElementById('colors');
 const answerSpan = document.getElementById('answer');
+const resetButton = document.getElementById('reset-game');
 
 const colors = [];
 let answer = null;
@@ -12,25 +13,21 @@ function generateColor() {
   return { r, g, b, full: `rgb(${r}, ${g}, ${b})` };
 }
 
-function rightAnswer() {
-  answerSpan.innerText = 'Acertou!';
-}
-
-function wrongAnswer() {
-  answerSpan.innerText = 'Errou! Tente novamente!';
-}
-
 function findAnswer(ev) {
+  ev.target.classList.add('selected');
   const currColor = ev.target.style.backgroundColor;
   if (currColor === colors[answer].full) {
-    rightAnswer();
+    answerSpan.innerText = 'Acertou!';
   } else {
-    wrongAnswer();
+    answerSpan.innerText = 'Errou! Tente novamente!';
   }
+
+  [...document.getElementsByClassName('ball')].forEach(
+    (elem) => elem.removeEventListener('click', findAnswer),
+  );
 }
 
 function genColorBalls() {
-  colors.filter(() => false);
   for (let i = 0; i < 6; i += 1) {
     const div = document.createElement('div');
     const color = generateColor();
@@ -46,4 +43,16 @@ function genColorBalls() {
   colorPrompt.innerText = colors[answer].full.slice(3);
 }
 
-genColorBalls();
+function resetGame() {
+  answerSpan.innerText = 'Escolha uma cor';
+  // Apaga todos os itens do array colors
+  colors.splice(0, colors.length);
+  // Apaga todos os elementos de cores
+  [...document.getElementsByClassName('ball')].forEach(
+    (elem) => elem.remove(),
+  );
+  genColorBalls();
+}
+resetButton.addEventListener('click', resetGame);
+
+resetGame();
