@@ -18,3 +18,8 @@ section {
 .selected {
   outline: blue solid 2px;
 }
+
+#answer {
+  font-weight: 700;
+  font-size: 1.4em;
+}
