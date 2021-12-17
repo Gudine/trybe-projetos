@@ -9,6 +9,16 @@ const letterCounter = document.getElementById('carta-contador');
 const makeLetterBtn = document.getElementById('criar-carta');
 const letterP = document.getElementById('carta-gerada');
 
+function getRandomFromArray(array, amount = 1) {
+  const arr = [...array];
+  const result = [];
+  for (let i = 0; i < amount; i += 1) {
+    const random = Math.floor(Math.random() * arr.length);
+    result.push(arr.splice(random, 1)[0]);
+  }
+  return result;
+}
+
 function removeWords() {
   const elems = [...document.querySelectorAll('#carta-gerada > *')];
   elems.forEach((elem) => elem.remove());
@@ -21,19 +31,21 @@ function generateWarning() {
   letterP.appendChild(warning);
 }
 
-function getRandomFromArray(array) {
-  const random = Math.floor(Math.random() * (array.length));
-  return array[random];
-}
+/* function randomizeSpanStyle(span) {
+  [...span.classList].forEach((c) => span.classList.remove(c));
+
+  const styles = getRandomFromArray(
+    [styleList, sizeList, rotationList, skewList],
+    Math.floor(Math.random() * 3) + 2,
+  );
+
+  styles.forEach((list) => { span.classList.add(getRandomFromArray(list)); });
+} */
 
 function randomizeSpanStyle(span) {
   [...span.classList].forEach((c) => span.classList.remove(c));
-  span.classList.forEach(() => span.classList.remove());
   [styleList, sizeList, rotationList, skewList].forEach(
-    (list) => {
-      const c = getRandomFromArray(list);
-      if (c !== undefined) { span.classList.add(c); }
-    },
+    (list) => span.classList.add(getRandomFromArray(list)),
   );
 }
 
