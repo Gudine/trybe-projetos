@@ -31,7 +31,7 @@ function generateWarning() {
   letterP.appendChild(warning);
 }
 
-/* function randomizeSpanStyle(span) {
+function randomizeSpanStyle(span) {
   [...span.classList].forEach((c) => span.classList.remove(c));
 
   const styles = getRandomFromArray(
@@ -40,14 +40,14 @@ function generateWarning() {
   );
 
   styles.forEach((list) => { span.classList.add(getRandomFromArray(list)); });
-} */
+}
 
-function randomizeSpanStyle(span) {
+/* function randomizeSpanStyle(span) {
   [...span.classList].forEach((c) => span.classList.remove(c));
   [styleList, sizeList, rotationList, skewList].forEach(
     (list) => span.classList.add(getRandomFromArray(list)),
   );
-}
+} */
 
 function generateSpan(word) {
   const span = document.createElement('span');
