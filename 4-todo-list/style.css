@@ -39,6 +39,17 @@ li .content:before {
   content: counter(list) '. ';
 }
 
+li .content input {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  padding: 0;
+  width: 90%;
+  outline: 1px solid white;
+  border-radius: 5px;
+}
+
 li {
   width: 100%;
   background-color: rgba(0 , 0 , 128 , 0);

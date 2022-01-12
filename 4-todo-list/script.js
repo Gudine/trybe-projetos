@@ -21,6 +21,25 @@ function markTaskAsCompleted(ev) {
   ev.target.parentNode.classList.toggle('completed');
 }
 
+function stopEditTask(ev) {
+  if (ev.type === 'keyup' && ev.key !== 'Enter') { return; }
+  const input = ev.target;
+  input.removeEventListener('focusout', stopEditTask);
+  input.parentNode.innerHTML = input.value;
+}
+
+function editTask(ev) {
+  ev.preventDefault();
+  let input = document.createElement('input');
+  input.value = ev.target.innerText;
+  input.spellcheck = false;
+  ev.target.innerHTML = null;
+  ev.target.appendChild(input);
+  input.focus();
+  input.addEventListener('focusout', stopEditTask);
+  input.addEventListener('keyup', stopEditTask);
+}
+
 // Apaga a tarefa selecionada
 function removeTask(ev) {
   ev.target.parentNode.remove();
@@ -119,6 +138,7 @@ function createSubElems(name) {
   spans.push(document.createElement('span'));
   spans[3].classList.add('content');
   spans[3].innerText = name;
+  spans[3].addEventListener('dblclick', editTask);
 
   return spans;
 }
@@ -180,7 +200,7 @@ function saveTasks() {
       saveList.push(taskObj);
     },
   );
-  localStorage.tasks = JSON.stringify(saveList);
+  localStorage.taskList = JSON.stringify(saveList);
 }
 
 function makePointer() {
@@ -192,9 +212,9 @@ function makePointer() {
 // Pega todas as tarefas do localStorage,
 // e adiciona elas na página
 function loadTasks() {
-  if (!localStorage.tasks) { return; }
+  if (!localStorage.taskList) { return; }
   removeAllTasks();
-  const loadList = JSON.parse(localStorage.tasks);
+  const loadList = JSON.parse(localStorage.taskList);
 
   loadList.forEach(
     (task) => {
