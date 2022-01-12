@@ -71,7 +71,7 @@ function triangleCheck(lineA, lineB, lineC) {
 
 // Desafio 13
 function hydrate(drinks) {
-  let matches = drinks.matchAll(/\d/g);
+  let matches = drinks.matchAll(/\d+/g);
   let amount = 0;
 
   for (let x of matches) {
