@@ -53,8 +53,6 @@ function generatePhoneNumber(numbers) {
   return `(${ddd}) ${first}-${last}`;
 }
 
-console.log(generatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1]));
-
 // Desafio 12
 function triangleCheck(lineA, lineB, lineC) {
   let check = [[lineA, lineB, lineC], [lineB, lineA, lineC], [lineC, lineA, lineB]];
@@ -85,10 +83,3 @@ function hydrate(drinks) {
   }
   return `${amount} copos de água`;
 }
-
-module.exports = {
-  generatePhoneNumber,
-  techList,
-  hydrate,
-  triangleCheck,
-};

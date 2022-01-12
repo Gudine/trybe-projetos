@@ -1,6 +1,6 @@
 // Desafio 1
 function compareTrue(a, b) {
-  return (a && b);
+  return Boolean(a && b);
 }
 
 // Desafio 2
@@ -39,8 +39,6 @@ function highestCount(array) {
   }
   return maior.repetitions;
 }
-
-console.log(highestCount([-2, -2, -1]));
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
@@ -100,16 +98,3 @@ function decode(sentence) {
 
   return outString;
 }
-
-module.exports = {
-  calcArea,
-  catAndMouse,
-  compareTrue,
-  concatName,
-  decode,
-  encode,
-  fizzBuzz,
-  footballPoints,
-  highestCount,
-  splitSentence,
-};

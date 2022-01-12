@@ -1,0 +1,77 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  color: hsl(0, 0%, 80%);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+main > header {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid white;
+  grid-column: 1 / span 2;
+}
+
+main > section {
+  overflow-y: auto;
+}
+
+header h1 {
+  font-weight: normal;
+  font-size: 1.4em;
+}
+
+header h1 strong {
+  font-size: 1.6em;
+}
+
+code {
+  font-family: inherit;
+  color: rgb(0, 192, 0);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: max-content 1fr;
+  height: 100%;
+}
+
+main > * {
+  padding: 0 10px;
+}
+
+main section:nth-of-type(1) {
+  border-right: 2px solid white;
+  padding-right: 20px;
+}
+
+main section:nth-of-type(2) {
+  padding-left: 20px;
+}
+
+.prompt span {
+  outline: none;
+  word-wrap: break-word;
+  resize: none;
+  width: 90%;
+}
+
+.prompt .input {
+  display: flex;
+  align-items: baseline;
+}
+
+.prompt .input::before {
+  content: "❯ ";
+  white-space: pre;
+  color: rgb(0, 192, 0);
+}
+
+ol li {
+  margin: 10px 0;
+}
