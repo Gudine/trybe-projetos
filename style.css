@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
 
 /******************* General ********************/
 * {
   margin: 0;
   padding: 0;
-  font-family: Almendra, serif;
+  font-family: 'Inknut Antiqua', serif;
 }
 
 body {
   background-color: rgb(239, 239, 239);
-  font-size: 1.45rem;
-  margin-bottom: 30px;
+  font-size: 1rem;
+  margin-bottom: 85px;
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 0.95rem;
 }
 
 label {
-  font-size: 1.3rem;
+  font-size: 0.85rem;
 }
 
 h2 , #radio-family-style label {
@@ -26,7 +26,7 @@ h2 , #radio-family-style label {
 }
 
 button , input , select , option , textarea {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 button {
@@ -46,8 +46,8 @@ hr {
 header , footer {
   display: flex;
   align-items: center;
-  background-color: rgb(50, 167, 145);
   color: white;
+  text-align: center;
 }
 
 header {
@@ -55,6 +55,7 @@ header {
   padding: 10px;
   height: 60px;
   margin-bottom: 30px;
+  background-color: rgb(50, 167, 145);
 }
 
 footer {
@@ -151,7 +152,7 @@ footer {
 
 .textarea {
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 0.95rem;
   margin-top: 15px;
 }
 
@@ -192,7 +193,7 @@ main {
 }
 
 .result {
-  font-size: 1.3rem;
+  font-size: 0.85rem;
   color: navy;
   font-weight: 700;
   margin: 20px 0;
