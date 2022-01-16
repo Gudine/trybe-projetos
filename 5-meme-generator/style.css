@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(255 , 180 , 255);
+}
+
+#meme-inputs > * {
+  display: block;
+  margin: 10px;
+}
+
+#meme-image-container {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+}
+
+#meme-image-container.default {
+  margin: 19px;
+  border: 1px solid black;
+}
+
+#meme-image-container.fire {
+  margin: 17px;
+  border: 3px dashed red;
+}
+
+#meme-image-container.water {
+  margin: 15px;
+  border: 5px double blue;
+}
+
+#meme-image-container.earth {
+  margin: 14px;
+  border: 6px groove green;
+}
+
+#meme-image-container > * {
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+
+#meme-image {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  outline: none;
+  display: block;
+}
+
+#meme-text {
+  align-self: end;
+  margin: 20px;
+  font-size: 30px;
+  word-wrap: break-word;
+  font-family: Anton, Impact, sans-serif;
+  text-shadow: black 5px 5px 5px;
+  color: white;
+}
+
+#meme-borders button {
+  border: 4px solid black;
+  padding: 5px 10px;
+  margin: 0 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+#meme-borders .fire {
+  border-color: darkred;
+  color: rgb(64 , 0 , 0);
+  background-color: red;
+}
+
+#meme-borders .water {
+  border-color: navy;
+  color: lightblue;
+  background-color: blue;
+}
+
+#meme-borders .earth {
+  border-color: darkgreen;
+  color: lightgreen;
+  background-color: green;
+}
+
+#meme-defaults img {
+  width: 100px;
+  border: 1px solid black;
+}
