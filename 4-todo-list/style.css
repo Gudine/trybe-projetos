@@ -1,0 +1,183 @@
+body {
+  background-color: rgb(0 , 96 , 32);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  counter-reset: list;
+  display: flex;
+  justify-content: center;
+}
+
+#container {
+  background-color: #202020;
+  background-color: rgb(0, 64, 0);
+  color: white;
+  padding: 40px 50px;
+  margin: 40px 50px;
+  border-radius: 50px;
+  width: 500px;
+}
+
+#container h1 {
+  margin-top: 0;
+}
+
+header p {
+  color: rgb(160 , 160 , 160);
+  font-style: italic;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 15px;
+  color: white;
+  margin: 5px 10px;
+}
+
+li .content:before {
+  counter-increment: list;
+  content: counter(list) '. ';
+}
+
+li .content input {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  padding: 0;
+  width: 90%;
+  outline: 1px solid white;
+  border-radius: 5px;
+}
+
+li {
+  width: 100%;
+  background-color: rgba(0 , 0 , 128 , 0);
+  border: 2px solid rgba(0 , 0 , 0 , 0);
+  padding: 0;
+  margin: 2px 0;
+  overflow: hidden;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: repeat(3 , 20px) 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+li:hover {
+  border: 2px solid rgb(192 , 192 , 192);
+  /* background-color: navy; */
+  color: white;
+}
+
+li *:is( .x , .check , .drag ) {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  opacity: 0;
+}
+
+li:hover *:is( .x , .check , .drag ) {
+  opacity: 100;
+  cursor: pointer;
+}
+
+li:hover .drag {
+  cursor: move;
+  cursor: grab;
+}
+
+li:hover .drag:active {
+  cursor: grabbing;
+}
+
+li .x {
+  background-color: hsl(0 , 100% , 30%);
+}
+
+li .x:hover {
+  background-color: hsl(0 , 100% , 35%);
+}
+
+li .check , .completed:hover .check {
+  background-color: hsl(120, 100%, 20%);
+}
+
+li .check:hover , .completed:hover .check:hover {
+  background-color: hsl(120, 100%, 25%);
+}
+
+li.completed .check {
+  opacity: 100;
+  background-color: rgba(0 , 0 , 0 , 0);
+  color: hsl(120 , 100% , 50%);
+}
+
+li .drag {
+  background-color: grey;
+}
+
+li .drag:hover {
+  background-color: hsl(0 , 0% , 60%);
+}
+
+li .content {
+  padding: 0 20px 0 5px;
+}
+
+.completed .content {
+  color: hsl(120 , 75% , 60%);
+}
+
+#lista-tarefas {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.selected {
+  background-color: gray;
+}
+
+#criar-tarefa , #remover-finalizados {
+  background-color: hsl(210 , 100% , 40%);
+}
+
+:hover:is( #criar-tarefa , #remover-finalizados ) {
+  background-color: hsl(210 , 100% , 45%);
+}
+
+#remover-selecionado , #apaga-tudo {
+  background-color: hsl(0 , 100% , 30%);
+}
+
+:hover:is( #remover-selecionado , #apaga-tudo ) {
+  background-color: hsl(0 , 100% , 38%);
+}
+
+#mover-cima , #mover-baixo {
+  background-color: hsl(40 , 100% , 45%);
+}
+
+:hover:is( #mover-cima , #mover-baixo ) {
+  background-color: hsl(40 , 100% , 50%);
+}
+
+#salvar-tarefas {
+  background-color: green;
+}
+
+#salvar-tarefas:hover {
+  background-color: hsl(120 , 100% , 30%);
+}
+
+#pointer {
+  width: calc(100% - 64px);
+  height: 2px;
+  margin-left: 62px;
+  background-color: #0080ff;
+}
