@@ -1,0 +1,33 @@
+body {
+  text-align: center;
+}
+
+section {
+  margin: 20px 0;
+}
+
+#color-palette , #pixel-board {
+
+  /* Desabilita espaço entre elementos inline */
+  font-size: 0;
+  white-space: nowrap;
+}
+
+#board-size {
+  width: 50px;
+}
+
+.color {
+  width: 75px;
+  height: 75px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.pixel {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  display: inline-block;
+}
