@@ -1,0 +1,107 @@
+body {
+  background-color: rgb(253, 251, 251);
+  margin: 0;
+}
+
+#cabecalho , #rodape {
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  background-color: navy;
+  color: rgb(253, 251, 251);
+}
+
+#cabecalho { top: 0;}
+
+#rodape { bottom: 0;}
+
+#navlist {
+  padding: 0;
+}
+
+#navlist li {
+  display: inline-block;
+  margin: 0 80px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: rgb(253, 251, 251);
+}
+
+#navlist li a {
+  color: navy;
+  list-style: none;
+  text-decoration: none;
+}
+
+#filler {
+  height: 120px;
+}
+
+#fillerend {
+  height: 50px;
+}
+
+main {
+  margin: 25px 15px;
+}
+
+#licoes div , #minha_foto {
+  display: inline-block;
+  margin: 0 5%;
+  vertical-align: middle;
+}
+
+#minha_foto {
+  width: 300px;
+  border-radius: 50%;
+}
+
+/*  Tabelas  */
+table , th , td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+td , th {
+  padding: 10px;
+}
+
+tr:nth-child( even ) > *:nth-child( odd ) , tr:nth-child( odd ) > *:nth-child( even ) {
+  background-color: beige;
+}
+
+tr:nth-child( even ) > *:nth-child( even ) , tr:nth-child( odd ) > *:nth-child( odd ) {
+  background-color: rgb(235, 235, 172);
+}
+
+article {
+  line-height: 1.5em;
+  font-size: 1.1em;
+}
+
+aside {
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  font-style: oblique;
+  background-color: darkmagenta;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  color: rgb(253, 251, 251);
+}
+
+.lado-esquerdo {
+  display: inline-block;
+  width: 70%;
+  vertical-align: middle;
+}
+
+.lado-direito {
+  display: inline-block;
+  width: 25%;
+  margin-left: 2%;
+  vertical-align: middle;
+}
