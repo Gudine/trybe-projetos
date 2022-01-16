@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+}
+
+section {
+  margin: 20px;
+}
+
+.ball {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin: 5px;
+}
+
+.selected {
+  outline: blue solid 2px;
+}
+
+#answer {
+  font-weight: 700;
+  font-size: 1.4em;
+}
