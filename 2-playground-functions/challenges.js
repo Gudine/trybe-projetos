@@ -1,0 +1,100 @@
+// Desafio 1
+function compareTrue(a, b) {
+  return Boolean(a && b);
+}
+
+// Desafio 2
+function calcArea(base, height) {
+  return (base * height) / 2;
+}
+
+// Desafio 3
+function splitSentence(sentence) {
+  return sentence.split(' ');
+}
+
+// Desafio 4
+function concatName(array) {
+  return `${array.slice(-1)[0]}, ${array[0]}`;
+}
+
+// Desafio 5
+function footballPoints(wins, ties) {
+  return wins * 3 + ties;
+}
+
+// Desafio 6
+function highestCount(array) {
+  // Código adaptado de código já feito anteriormente
+  // https://github.com/Gudine/trybe-exercicios/blob/main/modulo-01/bloco-04/dia-02/script.js#L35
+
+  let maior = { value: array[0], repetitions: 0 };
+  for (let x of array) {
+    if (x === maior.value) {
+      maior.repetitions += 1;
+    } else if (x > maior.value) {
+      maior.value = x;
+      maior.repetitions = 1;
+    }
+  }
+  return maior.repetitions;
+}
+
+// Desafio 7
+function catAndMouse(mouse, cat1, cat2) {
+  let cat1Dist = Math.abs(mouse - cat1);
+  let cat2Dist = Math.abs(mouse - cat2);
+
+  if (cat1Dist < cat2Dist) { return 'cat1'; }
+  if (cat2Dist < cat1Dist) { return 'cat2'; }
+  return 'os gatos trombam e o rato foge';
+}
+
+// Desafio 8
+
+function fizzBuzzMicro(num) {
+  if (num % 3 === 0 && num % 5 === 0) { return 'fizzBuzz'; }
+  if (num % 3 === 0) { return 'fizz'; }
+  if (num % 5 === 0) { return 'buzz'; }
+  return 'bug!';
+}
+
+function fizzBuzz(array) {
+  let outArray = [];
+
+  for (let x of array) {
+    outArray.push(fizzBuzzMicro(x));
+  }
+
+  return outArray;
+}
+
+// Desafio 9
+
+function lookupTable(input, table) {
+  if (input in table) {
+    return table[input];
+  }
+  return input;
+}
+function encode(sentence) {
+  let table = { a: 1, e: 2, i: 3, o: 4, u: 5 };
+  let outString = '';
+
+  for (let x of sentence) {
+    outString += lookupTable(x, table);
+  }
+
+  return outString;
+}
+
+function decode(sentence) {
+  let table = { 1: 'a', 2: 'e', 3: 'i', 4: 'o', 5: 'u' };
+  let outString = '';
+
+  for (let x of sentence) {
+    outString += lookupTable(x, table);
+  }
+
+  return outString;
+}
