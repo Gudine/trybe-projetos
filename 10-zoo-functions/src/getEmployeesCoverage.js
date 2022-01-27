@@ -6,13 +6,11 @@ const getEmployee = (query) => {
       .find((employee) => employee.id === query.id);
   }
   return data.employees
-    .find((employee) => employee.firstName === query.name || employee.lastName === query.name);
+    .find((employee) => [employee.firstName, employee.lastName].includes(query.name));
 };
 
 const getSingleEmployeeCoverage = (employee) => {
-  if (employee === undefined) {
-    throw new Error('Informações inválidas');
-  }
+  if (employee === undefined) throw new Error('Informações inválidas');
 
   const { id, firstName, lastName, responsibleFor } = employee;
 

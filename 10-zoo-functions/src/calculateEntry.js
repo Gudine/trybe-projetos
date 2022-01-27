@@ -13,7 +13,7 @@ const countEntrants = (entrants) => entrants.reduce((list, entrant) => {
 }, { child: 0, adult: 0, senior: 0 });
 
 const calculateEntry = (entrants) => {
-  if (entrants === undefined || !Object.keys(entrants).length) return 0;
+  if (!entrants || !Object.keys(entrants).length) return 0;
   const { prices } = data;
   const ageList = countEntrants(entrants);
 

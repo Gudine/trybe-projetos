@@ -9,12 +9,8 @@ const countAnimals = (animal) => {
   }
   const { specie, sex } = animal;
   const resids = data.species.find((spec) => spec.name === specie).residents;
-  if (Object.keys(animal).length <= 1) {
-    return resids.length;
-  }
+  if (Object.keys(animal).length <= 1) return resids.length;
   return resids.filter((resid) => resid.sex === sex).length;
 };
-
-console.log(countAnimals());
 
 module.exports = countAnimals;
