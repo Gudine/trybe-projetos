@@ -1,12 +1,12 @@
 const data = require('../data/zoo_data');
 
-const getEmployee = (query) => {
-  if (query.id !== undefined) {
+const getEmployee = (targetId, targetName) => {
+  if (targetId !== undefined) {
     return data.employees
-      .find((employee) => employee.id === query.id);
+      .find((employee) => employee.id === targetId);
   }
   return data.employees
-    .find((employee) => [employee.firstName, employee.lastName].includes(query.name));
+    .find((employee) => [employee.firstName, employee.lastName].includes(targetName));
 };
 
 const getSingleEmployeeCoverage = (employee) => {
@@ -26,12 +26,12 @@ const getSingleEmployeeCoverage = (employee) => {
   };
 };
 
-const getEmployeesCoverage = (options) => {
-  if (options === undefined || (options.id === undefined && options.name === undefined)) {
+const getEmployeesCoverage = ({ id, name } = {}) => {
+  if (id === undefined && name === undefined) {
     return data.employees
       .reduce((list, employee) => list.concat([getSingleEmployeeCoverage(employee)]), []);
   }
-  return getSingleEmployeeCoverage(getEmployee(options));
+  return getSingleEmployeeCoverage(getEmployee(id, name));
 };
 
 module.exports = getEmployeesCoverage;
