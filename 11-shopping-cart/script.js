@@ -40,11 +40,24 @@ function createCartItemElement({ sku, name, salePrice }) {
   return li;
 }
 
-window.onload = async () => {
+const addItemToCart = async (ev) => {
+  const sku = ev.target.parentElement.children[0].innerText;
+  const { title: name, price: salePrice } = await fetchItem(sku);
+  const elem = createCartItemElement({ sku, name, salePrice });
+  document.querySelector('.cart__items').appendChild(elem);
+
+};
+
+const populateProductList = async () => {
   const products = (await fetchProducts('computador')).results;
   products.forEach((product) => {
-    const { id: sku, title: name, thumbnail: image, price: salePrice } = product;
+    const { id: sku, title: name, thumbnail: image } = product;
     const elem = createProductItemElement({ sku, name, image });
+    elem.children[3].addEventListener('click', addItemToCart);
     document.querySelector('section.items').appendChild(elem);
   });
+};
+
+window.onload = () => {
+  populateProductList();
 };
