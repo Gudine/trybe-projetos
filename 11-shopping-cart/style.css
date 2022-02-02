@@ -135,9 +135,17 @@ body {
   height: 100vh;
 }
 
+.cart > * {
+  margin-bottom: 25px;
+}
+
 .cart .cart__items {
   height: 500px;
   overflow-y: scroll;
+}
+
+.cart .price {
+  text-align: center;
 }
 
 .empty-cart {
