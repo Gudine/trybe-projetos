@@ -34,9 +34,7 @@ function createProductItemElement({ sku, name, image }) {
   return section;
 }
 
-function getSkuFromProductItem(item) {
-  return item.querySelector('span.item__sku').innerText;
-}
+const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
 
 function cartItemClickListener(event) {
   event.target.remove();
@@ -57,15 +55,15 @@ const startLoading = () => {
   document.body.appendChild(mainDiv);
 };
 
-const stopLoading = () => {
-  document.querySelector('.loading').remove();
-};
+const stopLoading = () => document.querySelector('.loading').remove();
 
 const addItemToCart = async (ev) => {
   const sku = getSkuFromProductItem(ev.target.parentElement);
+
   startLoading();
   const { title: name, price: salePrice } = await fetchItem(sku);
   stopLoading();
+
   const elem = createCartItemElement({ sku, name, salePrice });
   cartItems.appendChild(elem);
   updateCartDefs();
@@ -75,10 +73,11 @@ const populateProductList = async () => {
   startLoading();
   const products = (await fetchProducts('computador')).results;
   stopLoading();
+  
   products.forEach((product) => {
     const { id: sku, title: name, thumbnail: image } = product;
     const elem = createProductItemElement({ sku, name, image });
-    elem.children[3].addEventListener('click', addItemToCart);
+    elem.querySelector('.item__add').addEventListener('click', addItemToCart);
     productsList.appendChild(elem);
   });
 };
