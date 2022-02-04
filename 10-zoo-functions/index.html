@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoo Functions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>🐘Sejam bem-vindos ao <strong>Zoo Functions!</strong>🐘</h1>
+      <p>Nesse projeto, foram feitas diversas funções para testar minha abilidade em tratamento de dados no JavaScript. Para experimentar elas, digite a sua função no prompt abaixo e pressione Enter. Lembre-se de usar aspas duplas! (")</p>
+    </header>
+
+    <section>
+      <header><h2>Prompt</h2></header>
+      <div class="prompt">
+      </div>
+    </section>
+
+    <section>
+      <header><h2>Funções</h2></header>
+      <ol>
+        <li>
+          <code>compareTrue(a, b)</code>: Retorna <code>true</code> se tanto <code>a</code> quanto <code>b</code> forem verdadeiros. Tem a mesma funcionalidade do operador <code>&&</code>.
+        </li>
+        <li>
+          <code>calcArea(base, height)</code>: Retorna a área de um triângulo com a <code>base</code> e o <code>height</code> (altura) dados.
+        </li>
+        <li>
+          <code>splitSentence(sentence)</code>: Retorna um array contendo todas as palavras da <code>sentence</code> dada.
+        </li>
+        <li>
+          <code>concatName(array)</code>: Retorna uma string no formato <code>"[último item], [primeiro item]"</code>, criada a partir da array dada.
+        </li>
+        <li>
+          <code>footballPoints(wins, ties)</code>: Retorna a quantidade de pontos que o time marcou baseado nas <code>wins</code> (vitórias) e <code>ties</code> (empates), considerando que cada vitória vale 3 pontos e cada empate vale 1.
+        </li>
+        <li>
+          <code>highestCount(array)</code>: Retorna a quantidade de vezes que o maior número de um dado <code>array</code> se repete.
+        </li>
+        <li>
+          <code>catAndMouse(mouse, cat1, cat2)</code>: Dados a posição de <code>mouse</code> (rato), <code>cat1</code> e <code>cat2</code> (gatos 1 e 2), retorna qual gato está mais próximo do rato, ou uma frase especial em caso de empate.
+        </li>
+        <li>
+          <code>fizzBuzz(array)</code>: Retorna um array de palavras que corresponde ao <code>array</code> de números dado, seguindo as seguintes regras:
+          <ul>
+            <li>Caso o número seja divisível apenas por 3, a palavra será "fizz";</li>
+            <li>Caso o número seja divisível apenas por 5, a palavra será "buzz";</li>
+            <li>Caso o número seja divisível por 3 e por 5, a palavra será "fizzBuzz";</li>
+            <li>Caso nenhuma das condições acima forem verdadeiras, a palavra será "bug!".</li>
+          </ul>
+        </li>
+        <li>
+          <code>encode(sentence)</code>: Retorna uma versão codificada da <code>sentence</code> dada, que transforma todas as vogais da palavra em números.
+        </li>
+        <li>
+          <code>decode(sentence)</code>: Retorna uma versão decodificada da <code>sentence</code> dada, seguindo as regras da função acima.
+        </li>
+        <li>
+          <code>techList(array, name)</code>: Retorna um array de objetos com as chaves <code>tech</code>, que contém cada item da <code>array</code> dada, e <code>name</code>, que sempre contém o <code>name</code> dado.
+        </li>
+        <li>
+          <code>generatePhoneNumber(numbers)</code>: Retorna um número de telefone feito a partir dos números dados pelo array <code>numbers</code>, que deve conter 11 números.
+        </li>
+        <li>
+          <code>triangleCheck(lineA, lineB, lineC)</code>: Retorna <code>true</code> se for possível usar as três linhas dadas para fazer um triângulo, e retorna <code>false</code> caso contrário. A função segue os seguintes critérios para verificar a validez:
+          <ul>
+            <li>Cada linha deve ser menor que a soma das outras duas linhas;</li>
+            <li>Cada linha deve ser maior que o valor absoluto da diferença das outras duas linhas.</li>
+          </ul>
+        </li>
+        <li>
+          <code>hydrate(drinks)</code>: Recebe uma string <code>drinks</code> no formato <code>"[x] copos de [bebida], [x] copos de [bebida]..."</code> e retorna uma frase no formato <code>"[x] copos de água"</code>, onde <code>x</code> equivale a quantidade total de bebidas dadas em <code>drinks</code>.
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <script src="zoo_data.js"></script>
+  <script src="functs.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
