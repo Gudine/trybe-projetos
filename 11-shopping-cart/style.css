@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+  font-family: Epilogue, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(246, 246, 246);
+}
+
+.header {
+  position: relative;
+  background-color: rgb(3, 52, 45);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+
+.container-title {
+  width: 80%;
+}
+
+.title {
+  color: rgb(221, 221, 221);
+  font-size: 30px;
+  padding-left: 30px;
+}
+
+.container-cartTitle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: rgb(10, 118, 79);
+  width: 40%;
+  height: 100%;
+  margin-left: 30px;
+}
+
+.container-cartTitle span {
+  z-index: 1;
+}
+
+.container-cartTitle:after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 61.5%;
+  width: 39.5%;
+  height: 15px;
+  background: rgb(10, 118, 79);
+  transform: skew(-45deg);
+  z-index: 0;
+}
+
+.container-cartTitle:before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: 61.5%;
+  width: 39.5%;
+  height: 15px;
+  background: rgb(10, 118, 79);
+  transform: skew(45deg);
+  z-index: 0;
+}
+
+.container-cartTitle .cart__title {
+  color: white;
+  font-size: 20px;
+  padding-left: 35px;
+  font-weight: 700;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.title strong {
+  color: white;
+}
+
+.items {
+  display: flex;
+  flex-basis: 70%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: 5px;
+  width: 200px;
+  border: 2px solid rgb(234, 234, 233);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.item .item__sku, .cart .cart__sku {
+  display: none;
+}
+
+.item .item__title {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.item .item__image {
+  width: 100%;
+}
+
+.item .item__add {
+  background-color: rgb(5, 52, 219);
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  padding: 10px;
+  color: white;
+}
+
+.cart {
+  display: flex;
+  flex-basis: 32%;
+  flex-flow: column wrap;
+  background-color: rgb(241, 241, 238);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.cart > * {
+  margin-bottom: 25px;
+}
+
+.cart .cart__items {
+  overflow-y: scroll;
+  max-height: 80vh;
+  flex-grow: 1;
+}
+
+.cart .price {
+  text-align: center;
+}
+
+.empty-cart {
+  width: 170px;
+  height: 35px;
+  margin: 0 auto;
+  border: 2px solid rgb(5, 52, 219);
+  background-color: rgb(249, 249, 246);
+  cursor: pointer;
+}
+
+.loading {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  background-color: white;
+  padding: 15px 50px;
+  border-radius: 20px;
+  font-size: 1.5em;
+  box-shadow: 0 0 20px black;
+  width: 10.5em;
+  /* animation: popin 1 0.75s ease; */
+}
+
+.loading::after {
+  content: "";
+  animation: ellipsis infinite 3s linear;
+}
+
+@keyframes popin {
+  0% {
+    right: -300px;
+  }
+  95% {
+    right: 40px;
+  }
+  100% {
+    right: 25px;
+  }
+}
+
+@keyframes popout {
+  0% {
+    right: 25px;
+  }
+  100% {
+    right: -300px;
+  }
+}
+
+@keyframes ellipsis {
+  0% { content: "."; }
+  33% { content: ".."; }
+  66% { content: "..."; }
+  100% { content: "."; }
+}
+
+
+.cart__item {
+  display: grid;
+  align-items: center;
+  grid-template-rows: 1fr max-content;
+  grid-template-columns: max-content max-content 4fr;
+  background-color: rgb(3, 52, 45);
+  border-radius: 30px;
+  overflow: hidden;
+  border: 2px solid rgb(3, 52, 45);
+  margin-top: 20px;
+}
+
+.cart__image {
+  grid-row-end: span 2;
+  min-height: 100%;
+}
+
+.cart__name {
+  grid-column-end: span 2;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(10, 118, 79);
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+/* Fonte: https://css-tricks.com/almanac/properties/l/line-clamp/ */
+.cart__subname {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+.cart__remove {
+  background-color: rgb(220, 46, 0);
+  padding: 1px 5px;
+  margin-top: 2px;
+  border-radius: 0 10px 10px 0;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+
+.cart__remove .material-icons{
+  font-size: 1.5em;
+  color: white;
+}
+
+.cart__price {
+  padding-left: 15px;
+  color: white;
+}
