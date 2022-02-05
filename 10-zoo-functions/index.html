@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoo Functions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Sejam bem-vindos ao <strong>Zoo Functions!</strong></h1>
+      <p>Nesse projeto, foram feitas diversas funções para testar minha abilidade em tratamento de dados no JavaScript. Para experimentar elas, digite a sua função no prompt abaixo e pressione Enter. É possível também acessar propriedades dos objetos retornados. Lembre-se de usar aspas duplas! (")</p>
+    </header>
+
+    <section>
+      <header><h2>Prompt</h2></header>
+      <div class="prompt">
+      </div>
+    </section>
+
+    <div>
+      <section>
+        <header>
+          <h2>Cheatsheet</h2>
+        </header>
+        <ul>
+          <li>
+            <code>data.species</code> para conseguir uma lista de espécies.
+          </li>
+          <li>
+            <code>data.employees</code> para conseguir uma lista de funcionários.
+          </li>
+          <li>
+            <code>data.hours</code> para conseguir uma lista de horários.
+          </li>
+          <li>
+            <code>data.prices</code> para conseguir uma lista de preços.
+          </li>
+          <li>
+            <code>clear</code> para limpar o prompt.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <header><h2>Funções</h2></header>
+        <ol>
+          <li>
+            <code>getSpeciesByIds(...ids)</code>: Retorna uma lista de espécies com os IDs especificados.
+          </li>
+          <li>
+            <code>getAnimalsOlderThan(animal, age)</code>: Verifica se todos os animais da espécie dada têm pelo menos a idade dada.
+          </li>
+          <li>
+            <code>getEmployeeByName(employeeName)</code>: Retorna o funcionário cujo nome ou sobrenome foi dado.
+          </li>
+          <li>
+            <code>getRelatedEmployees(managerId)</code>: Retorna uma lista de funcionários gerenciados pelo gerente cujo ID foi dado.
+          </li>
+          <li>
+            <code>countAnimals(options)</code>: Caso não receba nenhum parâmetro, retorna um objeto contendo cada espécie e sua quantidade de animais. Caso receba um objeto com opções <code>{ "specie": [espécie], "sex": [sexo] }</code>, retorna uma lista de animais da espécie especificada, com os filtros apropriados.
+          </li>
+          <li>
+            <code>calculateEntry(entrants)</code>: Dado uma lista de visitantes <code>{ "name": [nome], "age": [idade] }</code>, retorna o preço total de entrada de todos os visitantes, que depende da idade deles.
+          </li>
+          <li>
+            <code>getAnimalMap(options)</code>: Retorna uma lista de animais agrupados pela área na qual eles se localizam. Essa função recebe as seguintes opções:
+            <ul>
+              <li><code>"includeNames"</code>: retorna os nomes de todos os animais das espécies, ao invés de retornar apenas os nomes das espécies;</li>
+              <li><code>"sex"</code>: retorna apenas animais que têm o sexo especificado;</li>
+              <li><code>"sorted"</code>: retorna o nome dos animais em ordem alfabética.</li>
+            </ul>
+          </li>
+          <li>
+            <code>getSchedule(scheduleTarget)</code>: Retorna o cronograma do zoológico. Caso seja dado um dia, exibe apenas o cronograma desse dia. Caso seja dado um animal, exibe apenas o cronograma dos dias nos quais esse animal está presente. 
+          </li>
+          <li>
+            <code>getOldestFromFirstSpecies(id)</code>: Retorna os dados do animal mais velho da primeira espécie gerenciada pelo funcionário do ID dado.
+          </li>
+          <li>
+            <code>getEmployeesCoverage(options)</code>: Retorna os dados de cobertura do funcionário especificado. Caso não seja especificado nenhum funcionário, retorna dados referentes a todos os funcionários. Essa função recebe as seguintes opções para identificação:
+            <ul>
+              <li><code>"id"</code>: utiliza o ID do funcionário para encontrá-lo;</li>
+              <li><code>"name"</code>: utiliza o nome ou sobrenome do funcionário para encontrá-lo.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+  <script src="zoo_data.js"></script>
+  <script src="functs.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
