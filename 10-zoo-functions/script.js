@@ -1,13 +1,20 @@
-const mainMatch = /^(\w+)\(([^\n)]+)\)(?:(?:\[[^\n\]]+\])|(?:\.\w+))*$/;
-const keysMatch = /(?<=^(?:\w+)\((?:[^\n)]+)\).*)(?:(?:\[([^\n\]]+)\])|(?:\.(\w+)))/g;
+const mainMatch = /^(\w+)\(([^)]*)\)(?:(?:\[[^\]]+\])|(?:\.\w+))*$/;
+const keysMatch = /(?<=^(?:\w+)\((?:[^)]*)\).*)(?:(?:\[([^\]]+)\])|(?:\.(\w+)))/g;
 const prompt = document.querySelector('.prompt');
+const animals = ['🐒', '🦍', '🦧', '🐕', '🐺', '🦊', '🦝', '🐈', '🦁', '🐅', '🐎', '🦄', '🦓', '🦌', '🦬', '🐂', '🐄', '🐖', '🐗', '🐏', '🐑', '🐐', '🐪', '🦙', '🦒', '🐘', '🦣', '🦏', '🦛', '🐁', '🐹', '🐇', '🐿️', '🦫', '🦔', '🦇', '🐻', '🐨', '🐼', '🦥', '🦦', '🦨', '🦘', '🦡', '🦃', '🐔', '🐓', '🐦', '🐧', '🕊️', '🦅', '🦆', '🦢', '🦉', '🦤', '🦩', '🦚', '🦜', '🐸', '🐊', '🐢', '🦎', '🐍', '🐉', '🐳', '🐬', '🦭', '🐟', '🐠', '🐡', '🦈', '🐙', '🐌', '🦋', '🐛', '🐜', '🐝', '🪲', '🐞', '🦗', '🪳', '🕷️', '🦂', '🦟', '🪰', '🪱'];
+
+const randomizeAnimals = () => {
+  const header = document.querySelector('h1');
+  header.dataset.animalBefore = animals[parseInt(Math.random() * animals.length)];
+  header.dataset.animalAfter = animals[parseInt(Math.random() * animals.length)];
+}
 
 const functDict = {
   getSpeciesByIds, getAnimalsOlderThan, getEmployeeByName,
-  isManager, getRelatedEmployees, countAnimals, countEntrants,
-  calculateEntry, getSingleElem, getAnimalMap, getFullSchedule,
-  getSchedule, getOldestFromFirstSpecies, getEmployee,
-  getSingleEmployeeCoverage, getEmployeesCoverage, 
+  getRelatedEmployees, countAnimals,
+  calculateEntry, getAnimalMap,
+  getSchedule, getOldestFromFirstSpecies,
+  getEmployeesCoverage, 
 };
 
 function execFunction(match) {
@@ -30,7 +37,6 @@ function execFunction(match) {
   const keys = [...match.input.matchAll(keysMatch)].map((key) => key[1] || `"${key[2]}"`);
   try {
     keys.forEach((key) => {
-      console.log(key);
       result = result[JSON.parse(`[${key}]`)[0]];
     });
   } catch {
@@ -90,4 +96,5 @@ function generateOutput(text) {
   prompt.appendChild(p);
 }
 
+randomizeAnimals();
 generateInput();

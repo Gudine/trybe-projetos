@@ -87,13 +87,9 @@ const getSingleElem = (animal, { includeNames, sex, sorted }) => {
   return elem;
 };
 
-const getAnimalMap = (options) => data.species.reduce((acc, animal) => {
+const getAnimalMap = (options = {}) => data.species.reduce((acc, animal) => {
   const result = { ...acc };
-  if (options) {
-    result[animal.location].push(getSingleElem(animal, options));
-  } else {
-    result[animal.location].push(animal.name);
-  }
+  result[animal.location].push(getSingleElem(animal, options));
 
   return result;
 }, data.species.reduce((list, spec) => ({ ...list, [spec.location]: [] }), {}));
