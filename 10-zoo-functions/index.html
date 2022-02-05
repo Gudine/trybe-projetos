@@ -20,92 +20,68 @@
       </div>
     </section>
 
-    <section>
-      <header><h2>Funções</h2></header>
-      <ol>
-        <li>
-          <code>getSpeciesByIds(...ids)</code>: Retorna uma lista de espécies com os IDs especificados.
-        </li>
-        <li>
-          <code>getAnimalsOlderThan(animal, age)</code>: Verifica se todos os animais da espécie dada têm pelo menos a idade dada.
-        </li>
-        <li>
-          <code>getEmployeeByName(employeeName)</code>: Retorna o funcionário cujo nome ou sobrenome foi dado.
-        </li>
-        <li>
-          <code>getRelatedEmployees(managerId)</code>: Retorna uma lista de funcionários gerenciados pelo gerente cujo ID foi dado.
-        </li>
-        <li>
-          <code>countAnimals(options)</code>: Caso não receba nenhum parâmetro, retorna um objeto contendo cada espécie e sua quantidade de animais. Caso receba um objeto com opções <code>{ "specie": [espécie], "sex": [sexo] }</code>, retorna uma lista de animais da espécie especificada, com os filtros apropriados.
-        </li>
-        <li>
-          <code>calculateEntry(entrants)</code>: Dado uma lista de visitantes <code>{ "name": [nome], "age": [idade] }</code>, retorna o preço total de entrada de todos os visitantes, que depende da idade deles.
-        </li>
-        <li>
-          <code>getAnimalMap(options)</code>: Retorna uma lista de animais agrupados pela área na qual eles se localizam. Essa função recebe as seguintes opções:
-          <ul>
-            <li><code>"includeNames"</code>: retorna os nomes de todos os animais das espécies, ao invés de retornar apenas os nomes das espécies;</li>
-            <li><code>"sex"</code>: retorna apenas animais que têm o sexo especificado;</li>
-            <li><code>"sorted"</code>: retorna o nome dos animais em ordem alfabética.</li>
-          </ul>
-        </li>
-        <li>
-          <code>getSchedule(scheduleTarget)</code>: Retorna o cronograma do zoológico. Caso seja dado um dia, exibe apenas o cronograma desse dia. Caso seja dado um animal, exibe apenas o cronograma dos dias nos quais esse animal está presente. 
-        </li>
-        <li>
-          <code>getOldestFromFirstSpecies(id)</code>: Retorna os dados do animal mais velho da primeira espécie gerenciada pelo funcionário do ID dado.
-        </li>
-        <!-- <li>
-          <code>calcArea(base, height)</code>: Retorna a área de um triângulo com a <code>base</code> e o <code>height</code> (altura) dados.
-        </li>
-        <li>
-          <code>splitSentence(sentence)</code>: Retorna um array contendo todas as palavras da <code>sentence</code> dada.
-        </li>
-        <li>
-          <code>concatName(array)</code>: Retorna uma string no formato <code>"[último item], [primeiro item]"</code>, criada a partir da array dada.
-        </li>
-        <li>
-          <code>footballPoints(wins, ties)</code>: Retorna a quantidade de pontos que o time marcou baseado nas <code>wins</code> (vitórias) e <code>ties</code> (empates), considerando que cada vitória vale 3 pontos e cada empate vale 1.
-        </li>
-        <li>
-          <code>highestCount(array)</code>: Retorna a quantidade de vezes que o maior número de um dado <code>array</code> se repete.
-        </li>
-        <li>
-          <code>catAndMouse(mouse, cat1, cat2)</code>: Dados a posição de <code>mouse</code> (rato), <code>cat1</code> e <code>cat2</code> (gatos 1 e 2), retorna qual gato está mais próximo do rato, ou uma frase especial em caso de empate.
-        </li>
-        <li>
-          <code>fizzBuzz(array)</code>: Retorna um array de palavras que corresponde ao <code>array</code> de números dado, seguindo as seguintes regras:
-          <ul>
-            <li>Caso o número seja divisível apenas por 3, a palavra será "fizz";</li>
-            <li>Caso o número seja divisível apenas por 5, a palavra será "buzz";</li>
-            <li>Caso o número seja divisível por 3 e por 5, a palavra será "fizzBuzz";</li>
-            <li>Caso nenhuma das condições acima forem verdadeiras, a palavra será "bug!".</li>
-          </ul>
-        </li>
-        <li>
-          <code>encode(sentence)</code>: Retorna uma versão codificada da <code>sentence</code> dada, que transforma todas as vogais da palavra em números.
-        </li>
-        <li>
-          <code>decode(sentence)</code>: Retorna uma versão decodificada da <code>sentence</code> dada, seguindo as regras da função acima.
-        </li>
-        <li>
-          <code>techList(array, name)</code>: Retorna um array de objetos com as chaves <code>tech</code>, que contém cada item da <code>array</code> dada, e <code>name</code>, que sempre contém o <code>name</code> dado.
-        </li>
-        <li>
-          <code>generatePhoneNumber(numbers)</code>: Retorna um número de telefone feito a partir dos números dados pelo array <code>numbers</code>, que deve conter 11 números.
-        </li>
-        <li>
-          <code>triangleCheck(lineA, lineB, lineC)</code>: Retorna <code>true</code> se for possível usar as três linhas dadas para fazer um triângulo, e retorna <code>false</code> caso contrário. A função segue os seguintes critérios para verificar a validez:
-          <ul>
-            <li>Cada linha deve ser menor que a soma das outras duas linhas;</li>
-            <li>Cada linha deve ser maior que o valor absoluto da diferença das outras duas linhas.</li>
-          </ul>
-        </li>
-        <li>
-          <code>hydrate(drinks)</code>: Recebe uma string <code>drinks</code> no formato <code>"[x] copos de [bebida], [x] copos de [bebida]..."</code> e retorna uma frase no formato <code>"[x] copos de água"</code>, onde <code>x</code> equivale a quantidade total de bebidas dadas em <code>drinks</code>.
-        </li> -->
-      </ol>
-    </section>
+    <div>
+      <section>
+        <header>
+          <h2>Cheatsheet</h2>
+        </header>
+        <ul>
+          <li>
+            <code>data.species</code> para conseguir uma lista de espécies.
+          </li>
+          <li>
+            <code>data.employees</code> para conseguir uma lista de funcionários.
+          </li>
+          <li>
+            <code>data.hours</code> para conseguir uma lista de horários.
+          </li>
+          <li>
+            <code>data.prices</code> para conseguir uma lista de preços.
+          </li>
+          <li>
+            <code>clear</code> para limpar o prompt.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <header><h2>Funções</h2></header>
+        <ol>
+          <li>
+            <code>getSpeciesByIds(...ids)</code>: Retorna uma lista de espécies com os IDs especificados.
+          </li>
+          <li>
+            <code>getAnimalsOlderThan(animal, age)</code>: Verifica se todos os animais da espécie dada têm pelo menos a idade dada.
+          </li>
+          <li>
+            <code>getEmployeeByName(employeeName)</code>: Retorna o funcionário cujo nome ou sobrenome foi dado.
+          </li>
+          <li>
+            <code>getRelatedEmployees(managerId)</code>: Retorna uma lista de funcionários gerenciados pelo gerente cujo ID foi dado.
+          </li>
+          <li>
+            <code>countAnimals(options)</code>: Caso não receba nenhum parâmetro, retorna um objeto contendo cada espécie e sua quantidade de animais. Caso receba um objeto com opções <code>{ "specie": [espécie], "sex": [sexo] }</code>, retorna uma lista de animais da espécie especificada, com os filtros apropriados.
+          </li>
+          <li>
+            <code>calculateEntry(entrants)</code>: Dado uma lista de visitantes <code>{ "name": [nome], "age": [idade] }</code>, retorna o preço total de entrada de todos os visitantes, que depende da idade deles.
+          </li>
+          <li>
+            <code>getAnimalMap(options)</code>: Retorna uma lista de animais agrupados pela área na qual eles se localizam. Essa função recebe as seguintes opções:
+            <ul>
+              <li><code>"includeNames"</code>: retorna os nomes de todos os animais das espécies, ao invés de retornar apenas os nomes das espécies;</li>
+              <li><code>"sex"</code>: retorna apenas animais que têm o sexo especificado;</li>
+              <li><code>"sorted"</code>: retorna o nome dos animais em ordem alfabética.</li>
+            </ul>
+          </li>
+          <li>
+            <code>getSchedule(scheduleTarget)</code>: Retorna o cronograma do zoológico. Caso seja dado um dia, exibe apenas o cronograma desse dia. Caso seja dado um animal, exibe apenas o cronograma dos dias nos quais esse animal está presente. 
+          </li>
+          <li>
+            <code>getOldestFromFirstSpecies(id)</code>: Retorna os dados do animal mais velho da primeira espécie gerenciada pelo funcionário do ID dado.
+          </li>
+        </ol>
+      </section>
+    </div>
   </main>
 
   <script src="zoo_data.js"></script>
