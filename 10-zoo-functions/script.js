@@ -79,7 +79,11 @@ const execFunction = (match) => {
     return "ERRO: Parâmetros inválidos.";
   }
 
-  return getKeys(funct(...params), match);
+  try {
+    return getKeys(funct(...params), match);
+  } catch (error) {
+    return `ERRO DA FUNÇÃO: ${error.message}`;
+  }
 };
 
 const sendCommand = (ev) => {
