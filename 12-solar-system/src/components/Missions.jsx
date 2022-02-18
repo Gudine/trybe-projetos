@@ -16,7 +16,7 @@ class Missions extends Component {
     );
 
     return (
-      <div data-testid="missions">
+      <div className="missions" data-testid="missions">
         <Title headline="Missões" />
         {missions.map(mapFunct)}
       </div>
