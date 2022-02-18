@@ -14,9 +14,11 @@ Para acessá-los, clique nos seguintes links:
 6. [Color Guess](https://gudine.github.io/trybe-projetos/6-color-guess)
 7. [Mystery Letter](https://gudine.github.io/trybe-projetos/7-mystery-letter)
 8. [Trybewarts](https://gudine.github.io/trybe-projetos/8-trybewarts)
+9. --
 10. [Zoo Functions](https://gudine.github.io/trybe-projetos/10-zoo-functions)
 11. [Shopping Cart](https://gudine.github.io/trybe-projetos/11-shopping-cart)
+12. [Solar System](https://gudine.github.io/trybe-projetos/12-solar-system)
 
 ## Projetos sem página web
 
-9. [JS Unit Tests](https://github.com/Gudine/trybe-projetos/tree/9/js-unit-tests)
+9. [JS Unit Tests](https://github.com/Gudine/trybe-projetos/tree/main/9-js-unit-tests)
