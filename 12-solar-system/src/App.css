@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Baumans&family=Nova+Square&display=swap') ;
+
+* {
+
+  --color-1-1: rgba(140, 0, 255, 0.5);
+
+  --color-1-2: rgba(140, 0, 255, 0);
+
+  --color-2-1: rgba(224, 102, 255, 0.4);
+
+  --color-2-2: rgba(224, 102, 255, 0);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url('/src/images/background.png');
+  font-family: Nova Square , cursive;
+}
+
+header {
+  background-image: linear-gradient(90deg, var(--color-1-2)
+  0%, var(--color-1-1)
+  20%, var(--color-1-1)
+  80%, var(--color-1-2) 100%);
+  font-size: 1.6rem;
+  padding: 15px 0;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: Baumans , cursive;
+  font-weight: 400;
+}
+
+.solar-system, .missions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.solar-system > h2, .missions > h2 {
+  background-image: linear-gradient(90deg, var(--color-2-2)
+  0%, var(--color-2-1)
+  20%, var(--color-2-1)
+  80%, var(--color-2-2) 100%);
+  font-size: 2rem;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.missions > h2 {
+  margin-top: 15px;
+}
+
+.planet-card {
+  padding: 10px;
+}
+
+.mission-card {
+  padding: 20px;
+}
+
+.planet-card, .mission-card {
+  align-items: center;
+  background-color: rgba(138, 43, 226, 0.4);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 15px;
+}
+
+.planet-card:hover, .mission-card:hover {
+  background-color: rgba(138, 43, 226, 0.6);
+}
+
+.planet-name, .mission-name {
+  color: rgb(255, 128, 208);
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+
+.planet-card > img {
+  max-width: 350px;
+  width: 25vw;
+}
