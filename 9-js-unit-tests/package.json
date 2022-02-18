@@ -1,0 +1,23 @@
+{
+  "name": "github-pages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gudine/trybe-projetos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gudine/trybe-projetos/issues"
+  },
+  "homepage": "https://github.com/Gudine/trybe-projetos#readme",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
+}
