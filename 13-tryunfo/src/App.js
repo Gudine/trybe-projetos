@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from './components/Card';
 import Form from './components/Form';
 
 class App extends React.Component {
@@ -8,30 +9,35 @@ class App extends React.Component {
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: false,
-      onInputChange: false,
-      onSaveButtonClick: false,
     };
+    // onSaveButtonClick: false,
   }
 
-  /* handleChange = ({ target }) => {
+  handleChange = ({ target }) => {
     const { type, name } = target;
     const value = type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
-  } */
+  }
 
   render() {
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form />
+        <Form
+          { ...this.state }
+          onInputChange={ this.handleChange }
+        />
+        <Card
+          { ...this.state }
+        />
       </div>
     );
   }
