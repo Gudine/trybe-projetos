@@ -77,14 +77,14 @@ class Form extends Component {
             <option>muito raro</option>
           </select>
         </label>
-        <Input
+        { hasTrunfo ? 'Você já tem um Super Trunfo em seu baralho' : (<Input
           label="Super Trunfo"
           type="checkbox"
           name="cardTrunfo"
           value={ cardTrunfo }
           handleChange={ onInputChange }
           testid="trunfo-input"
-        />
+        />)}
         <button
           type="submit"
           disabled={ isSaveButtonDisabled }

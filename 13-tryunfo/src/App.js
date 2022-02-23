@@ -64,6 +64,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
+      hasTrunfo: (newCard.cardTrunfo || prev.hasTrunfo),
       isSaveButtonDisabled: true,
       cards: [...prev.cards, newCard],
     }));
