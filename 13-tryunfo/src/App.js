@@ -75,11 +75,22 @@ class App extends React.Component {
     });
   }
 
+  handleCardDelete = (delCard) => {
+    this.setState((prev) => ({
+      hasTrunfo: delCard.cardTrunfo ? false : prev.hasTrunfo,
+      cards: prev.cards.filter((card) => card.id !== delCard.id),
+    }));
+  }
+
   render() {
     const cardBacklog = () => {
       const { cards } = this.state;
       return cards.map((card) => (
-        <Card key={ card.id } { ...card } />
+        <Card
+          key={ card.id }
+          { ...card }
+          onDeleteCard={ () => this.handleCardDelete(card) }
+        />
       ));
     };
 
