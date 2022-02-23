@@ -1,92 +1,75 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input';
 import './Form.css';
 
 class Form extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      name: '',
-      description: '',
-      attr1: 0,
-      attr2: 0,
-      attr3: 0,
-      image: '',
-      rare: 'normal',
-      trunfo: false,
-    };
-  }
-
-  handleChange = ({ target }) => {
-    const { type, name } = target;
-    const value = type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
-  }
-
   render() {
     const {
-      name, description, attr1, attr2, attr3, image, rare, trunfo,
-    } = this.state;
+      cardName, cardDescription, cardAttr1,
+      cardAttr2, cardAttr3, cardImage, cardRare,
+      cardTrunfo, hasTrunfo, isSaveButtonDisabled,
+      onInputChange, onSaveButtonClick,
+    } = this.props;
 
     return (
       <form>
         <Input
           label="Nome:"
           type="text"
-          name="name"
-          value={ name }
-          handleChange={ this.handleChange }
+          name="cardName"
+          value={ cardName }
+          handleChange={ onInputChange }
           testid="name-input"
         />
         <label htmlFor="description">
           {'Descrição: '}
           <textarea
-            name="description"
-            value={ description }
-            onChange={ this.handleChange }
+            name="cardDescription"
+            value={ cardDescription }
+            onChange={ onInputChange }
             data-testid="description-input"
           />
         </label>
         <Input
           label="Atributo 1:"
           type="number"
-          name="attr1"
-          value={ attr1 }
-          handleChange={ this.handleChange }
+          name="cardAttr1"
+          value={ cardAttr1 }
+          handleChange={ onInputChange }
           testid="attr1-input"
         />
         <Input
           label="Atributo 2:"
           type="number"
-          name="attr2"
-          value={ attr2 }
-          handleChange={ this.handleChange }
+          name="cardAttr2"
+          value={ cardAttr2 }
+          handleChange={ onInputChange }
           testid="attr2-input"
         />
         <Input
           label="Atributo 3:"
           type="number"
-          name="attr3"
-          value={ attr3 }
-          handleChange={ this.handleChange }
+          name="cardAttr3"
+          value={ cardAttr3 }
+          handleChange={ onInputChange }
           testid="attr3-input"
         />
         <Input
           label="URL da Imagem:"
           type="text"
-          name="image"
-          value={ image }
-          handleChange={ this.handleChange }
+          name="cardImage"
+          value={ cardImage }
+          handleChange={ onInputChange }
           testid="image-input"
         />
         <label htmlFor="rare">
           Raridade:
           {' '}
           <select
-            name="rare"
-            value={ rare }
-            onChange={ this.handleChange }
+            name="cardRare"
+            value={ cardRare }
+            onChange={ onInputChange }
             data-testid="rare-input"
           >
             <option>normal</option>
@@ -97,17 +80,37 @@ class Form extends Component {
         <Input
           label="Super Trunfo"
           type="checkbox"
-          name="trunfo"
-          value={ trunfo }
-          handleChange={ this.handleChange }
+          name="cardTrunfo"
+          value={ cardTrunfo }
+          handleChange={ onInputChange }
           testid="trunfo-input"
         />
-        <button type="submit" data-testid="save-button">
+        <button
+          type="submit"
+          disabled={ isSaveButtonDisabled }
+          onClick={ onSaveButtonClick }
+          data-testid="save-button"
+        >
           Salvar
         </button>
       </form>
     );
   }
 }
+
+Form.propTypes = {
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.number.isRequired,
+  cardAttr2: PropTypes.number.isRequired,
+  cardAttr3: PropTypes.number.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
+};
 
 export default Form;
