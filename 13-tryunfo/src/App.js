@@ -18,6 +18,7 @@ class App extends React.Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       cards: [],
+      nextId: 0,
     };
   }
 
@@ -50,27 +51,38 @@ class App extends React.Component {
 
   handleSaveButton = (ev) => {
     ev.preventDefault();
-    const newCard = { ...this.state };
-    delete newCard.hasTrunfo;
-    delete newCard.isSaveButtonDisabled;
-    delete newCard.cards;
+    this.setState((prev) => {
+      const newCard = { id: prev.nextId, ...prev };
+      delete newCard.hasTrunfo;
+      delete newCard.isSaveButtonDisabled;
+      delete newCard.cards;
+      delete newCard.nextId;
 
-    this.setState((prev) => ({
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
-      cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
-      hasTrunfo: (newCard.cardTrunfo || prev.hasTrunfo),
-      isSaveButtonDisabled: true,
-      cards: [...prev.cards, newCard],
-    }));
+      return {
+        cardName: '',
+        cardDescription: '',
+        cardAttr1: 0,
+        cardAttr2: 0,
+        cardAttr3: 0,
+        cardImage: '',
+        cardRare: 'normal',
+        cardTrunfo: false,
+        hasTrunfo: (newCard.cardTrunfo || prev.hasTrunfo),
+        isSaveButtonDisabled: true,
+        cards: [...prev.cards, newCard],
+        nextId: prev.nextId + 1,
+      };
+    });
   }
 
   render() {
+    const cardBacklog = () => {
+      const { cards } = this.state;
+      return cards.map((card) => (
+        <Card key={ card.id } { ...card } />
+      ));
+    };
+
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -82,6 +94,7 @@ class App extends React.Component {
         <Card
           { ...this.state }
         />
+        {cardBacklog()}
       </div>
     );
   }
