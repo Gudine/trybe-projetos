@@ -29,6 +29,7 @@ Input.propTypes = {
     PropTypes.bool,
   ]).isRequired,
   testid: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 Input.defaultProps = {
