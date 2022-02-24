@@ -1,3 +1,9 @@
+.card-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .card-outer {
 
   --base-size: 80vh;

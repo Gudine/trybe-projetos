@@ -95,7 +95,7 @@ class App extends React.Component {
           />
           <Card { ...this.state } />
         </div>
-        <SavedCards cards={ cards } />
+        <SavedCards cards={ cards } handleCardDelete={ this.handleCardDelete } />
       </div>
     );
   }

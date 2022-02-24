@@ -14,7 +14,7 @@ class Card extends Component {
     } = this.props;
 
     return (
-      <>
+      <section className="card-section">
         <CardFrame>
           <div className="header">
             <p data-testid="name-card">{cardName}</p>
@@ -56,13 +56,14 @@ class Card extends Component {
         {onDeleteCard && (
           <button
             type="button"
+            className="delete-card"
             data-testid="delete-button"
             onClick={ onDeleteCard }
           >
             Excluir
           </button>
         )}
-      </>
+      </section>
     );
   }
 }
