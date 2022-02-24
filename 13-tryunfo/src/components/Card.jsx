@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Card.css';
+import CardFrame from './CardFrame';
+import TrunfoSymbol from './TrunfoSymbol';
+import RaritySymbol from './RaritySymbol';
 
 class Card extends Component {
   render() {
@@ -8,29 +12,47 @@ class Card extends Component {
       cardAttr2, cardAttr3, cardImage, cardRare,
       cardTrunfo, onDeleteCard,
     } = this.props;
+
     return (
-      <div className="card">
-        <h2 data-testid="name-card">{cardName}</h2>
-        <img
-          src={ cardImage }
-          alt={ cardName }
-          data-testid="image-card"
-        />
-        <p data-testid="description-card">{cardDescription}</p>
-        <p>
-          {'Atributo 1: '}
-          <span data-testid="attr1-card">{cardAttr1}</span>
-        </p>
-        <p>
-          {'Atributo 2: '}
-          <span data-testid="attr2-card">{cardAttr2}</span>
-        </p>
-        <p>
-          {'Atributo 3: '}
-          <span data-testid="attr3-card">{cardAttr3}</span>
-        </p>
-        <p data-testid="rare-card">{cardRare}</p>
-        {cardTrunfo && (<p data-testid="trunfo-card">Super Trunfo!</p>)}
+      <>
+        <CardFrame>
+          <div className="header">
+            <p data-testid="name-card">{cardName}</p>
+            <RaritySymbol cardRare={ cardRare } />
+          </div>
+          <div className="image-cont">
+            <img
+              src={ cardImage }
+              alt={ cardName }
+              data-testid="image-card"
+            />
+          </div>
+          {cardTrunfo && <TrunfoSymbol />}
+          <div className="attrs-cont">
+            <p>
+              {'Atk: '}
+              <span data-testid="attr1-card">{cardAttr1}</span>
+            </p>
+            <p>
+              {'Skl: '}
+              <span data-testid="attr2-card">{cardAttr2}</span>
+            </p>
+            <p>
+              {'Def: '}
+              <span data-testid="attr3-card">{cardAttr3}</span>
+            </p>
+          </div>
+          <div className="desc-cont">
+            <p data-testid="description-card">{cardDescription}</p>
+          </div>
+          <div className="misc-cont">
+            <p>
+              {'Raridade: '}
+              <span data-testid="rare-card">{cardRare}</span>
+            </p>
+            {cardTrunfo && (<p data-testid="trunfo-card">Super Trunfo!</p>)}
+          </div>
+        </CardFrame>
         {onDeleteCard && (
           <button
             type="button"
@@ -40,7 +62,7 @@ class Card extends Component {
             Excluir
           </button>
         )}
-      </div>
+      </>
     );
   }
 }

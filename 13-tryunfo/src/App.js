@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -29,8 +30,6 @@ class App extends React.Component {
     } = this.state;
     const singleCap = 90;
     const totalCap = 210;
-    console.log(this.state);
-    console.log(cardAttr1, cardAttr2, cardAttr3);
 
     if (
       cardName && cardDescription && cardImage && cardRare
@@ -95,17 +94,21 @@ class App extends React.Component {
     };
 
     return (
-      <div>
+      <div className="app">
         <h1>Tryunfo</h1>
-        <Form
-          { ...this.state }
-          onInputChange={ this.handleChange }
-          onSaveButtonClick={ this.handleSaveButton }
-        />
-        <Card
-          { ...this.state }
-        />
-        {cardBacklog()}
+        <div className="edit-cont">
+          <Form
+            { ...this.state }
+            onInputChange={ this.handleChange }
+            onSaveButtonClick={ this.handleSaveButton }
+          />
+          <Card
+            { ...this.state }
+          />
+        </div>
+        <div className="backlog-cont">
+          {cardBacklog()}
+        </div>
       </div>
     );
   }

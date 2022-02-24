@@ -32,7 +32,7 @@ class Form extends Component {
           />
         </label>
         <Input
-          label="Atributo 1:"
+          label="Ataque:"
           type="number"
           name="cardAttr1"
           value={ cardAttr1 }
@@ -40,7 +40,7 @@ class Form extends Component {
           testid="attr1-input"
         />
         <Input
-          label="Atributo 2:"
+          label="Habilidade:"
           type="number"
           name="cardAttr2"
           value={ cardAttr2 }
@@ -48,7 +48,7 @@ class Form extends Component {
           testid="attr2-input"
         />
         <Input
-          label="Atributo 3:"
+          label="Defesa:"
           type="number"
           name="cardAttr3"
           value={ cardAttr3 }
