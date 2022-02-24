@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
 import './App.css';
+import SavedCards from './components/SavedCards';
 
 class App extends React.Component {
   constructor() {
@@ -82,17 +83,7 @@ class App extends React.Component {
   }
 
   render() {
-    const cardBacklog = () => {
-      const { cards } = this.state;
-      return cards.map((card) => (
-        <Card
-          key={ card.id }
-          { ...card }
-          onDeleteCard={ () => this.handleCardDelete(card) }
-        />
-      ));
-    };
-
+    const { cards } = this.state;
     return (
       <div className="app">
         <h1>Tryunfo</h1>
@@ -102,13 +93,9 @@ class App extends React.Component {
             onInputChange={ this.handleChange }
             onSaveButtonClick={ this.handleSaveButton }
           />
-          <Card
-            { ...this.state }
-          />
+          <Card { ...this.state } />
         </div>
-        <div className="backlog-cont">
-          {cardBacklog()}
-        </div>
+        <SavedCards cards={ cards } />
       </div>
     );
   }
