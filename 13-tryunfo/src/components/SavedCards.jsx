@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './SavedCards.css';
 import Card from './Card';
+import Input from './Input';
 
 class SavedCards extends Component {
   constructor() {
@@ -52,7 +53,7 @@ class SavedCards extends Component {
 
     const { nameFilter, rareFilter, trunfoFilter } = this.state;
     return (
-      <div className="backlog-cont">
+      <div className="backlog-cont screen">
         <div className="backlog-filters">
           <h2>Filtros</h2>
           <input
@@ -74,16 +75,14 @@ class SavedCards extends Component {
             <option>raro</option>
             <option>muito raro</option>
           </select>
-          <label htmlFor="trunfoFilter">
-            Super Trunfo
-            <input
-              name="trunfoFilter"
-              type="checkbox"
-              checked={ trunfoFilter }
-              onChange={ this.handleFilterChange }
-              data-testid="trunfo-filter"
-            />
-          </label>
+          <Input
+            label="Super Trunfo"
+            type="checkbox"
+            name="trunfoFilter"
+            value={ trunfoFilter }
+            handleChange={ this.handleFilterChange }
+            testid="trunfo-filter"
+          />
         </div>
         <div className="backlog-cards">
           {cardBacklog()}

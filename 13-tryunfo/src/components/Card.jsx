@@ -4,6 +4,9 @@ import './Card.css';
 import CardFrame from './CardFrame';
 import TrunfoSymbol from './TrunfoSymbol';
 import RaritySymbol from './RaritySymbol';
+import attr1Img from '../img/Attr1.png';
+import attr2Img from '../img/Attr2.png';
+import attr3Img from '../img/Attr3.png';
 
 class Card extends Component {
   render() {
@@ -30,15 +33,27 @@ class Card extends Component {
           {cardTrunfo && <TrunfoSymbol />}
           <div className="attrs-cont">
             <p>
-              {'Atk: '}
+              <img
+                src={ attr1Img }
+                alt="Ataque"
+                title="Ataque"
+              />
               <span data-testid="attr1-card">{cardAttr1}</span>
             </p>
             <p>
-              {'Skl: '}
+              <img
+                src={ attr2Img }
+                alt="Defesa"
+                title="Defesa"
+              />
               <span data-testid="attr2-card">{cardAttr2}</span>
             </p>
             <p>
-              {'Def: '}
+              <img
+                src={ attr3Img }
+                alt="Habilidade"
+                title="Habilidade"
+              />
               <span data-testid="attr3-card">{cardAttr3}</span>
             </p>
           </div>

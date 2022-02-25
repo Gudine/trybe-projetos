@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+.backlog-cards .card-section {
+  padding: 10px;
+}
+
 .card-outer {
 
   --base-size: 80vh;
@@ -18,7 +22,7 @@
   width: max-content;
 }
 
-.backlog-cont .card-outer {
+.backlog-cards .card-outer {
 
   --base-size: 40vh;
 }
@@ -66,7 +70,7 @@
     --base-size: 120vw;
   }
 
-  .backlog-cont .card-outer {
+  .backlog-cards .card-outer {
 
     --base-size: 60vw;
   }

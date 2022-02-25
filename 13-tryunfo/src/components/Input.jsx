@@ -6,14 +6,16 @@ class Input extends Component {
     const { label, type, name, value, testid, handleChange } = this.props;
     return (
       <label htmlFor={ name }>
-        {`${label} `}
+        {type !== 'checkbox' && label && `${label} `}
         <input
           type={ type }
           name={ name }
+          id={ name }
           { ...(type === 'checkbox' ? { checked: value } : { value }) }
           onChange={ handleChange }
           data-testid={ testid }
         />
+        {type === 'checkbox' && label && `${label} `}
       </label>
     );
   }

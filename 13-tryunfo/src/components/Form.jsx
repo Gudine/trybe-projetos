@@ -22,11 +22,13 @@ class Form extends Component {
           handleChange={ onInputChange }
           testid="name-input"
         />
-        <label htmlFor="description">
+        <label htmlFor="cardDescription">
           {'Descrição: '}
           <textarea
             name="cardDescription"
+            id="cardDescription"
             value={ cardDescription }
+            rows="5"
             onChange={ onInputChange }
             data-testid="description-input"
           />
@@ -40,7 +42,7 @@ class Form extends Component {
           testid="attr1-input"
         />
         <Input
-          label="Habilidade:"
+          label="Defesa:"
           type="number"
           name="cardAttr2"
           value={ cardAttr2 }
@@ -48,7 +50,7 @@ class Form extends Component {
           testid="attr2-input"
         />
         <Input
-          label="Defesa:"
+          label="Habilidade:"
           type="number"
           name="cardAttr3"
           value={ cardAttr3 }
@@ -63,11 +65,12 @@ class Form extends Component {
           handleChange={ onInputChange }
           testid="image-input"
         />
-        <label htmlFor="rare">
+        <label htmlFor="cardRare">
           Raridade:
           {' '}
           <select
             name="cardRare"
+            id="cardRare"
             value={ cardRare }
             onChange={ onInputChange }
             data-testid="rare-input"

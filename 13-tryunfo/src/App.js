@@ -45,7 +45,7 @@ class App extends React.Component {
   handleChange = ({ target }) => {
     const { type, name } = target;
     let value = type === 'checkbox' ? target.checked : target.value;
-    if (type === 'number') value = parseInt(value, 10);
+    if (type === 'number') value = (value === '') ? 0 : parseInt(value, 10);
     this.setState({ [name]: value }, this.validateSaveButton);
   }
 
@@ -86,14 +86,16 @@ class App extends React.Component {
     const { cards } = this.state;
     return (
       <div className="app">
-        <h1>Tryunfo</h1>
-        <div className="edit-cont">
-          <Form
-            { ...this.state }
-            onInputChange={ this.handleChange }
-            onSaveButtonClick={ this.handleSaveButton }
-          />
-          <Card { ...this.state } />
+        <div className="screen">
+          <header><h1>Tryunfo</h1></header>
+          <div className="edit-cont">
+            <Form
+              { ...this.state }
+              onInputChange={ this.handleChange }
+              onSaveButtonClick={ this.handleSaveButton }
+            />
+            <Card { ...this.state } />
+          </div>
         </div>
         <SavedCards cards={ cards } handleCardDelete={ this.handleCardDelete } />
       </div>

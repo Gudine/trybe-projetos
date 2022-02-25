@@ -2,14 +2,16 @@
   background-color: aquamarine;
   display: flex;
   justify-content: space-between;
-  padding: 0 10%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 20px 10%;
   width: 100%;
 }
 
 .backlog-filters {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   width: 20%;
 }
 

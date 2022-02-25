@@ -9,14 +9,31 @@ body {
 }
 
 .app {
+  display: flex;
+  flex-direction: column;
+}
+
+.screen {
+  height: 100vh;
+}
+
+.screen:first-child {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
+header {
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
 h1 {
   font-size: 3em;
-  margin: 30px;
+  margin: 20px;
+  text-align: center;
 }
 
 .edit-cont {
@@ -27,6 +44,25 @@ h1 {
 
 .edit-cont > *:first-child {
   flex-basis: 45%;
+}
+
+label {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+textarea {
+  resize: none;
+}
+
+[ type = 'checkbox' ] {
+  margin-right: 10px;
+}
+
+input:not( [ type = 'checkbox' ] ), textarea, select, button {
+  font-size: 1.2rem;
+  padding: 7px 15px;
+  width: 100%;
 }
 
 @media screen and ( orientation : portrait ) {
