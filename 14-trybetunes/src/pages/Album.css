@@ -1,0 +1,15 @@
+.album-contents {
+  display: flex;
+  justify-content: space-around;
+}
+
+.album-contents .album-data {
+  flex-basis: 25%;
+  text-align: center;
+}
+
+.album-contents .music-list {
+  display: grid;
+  flex-basis: 65%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
