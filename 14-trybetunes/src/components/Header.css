@@ -7,3 +7,7 @@ header nav, header > section {
   display: flex;
   justify-content: space-between;
 }
+
+header nav .active {
+  background-color: green;
+}

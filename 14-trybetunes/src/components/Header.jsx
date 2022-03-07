@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import './Header.css';
@@ -31,9 +31,9 @@ class Header extends Component {
           <div data-testid="header-user-name">{username}</div>
         </section>
         <nav>
-          <Link data-testid="link-to-search" to="/search">Search</Link>
-          <Link data-testid="link-to-favorites" to="/favorites">Favorites</Link>
-          <Link data-testid="link-to-profile" to="/profile">Profile</Link>
+          <NavLink data-testid="link-to-search" to="/search">Search</NavLink>
+          <NavLink data-testid="link-to-favorites" to="/favorites">Favorites</NavLink>
+          <NavLink data-testid="link-to-profile" to="/profile">Profile</NavLink>
         </nav>
       </header>
     );
