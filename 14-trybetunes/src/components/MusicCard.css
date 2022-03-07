@@ -1,0 +1,15 @@
+.music-favorited input {
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+
+.music-favorited .checkmark:after {
+  content: '🤍';
+  position: absolute;
+}
+
+.music-favorited input:checked ~ .checkmark:after {
+  content: '❤️';
+  position: absolute;
+}

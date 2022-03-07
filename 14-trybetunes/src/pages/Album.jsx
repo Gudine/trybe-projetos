@@ -35,7 +35,7 @@ class Album extends Component {
     const generateMusicList = () => musicList.map((music) => (
       <MusicCard
         key={ music.trackId }
-        { ...music }
+        music={ music }
       />
     ));
 
