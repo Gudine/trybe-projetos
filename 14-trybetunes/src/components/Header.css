@@ -1,4 +1,9 @@
 header {
   display: flex;
+  flex-direction: column;
+}
+
+header nav, header > section {
+  display: flex;
   justify-content: space-between;
 }
