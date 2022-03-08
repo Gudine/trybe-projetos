@@ -33,8 +33,7 @@ class Search extends Component {
 
     searchAlbumsAPI(artist)
       .then((r) => {
-        this.setState({ searchQuery: artist, searchResults: r });
-        stopLoading();
+        this.setState({ searchQuery: artist, searchResults: r }, stopLoading);
       });
   }
 

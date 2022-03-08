@@ -28,10 +28,7 @@ class Login extends Component {
 
     startLoading();
     createUser({ name: username })
-      .then(() => {
-        this.setState({ sent: true });
-        stopLoading();
-      });
+      .then(() => this.setState({ sent: true }, stopLoading));
   }
 
   render() {

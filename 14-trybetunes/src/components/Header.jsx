@@ -17,10 +17,7 @@ class Header extends Component {
     const { startLoading, stopLoading } = this.props;
 
     startLoading();
-    getUser().then((user) => {
-      this.setState({ username: user.name });
-      stopLoading();
-    });
+    getUser().then((user) => this.setState({ username: user.name }, stopLoading));
   }
 
   render() {
