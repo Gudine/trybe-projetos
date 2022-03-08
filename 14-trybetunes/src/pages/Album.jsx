@@ -5,6 +5,7 @@ import Loading from '../components/Loading';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import './Album.css';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   constructor() {
@@ -17,16 +18,41 @@ class Album extends Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { match } = this.props;
     const { id } = match.params;
 
-    getMusics(id).then((musics) => this.setState({
+    const [musics, favSongs] = await Promise.all([
+      getMusics(id),
+      getFavoriteSongs(),
+    ]);
+
+    this.setState({
       loading: false,
       albumData: musics[0],
-      musicList: musics.slice(1),
-    }));
+      musicList: musics.slice(1).map((music) => ({
+        ...music,
+        isFavorited: favSongs.some((favdSong) => favdSong.trackId === music.trackId),
+      })),
+    });
   }
+
+  handleCheckbox = async ({ target }, targetMusic) => {
+    const { checked } = target;
+
+    this.setState({ loading: true });
+
+    await (checked ? addSong(targetMusic) : removeSong(targetMusic));
+    const favSongs = await getFavoriteSongs();
+
+    this.setState((prev) => ({
+      loading: false,
+      musicList: prev.musicList.map((music) => ({
+        ...music,
+        isFavorited: favSongs.some((favdSong) => favdSong.trackId === music.trackId),
+      })),
+    }));
+  };
 
   render() {
     const { loading, albumData, musicList } = this.state;
@@ -36,6 +62,7 @@ class Album extends Component {
       <MusicCard
         key={ music.trackId }
         music={ music }
+        handleCheckbox={ this.handleCheckbox }
       />
     ));
 
