@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AlbumCard from '../components/AlbumCard';
-import Header from '../components/Header';
-import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import './Search.css';
 
@@ -10,7 +9,6 @@ class Search extends Component {
     super();
 
     this.state = {
-      loading: false,
       artist: '',
       searchQuery: null,
       searchResults: [],
@@ -28,22 +26,20 @@ class Search extends Component {
   handleForm = (ev) => {
     ev.preventDefault();
     const { artist } = this.state;
+    const { startLoading, stopLoading } = this.props;
 
-    this.setState({
-      artist: '',
-      loading: true,
-    });
+    startLoading();
+    this.setState({ artist: '' });
 
     searchAlbumsAPI(artist)
-      .then((r) => this.setState({
-        loading: false,
-        searchQuery: artist,
-        searchResults: r,
-      }));
+      .then((r) => {
+        this.setState({ searchQuery: artist, searchResults: r });
+        stopLoading();
+      });
   }
 
   render() {
-    const { loading, artist, searchQuery, searchResults } = this.state;
+    const { artist, searchQuery, searchResults } = this.state;
     const MIN_ARTIST_LENGTH = 2;
 
     const generateAlbumList = () => searchResults.map((album) => (
@@ -55,8 +51,6 @@ class Search extends Component {
 
     return (
       <div data-testid="page-search">
-        {loading && <Loading />}
-        <Header />
         <form className="search-bar" onSubmit={ this.handleForm }>
           <input
             data-testid="search-artist-input"
@@ -92,5 +86,10 @@ class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  startLoading: PropTypes.func.isRequired,
+  stopLoading: PropTypes.func.isRequired,
+};
 
 export default Search;

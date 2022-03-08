@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 
 class Login extends Component {
@@ -9,7 +9,6 @@ class Login extends Component {
 
     this.state = {
       username: '',
-      loading: false,
       sent: false,
     };
   }
@@ -25,20 +24,23 @@ class Login extends Component {
   handleForm = (ev) => {
     ev.preventDefault();
     const { username } = this.state;
+    const { startLoading, stopLoading } = this.props;
 
-    this.setState({ loading: true });
+    startLoading();
     createUser({ name: username })
-      .then(() => this.setState({ loading: false, sent: true }));
+      .then(() => {
+        this.setState({ sent: true });
+        stopLoading();
+      });
   }
 
   render() {
-    const { username, loading, sent } = this.state;
+    const { username, sent } = this.state;
     const MIN_USER_LENGTH = 3;
 
     return (
       <div data-testid="page-login">
         {sent && <Redirect to="/search" />}
-        {loading && <Loading />}
         <form onSubmit={ this.handleForm }>
           <input
             data-testid="login-name-input"
@@ -60,5 +62,10 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  startLoading: PropTypes.func.isRequired,
+  stopLoading: PropTypes.func.isRequired,
+};
 
 export default Login;

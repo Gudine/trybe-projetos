@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
-import Loading from './Loading';
 import './Header.css';
 
 class Header extends Component {
@@ -10,22 +10,24 @@ class Header extends Component {
 
     this.state = {
       username: '',
-      loading: true,
     };
   }
 
   componentDidMount() {
+    const { startLoading, stopLoading } = this.props;
+
+    startLoading();
     getUser().then((user) => {
-      this.setState({ username: user.name, loading: false });
+      this.setState({ username: user.name });
+      stopLoading();
     });
   }
 
   render() {
-    const { username, loading } = this.state;
+    const { username } = this.state;
 
     return (
       <header data-testid="header-component">
-        {loading && <Loading />}
         <section>
           <div>TrybeTunes</div>
           <div data-testid="header-user-name">{username}</div>
@@ -39,5 +41,10 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  startLoading: PropTypes.func.isRequired,
+  stopLoading: PropTypes.func.isRequired,
+};
 
 export default Header;

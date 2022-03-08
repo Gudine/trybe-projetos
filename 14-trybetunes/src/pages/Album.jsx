@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Header from '../components/Header';
-import Loading from '../components/Loading';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import './Album.css';
@@ -12,15 +10,16 @@ class Album extends Component {
     super();
 
     this.state = {
-      loading: true,
       albumData: {},
       musicList: [],
     };
   }
 
   async componentDidMount() {
-    const { match } = this.props;
+    const { match, startLoading, stopLoading } = this.props;
     const { id } = match.params;
+
+    startLoading();
 
     const [musics, favSongs] = await Promise.all([
       getMusics(id),
@@ -28,34 +27,33 @@ class Album extends Component {
     ]);
 
     this.setState({
-      loading: false,
       albumData: musics[0],
       musicList: musics.slice(1).map((music) => ({
         ...music,
         isFavorited: favSongs.some((favdSong) => favdSong.trackId === music.trackId),
       })),
-    });
+    }, stopLoading);
   }
 
   handleCheckbox = async ({ target }, targetMusic) => {
     const { checked } = target;
+    const { startLoading, stopLoading } = this.props;
 
-    this.setState({ loading: true });
+    startLoading();
 
     await (checked ? addSong(targetMusic) : removeSong(targetMusic));
     const favSongs = await getFavoriteSongs();
 
     this.setState((prev) => ({
-      loading: false,
       musicList: prev.musicList.map((music) => ({
         ...music,
         isFavorited: favSongs.some((favdSong) => favdSong.trackId === music.trackId),
       })),
-    }));
+    }), stopLoading);
   };
 
   render() {
-    const { loading, albumData, musicList } = this.state;
+    const { albumData, musicList } = this.state;
     const { artistName, artworkUrl100, collectionName } = albumData;
 
     const generateMusicList = () => musicList.map((music) => (
@@ -68,8 +66,6 @@ class Album extends Component {
 
     return (
       <div data-testid="page-album">
-        {loading && <Loading />}
-        <Header />
         <section className="album-contents">
           <section className="album-data">
             <img src={ artworkUrl100 } alt={ collectionName } />
@@ -91,6 +87,8 @@ Album.propTypes = {
       id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  startLoading: PropTypes.func.isRequired,
+  stopLoading: PropTypes.func.isRequired,
 };
 
 export default Album;
