@@ -1,0 +1,40 @@
+.page-profile {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+}
+
+.profile-card > * {
+  margin: 10px 0;
+}
+
+.profile-card > :nth-child( 1 ) {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.profile-card > :nth-child( 1 ) a {
+  border: 2px solid rgb(47, 193, 140);
+  border-radius: 20px;
+  color: rgb(47, 193, 140);
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.profile-card > :nth-child( 1 ) img {
+  max-height: 150px;
+  max-width: 150px;
+}
+
+.field-name {
+  font-weight: 700;
+}

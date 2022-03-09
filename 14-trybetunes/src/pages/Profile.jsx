@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
+import defAvatar from '../img/def_circle.png';
+import './Profile.css';
 
 class Profile extends Component {
   constructor() {
@@ -20,21 +22,35 @@ class Profile extends Component {
     startLoading();
 
     const userData = await getUser();
-    this.setState({ ...userData }, stopLoading);
+    this.setState({
+      ...userData,
+      image: userData.image || defAvatar,
+    }, stopLoading);
   }
 
   render() {
     const { name, email, image, description } = this.state;
 
     return (
-      <div data-testid="page-profile">
-        <img data-testid="profile-image" src={ image } alt={ name } />
-        <p>{ name }</p>
-        <p>{ email }</p>
-        <p>{ description }</p>
-        <p>
-          <Link to="/profile/edit">Editar perfil</Link>
-        </p>
+      <div className="page-profile" data-testid="page-profile">
+        <div className="profile-card">
+          <section>
+            <img data-testid="profile-image" src={ image } alt={ name } />
+            <Link to="/profile/edit">Editar perfil</Link>
+          </section>
+          <section>
+            <p className="field-name">Name</p>
+            <p>{ name }</p>
+          </section>
+          <section>
+            <p className="field-name">Email</p>
+            <p>{ email }</p>
+          </section>
+          <section>
+            <p className="field-name">Description</p>
+            <p>{ description }</p>
+          </section>
+        </div>
       </div>
     );
   }
