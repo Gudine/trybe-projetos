@@ -1,0 +1,36 @@
+.page-login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.page-login img {
+  margin: 20px;
+}
+
+.page-login form {
+  background-color: white;
+  border-radius: 50px;
+  filter: drop-shadow(0 0 15px grey);
+  margin: 20px 0;
+  padding: 15vh 20vw;
+}
+
+.page-login form input {
+  border-radius: 15px;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 10px 30px;
+  width: 100%;
+}
+
+.page-login form button {
+  background-color: rgb(58, 209, 136);
+  border-radius: 15px;
+  color: black;
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  width: 100%;
+}

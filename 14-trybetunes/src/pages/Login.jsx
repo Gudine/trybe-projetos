@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
+import ttLogo from '../img/logo.png';
+import './Login.css';
 
 class Login extends Component {
   constructor() {
@@ -36,8 +38,9 @@ class Login extends Component {
     const MIN_USER_LENGTH = 3;
 
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="page-login">
         {sent && <Redirect to="/search" />}
+        <img src={ ttLogo } alt="TrybeTunes" />
         <form onSubmit={ this.handleForm }>
           <input
             data-testid="login-name-input"

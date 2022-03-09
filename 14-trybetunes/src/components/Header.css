@@ -1,13 +1,67 @@
-header {
-  display: flex;
-  flex-direction: column;
-}
-
-header nav, header > section {
+header, nav {
+  align-items: center;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
-header nav .active {
-  background-color: green;
+header {
+  background-color: rgb(2, 48, 49);
+  color: white;
+  padding: 20px;
+}
+
+header img {
+  height: 40px;
+}
+
+header .user-section {
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  min-width: 200px;
+  padding: 4px 16px 4px 4px;
+}
+
+header .user-section img {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  height: 100%;
+  margin-right: 4px;
+}
+
+header .user-section span {
+  color: rgb(2, 48, 49);
+  flex-grow: 1;
+  text-align: center;
+}
+
+nav * {
+  color: rgb(47, 193, 140);
+  flex-grow: 1;
+  font-size: 1.5rem;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+nav .active {
+  background-color: rgb(3, 107, 82);
+  color: white;
+  position: relative;
+}
+
+nav .active:after {
+  border: 4px solid rgb(2, 48, 49);
+  border-top-width: 0;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
