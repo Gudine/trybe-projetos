@@ -4,3 +4,29 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.search-bar {
+  padding-bottom: 10px;
+}
+
+.search-bar input {
+  border: 2px solid lightgrey;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 10px 30px;
+  width: 100%;
+}
+
+.search-bar button {
+  background-color: rgb(58, 209, 136);
+  border-radius: 15px;
+  color: black;
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  width: 100%;
+}
+
+.search-bar button:disabled {
+  filter: brightness(0.75) grayscale(0.75);
+}

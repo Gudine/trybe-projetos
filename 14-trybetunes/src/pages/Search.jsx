@@ -68,15 +68,13 @@ class Search extends Component {
           </button>
         </form>
         <section className="search-results">
-          <header>
-            <h1>
-              { searchQuery && (
-                searchResults.length
-                  ? `Resultado de álbuns de: ${searchQuery}`
-                  : 'Nenhum álbum foi encontrado'
-              )}
-            </h1>
-          </header>
+          <h1>
+            { searchQuery && (
+              searchResults.length
+                ? `Resultado de álbuns de: ${searchQuery}`
+                : 'Nenhum álbum foi encontrado'
+            )}
+          </h1>
           <section className="album-list">
             {generateAlbumList()}
           </section>
