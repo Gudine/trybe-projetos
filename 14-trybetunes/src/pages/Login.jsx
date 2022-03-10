@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import ttLogo from '../img/logo.png';
 import './Login.css';
@@ -11,7 +10,6 @@ class Login extends Component {
 
     this.state = {
       username: '',
-      sent: false,
     };
   }
 
@@ -26,20 +24,22 @@ class Login extends Component {
   handleForm = (ev) => {
     ev.preventDefault();
     const { username } = this.state;
-    const { startLoading, stopLoading } = this.props;
+    const { history, startLoading, stopLoading } = this.props;
 
     startLoading();
     createUser({ name: username })
-      .then(() => this.setState({ sent: true }, stopLoading));
+      .then(() => {
+        history.push('/search');
+        stopLoading();
+      });
   }
 
   render() {
-    const { username, sent } = this.state;
+    const { username } = this.state;
     const MIN_USER_LENGTH = 3;
 
     return (
       <div data-testid="page-login" className="page-login">
-        {sent && <Redirect to="/search" />}
         <img src={ ttLogo } alt="TrybeTunes" />
         <form onSubmit={ this.handleForm }>
           <input
@@ -64,6 +64,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
   startLoading: PropTypes.func.isRequired,
   stopLoading: PropTypes.func.isRequired,
 };

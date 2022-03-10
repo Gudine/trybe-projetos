@@ -19,6 +19,7 @@
 }
 
 .page-login form input {
+  border: 2px solid lightgrey;
   border-radius: 15px;
   font-size: 1.2rem;
   margin: 10px 0;
@@ -33,4 +34,8 @@
   font-size: 1.2rem;
   padding: 10px 30px;
   width: 100%;
+}
+
+.page-login form button:disabled {
+  filter: brightness(0.75) grayscale(0.75);
 }

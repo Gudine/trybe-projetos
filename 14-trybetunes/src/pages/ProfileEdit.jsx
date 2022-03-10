@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import { getUser, updateUser } from '../services/userAPI';
+import './ProfileEdit.css';
 
 class ProfileEdit extends Component {
   constructor() {
@@ -13,7 +13,6 @@ class ProfileEdit extends Component {
       image: '',
       description: '',
       btnDisabled: true,
-      sent: false,
     };
   }
 
@@ -49,19 +48,21 @@ class ProfileEdit extends Component {
   handleForm = (ev) => {
     ev.preventDefault();
     const { name, email, image, description } = this.state;
-    const { startLoading, stopLoading } = this.props;
+    const { history, startLoading, stopLoading } = this.props;
 
     startLoading();
     updateUser({ name, email, image, description })
-      .then(() => this.setState({ sent: true }, stopLoading));
+      .then(() => {
+        history.push('/profile');
+        stopLoading();
+      });
   }
 
   render() {
-    const { name, email, image, description, btnDisabled, sent } = this.state;
+    const { name, email, image, description, btnDisabled } = this.state;
     return (
-      <div data-testid="page-profile-edit">
-        {sent && <Redirect to="/profile" /> }
-        <form onSubmit={ this.handleForm }>
+      <div data-testid="page-profile-edit" className="page-profile-edit">
+        <form className="profile-edit-card" onSubmit={ this.handleForm }>
           <label htmlFor="pf-edit-name">
             Nome de usuário:
             <input
@@ -70,6 +71,17 @@ class ProfileEdit extends Component {
               type="text"
               name="name"
               value={ name }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="pf-edit-image">
+            URL da Imagem:
+            <input
+              data-testid="edit-input-image"
+              id="pf-edit-image"
+              type="text"
+              name="image"
+              value={ image }
               onChange={ this.handleChange }
             />
           </label>
@@ -86,23 +98,12 @@ class ProfileEdit extends Component {
           </label>
           <label htmlFor="pf-edit-description">
             Descrição:
-            <input
+            <textarea
               data-testid="edit-input-description"
               id="pf-edit-description"
-              type="text"
               name="description"
               value={ description }
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor="pf-edit-image">
-            URL da Imagem:
-            <input
-              data-testid="edit-input-image"
-              id="pf-edit-image"
-              type="text"
-              name="image"
-              value={ image }
+              rows={ 10 }
               onChange={ this.handleChange }
             />
           </label>
@@ -120,6 +121,7 @@ class ProfileEdit extends Component {
 }
 
 ProfileEdit.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
   startLoading: PropTypes.func.isRequired,
   stopLoading: PropTypes.func.isRequired,
 };

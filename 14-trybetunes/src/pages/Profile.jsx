@@ -22,33 +22,31 @@ class Profile extends Component {
     startLoading();
 
     const userData = await getUser();
-    this.setState({
-      ...userData,
-      image: userData.image || defAvatar,
-    }, stopLoading);
+    this.setState({ ...userData }, stopLoading);
   }
 
   render() {
     const { name, email, image, description } = this.state;
+    const pfp = image || defAvatar;
 
     return (
       <div className="page-profile" data-testid="page-profile">
         <div className="profile-card">
           <section>
-            <img data-testid="profile-image" src={ image } alt={ name } />
+            <img data-testid="profile-image" src={ pfp } alt={ name } />
             <Link to="/profile/edit">Editar perfil</Link>
           </section>
           <section>
             <p className="field-name">Name</p>
-            <p>{ name }</p>
+            <p className="field-value">{ name }</p>
           </section>
           <section>
             <p className="field-name">Email</p>
-            <p>{ email }</p>
+            <p className="field-value">{ email }</p>
           </section>
           <section>
             <p className="field-name">Description</p>
-            <p>{ description }</p>
+            <p className="field-value">{ description }</p>
           </section>
         </div>
       </div>
