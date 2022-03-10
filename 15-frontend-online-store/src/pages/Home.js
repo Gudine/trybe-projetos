@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Categories from '../components/Categories';
 import ProductCard from '../components/ProductCard';
 import { getProductsFromCategoryAndQuery } from '../services/api';
@@ -37,6 +38,7 @@ class Home extends Component {
           value={ search }
           data-testid="query-input"
         />
+        <Link to="/cart" data-testid="shopping-cart-button">icone carrinho</Link>
         <button
           type="button"
           data-testid="query-button"
