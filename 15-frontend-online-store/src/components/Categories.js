@@ -29,7 +29,7 @@ class Categories extends Component {
         >
           Categorias
         </p>
-        <div className="all-catecories">
+        <div className="all-categories">
           {categoriesList.map(({ id, name }) => (
             <button
               type="button"
