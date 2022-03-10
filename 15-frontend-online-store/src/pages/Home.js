@@ -12,8 +12,7 @@ class Home extends Component {
     };
   }
 
-  handleChange = ({ target }) => {
-    const { name, value } = target;
+  handleChange = ({ target: { name, value }  }) => {
     this.setState({ [name]: value });
   };
 
