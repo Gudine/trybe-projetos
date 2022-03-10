@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Categories from '../components/Categories';
 import ProductCard from '../components/ProductCard';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
@@ -29,6 +30,7 @@ class Home extends Component {
 
     return (
       <>
+        <Categories />
         <input
           type="text"
           onChange={ this.handleChange }
