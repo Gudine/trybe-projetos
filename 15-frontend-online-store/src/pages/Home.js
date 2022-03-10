@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       redirect: false,
+//     };
+//   }
+
+  // handleClick= () => {
+  //   console.log('ta funcionando');
+  // }
+
   render() {
     return (
       <>
@@ -10,6 +22,7 @@ class Home extends Component {
           name="search"
           // value={search}
         />
+        <Link to="/cart" data-testid="shopping-cart-button">icone carrinho</Link>
         <p
           data-testid="home-initial-message"
         >
