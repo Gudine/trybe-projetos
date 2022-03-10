@@ -34,7 +34,6 @@ handleCatClick = ({ target: { key } }) => {
 
 render() {
   const { search, products } = this.state;
-
   return (
     <>
       <Categories handleCatClick={ this.handleCatClick } />
