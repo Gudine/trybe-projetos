@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 class ProductCard extends Component {
   handleCard = () => {
     // nome do produto, imagem, preço e especificação técnica.
-    const { product, history } = this.props;
+    const { product, history, btnId } = this.props;
     const { title, thumbnail_id: thumbnailId, price, attributes } = product;
 
-    const liteProduct = { title, thumbnailId, price, attributes };
+    const liteProduct = { title, thumbnailId, price, attributes, btnId };
     const productUrl = JSON.stringify(liteProduct);
 
     history.push(`/product/${productUrl}`);

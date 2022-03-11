@@ -67,7 +67,13 @@ class App extends Component {
             path="/cart"
             render={ (props) => <Cart { ...props } cartProducts={ cartProducts } /> }
           />
-          <Route path="/product/:product" component={ ProductPage } />
+          <Route
+            path="/product/:product"
+            render={ (props) => (<ProductPage
+              { ...props }
+              handleAddToCart={ this.handleAddToCart }
+            />) }
+          />
         </Switch>
       </BrowserRouter>
     );
