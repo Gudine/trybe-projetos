@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./static/css/main.14d4e829.css",
+    "main.js": "./static/js/main.297acaf9.js",
+    "static/media/CardBG.png": "./static/media/CardBG.fb8eafecb8bdbb45f9af.png",
+    "static/media/Super.png": "./static/media/Super.1b13119a72f2a88f983e.png",
+    "static/media/muito raro.png": "./static/media/muito raro.db5d01e1bf24a7f4959b.png",
+    "index.html": "./index.html",
+    "main.14d4e829.css.map": "./static/css/main.14d4e829.css.map",
+    "main.297acaf9.js.map": "./static/js/main.297acaf9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14d4e829.css",
+    "static/js/main.297acaf9.js"
+  ]
+}
