@@ -18,6 +18,7 @@ Para acessá-los, clique nos seguintes links:
 10. [Zoo Functions](https://gudine.github.io/trybe-projetos/10-zoo-functions)
 11. [Shopping Cart](https://gudine.github.io/trybe-projetos/11-shopping-cart)
 12. [Solar System](https://gudine.github.io/trybe-projetos/12-solar-system)
+13. [Tryunfo](https://gudine.github.io/trybe-projetos/13-tryunfo)
 
 ## Projetos sem página web
 
