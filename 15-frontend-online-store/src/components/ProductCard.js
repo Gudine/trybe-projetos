@@ -3,14 +3,8 @@ import React, { Component } from 'react';
 
 class ProductCard extends Component {
   handleCard = () => {
-    // nome do produto, imagem, preço e especificação técnica.
-    const { product, history, btnId } = this.props;
-    const { title, thumbnail_id: thumbnailId, price, attributes } = product;
-
-    const liteProduct = { title, thumbnailId, price, attributes, btnId };
-    const productUrl = JSON.stringify(liteProduct);
-
-    history.push(`/product/${productUrl}`);
+    const { history, btnId } = this.props;
+    history.push(`/product/${btnId}`);
   };
 
   render() {
@@ -46,7 +40,6 @@ ProductCard.propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
     thumbnail: PropTypes.string.isRequired,
-    thumbnail_id: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     attributes: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.string.isRequired,

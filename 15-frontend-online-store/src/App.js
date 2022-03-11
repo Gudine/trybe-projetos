@@ -77,7 +77,7 @@ class App extends Component {
             render={ (props) => <Cart { ...props } cartProducts={ cartProducts } /> }
           />
           <Route
-            path="/product/:product"
+            path="/product/:id"
             render={ (props) => (<ProductPage
               { ...props }
               handleAddToCart={ this.handleAddToCart }
