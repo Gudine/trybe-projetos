@@ -1,0 +1,27 @@
+.backlog-cont {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 20px 10%;
+  width: 100%;
+}
+
+.backlog-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 20%;
+}
+
+.backlog-filters > * {
+  width: 100%;
+}
+
+.backlog-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 75%;
+}
