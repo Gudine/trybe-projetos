@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 class ProductCard extends Component {
   handleCard = () => {
@@ -14,7 +14,7 @@ class ProductCard extends Component {
   };
 
   render() {
-    const { product } = this.props;
+    const { product, handleAddToCart, btnId } = this.props;
     const { title, thumbnail, price } = product;
 
     return (
@@ -22,6 +22,14 @@ class ProductCard extends Component {
         <img src={ thumbnail } alt={ title } />
         <div>{ title }</div>
         <div>{ price }</div>
+        <button
+          data-testid="product-add-to-cart"
+          type="button"
+          id={ btnId }
+          onClick={ handleAddToCart }
+        >
+          Adicionar ao carrinho
+        </button>
         <button
           type="button"
           data-testid="product-detail-link"
@@ -46,6 +54,8 @@ ProductCard.propTypes = {
       value_name: PropTypes.string.isRequired,
     })).isRequired,
   }).isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
+  btnId: PropTypes.string.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,

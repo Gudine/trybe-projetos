@@ -34,6 +34,7 @@ class Categories extends Component {
             <button
               type="button"
               key={ id }
+              id={ id }
               data-testid="category"
               onClick={ handleCatClick }
             >
