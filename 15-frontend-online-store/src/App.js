@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
+import ProductPage from './pages/ProductPage';
 import { getProductsFromCategoryAndQuery } from './services/api';
 
 class App extends Component {
@@ -66,6 +67,7 @@ class App extends Component {
             path="/cart"
             render={ (props) => <Cart { ...props } cartProducts={ cartProducts } /> }
           />
+          <Route path="/product/:product" component={ ProductPage } />
         </Switch>
       </BrowserRouter>
     );

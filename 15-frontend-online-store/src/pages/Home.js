@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Categories from '../components/Categories';
 import ProductCard from '../components/ProductCard';
@@ -7,7 +8,8 @@ import ProductCard from '../components/ProductCard';
 class Home extends Component {
   render() {
     const {
-      search, products, handleChange, handleCatClick, handleAddToCart, getProducts,
+      history, search, products, handleChange,
+      handleCatClick, handleAddToCart, getProducts,
     } = this.props;
     return (
       <>
@@ -33,14 +35,13 @@ class Home extends Component {
           Digite algum termo de pesquisa ou escolha uma categoria.
 
         </p>
-        {products.map(({ id, title, thumbnail, price }) => (
+        {products.map((product) => (
           <ProductCard
-            key={ id }
-            btnId={ id }
-            title={ title }
-            thumbnail={ thumbnail }
-            price={ price }
+            key={ product.id }
+            btnId={ product.id }
+            product={ product }
             handleAddToCart={ handleAddToCart }
+            history={ history }
           />
         ))}
 
@@ -56,6 +57,9 @@ Home.propTypes = {
   handleCatClick: PropTypes.func.isRequired,
   getProducts: PropTypes.func.isRequired,
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default Home;
