@@ -36,7 +36,6 @@ class App extends Component {
   handleAddToCart = ({ target: { id } }) => {
     const { products } = this.state;
     const objToSave = products.find((product) => product.id === id);
-    console.log(objToSave);
     this.setState((prevState) => ({
       cartProducts: [...prevState.cartProducts, objToSave],
     }));

@@ -24,6 +24,7 @@ class Cart extends Component {
       }
       return acc;
     }, {});
+
     const products = Object.keys(prodAndQuant);
     const quantities = Object.values(prodAndQuant);
     const productsAndQuantities = products.map((product, index) => ({
