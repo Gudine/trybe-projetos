@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class ProductPage extends Component {
   render() {
-    const { match } = this.props;
-    const { product } = match.params;
+    const { match: { params: { product } } } = this.props;
     const productObj = JSON.parse(product);
     const { title, thumbnail_id: thumbnailId, price, attributes } = productObj;
 
