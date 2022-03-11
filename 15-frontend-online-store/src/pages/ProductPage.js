@@ -7,7 +7,6 @@ class ProductPage extends Component {
     const { product } = match.params;
     const productObj = JSON.parse(product);
     const { title, thumbnail_id: thumbnailId, price, attributes } = productObj;
-    console.log(attributes);
 
     return (
       <div className="product-page">

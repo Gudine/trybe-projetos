@@ -5,9 +5,9 @@ class ProductCard extends Component {
   handleCard = () => {
     // nome do produto, imagem, preço e especificação técnica.
     const { product, history } = this.props;
-    const { title, thumbnail_id, price, attributes } = product;
+    const { title, thumbnail_id: thumbnailId, price, attributes } = product;
 
-    const liteProduct = { title, thumbnail_id, price, attributes };
+    const liteProduct = { title, thumbnailId, price, attributes };
     const productUrl = JSON.stringify(liteProduct);
 
     history.push(`/product/${productUrl}`);
@@ -38,7 +38,13 @@ ProductCard.propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
     thumbnail: PropTypes.string.isRequired,
+    thumbnail_id: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    attributes: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      value_name: PropTypes.string.isRequired,
+    })).isRequired,
   }).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
