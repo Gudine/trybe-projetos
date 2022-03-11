@@ -41,7 +41,7 @@
   display: grid;
   font-size: calc(var(--base-size) / 34);
   grid-template-columns: max-content 1fr;
-  grid-template-rows: 3fr 6fr 8fr max-content 7fr max-content;
+  grid-template-rows: 3fr 6fr 8fr max-content 8fr;
   height: var(--base-size);
   overflow: hidden;
   position: relative;

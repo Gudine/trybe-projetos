@@ -37,6 +37,7 @@ class SavedCards extends Component {
             />
           );
         }
+        return;
       }
       return cards
         .filter((card) => card.cardName.toLowerCase()

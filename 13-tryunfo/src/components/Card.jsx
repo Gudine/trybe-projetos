@@ -60,13 +60,6 @@ class Card extends Component {
           <div className="desc-cont">
             <p data-testid="description-card">{cardDescription}</p>
           </div>
-          <div className="misc-cont">
-            <p>
-              {'Raridade: '}
-              <span data-testid="rare-card">{cardRare}</span>
-            </p>
-            {cardTrunfo && (<p data-testid="trunfo-card">Super Trunfo!</p>)}
-          </div>
         </CardFrame>
         {onDeleteCard && (
           <button
