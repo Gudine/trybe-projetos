@@ -33,6 +33,7 @@ handleCatClick = ({ target: { key } }) => {
 }
 
 render() {
+  const { history } = this.props;
   const { search, products } = this.state;
   return (
     <>
@@ -58,12 +59,14 @@ render() {
         Digite algum termo de pesquisa ou escolha uma categoria.
 
       </p>
-      {products.map(({ id, title, thumbnail, price }) => (
+      {products.map((product) => (
         <ProductCard
-          key={ id }
-          title={ title }
+          key={ product.id }
+          product={ product }
+          /* title={ title }
           thumbnail={ thumbnail }
-          price={ price }
+          price={ price } */
+          history={ history }
         />
       ))}
     </>
