@@ -6,6 +6,7 @@ class Cart extends Component {
     super();
     this.state = {
       productsAndQuantities: [],
+      emptyCart: true,
     };
   }
 
@@ -20,7 +21,9 @@ class Cart extends Component {
       if (acc[productName]) {
         acc[productName].count += 1;
       } else {
-        acc[productName] = { count: 1 };
+        acc[productName] = {
+          count: 1,
+        };
       }
       return acc;
     }, {});
@@ -32,22 +35,96 @@ class Cart extends Component {
       quantity: quantities[index].count,
     }));
 
-    this.setState({ productsAndQuantities });
+    this.setState({
+      productsAndQuantities,
+      emptyCart: !cartProducts.length,
+    });
+  }
+
+  handleQuantities = (e) => {
+    const { target: { value, name } } = e;
+    let newPnQArray = [];
+    const { productsAndQuantities } = this.state;
+    newPnQArray = productsAndQuantities
+      .reduce((acc, curr) => {
+        const { product, quantity } = curr;
+        if (product === name) {
+          if (value === 'increase') {
+            acc = [...acc, {
+              product,
+              quantity: quantity + 1,
+            }];
+          } else if (quantity === 1) {
+            this.handleRemoveItem(e);
+          } else {
+            acc = [...acc, {
+              product,
+              quantity: quantity - 1,
+            }];
+          }
+        } else {
+          acc = [...acc, {
+            product,
+            quantity,
+          }];
+        }
+        return acc;
+      }, []);
+    this.setState({ productsAndQuantities: newPnQArray });
+  }
+
+  handleRemoveItem = ({ target: { name } }) => {
+    const { productsAndQuantities } = this.state;
+    const newPnQArray = productsAndQuantities.reduce((acc, curr) => {
+      if (curr.product !== name) {
+        return [...acc, curr];
+      }
+      return acc;
+    }, []);
+
+    this.setState({
+      productsAndQuantities: newPnQArray,
+      emptyCart: !newPnQArray.length,
+    });
   }
 
   render() {
-    const { productsAndQuantities } = this.state;
-    const { cartProducts } = this.props;
+    const { productsAndQuantities, emptyCart } = this.state;
 
     return (
-      !cartProducts.length
+      emptyCart
         ? <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
         : (
           <div>
             {productsAndQuantities.map(({ product, quantity }) => (
               <div key={ product }>
+                <button
+                  type="button"
+                  name={ product }
+                  onClick={ this.handleRemoveItem }
+                >
+                  X
+                </button>
                 <p data-testid="shopping-cart-product-name">{product}</p>
+                <button
+                  type="button"
+                  data-testid="product-decrease-quantity"
+                  name={ product }
+                  value="decrease"
+                  onClick={ this.handleQuantities }
+                >
+                  -
+                </button>
                 <p data-testid="shopping-cart-product-quantity">{quantity}</p>
+                <button
+                  type="button"
+                  data-testid="product-increase-quantity"
+                  name={ product }
+                  value="increase"
+                  onClick={ this.handleQuantities }
+                >
+                  +
+                </button>
               </div>
             ))}
           </div>)
