@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import SendReview from '../components/SendReview';
+import Reviews from '../components/Reviews';
 
 class ProductPage extends Component {
   render() {
-    const { match: { params: { product } }, handleAddToCart } = this.props;
+    const {
+      match: { params: { product } }, handleAddToCart, handleSendReview, reviews,
+    } = this.props;
     const productObj = JSON.parse(product);
     const { title, thumbnail_id: thumbnailId, price, attributes, btnId } = productObj;
 
@@ -30,6 +34,8 @@ class ProductPage extends Component {
         >
           Adicionar ao carrinho
         </button>
+        <SendReview handleSendReview={ handleSendReview } productId={ btnId } />
+        <Reviews reviews={ reviews } productId={ btnId } />
       </div>
     );
   }
@@ -42,6 +48,13 @@ ProductPage.propTypes = {
     }).isRequired,
   }).isRequired,
   handleAddToCart: PropTypes.func.isRequired,
+  handleSendReview: PropTypes.func.isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    stars: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default ProductPage;

@@ -9,12 +9,13 @@ import { getProductsFromCategoryAndQuery } from './services/api';
 class App extends Component {
   constructor() {
     super();
-
+    if (!localStorage.getItem('reviews')) localStorage.setItem('reviews', '[]');
     this.state = {
       search: '',
       products: [],
       categoryId: '',
       cartProducts: [],
+      reviews: JSON.parse(localStorage.getItem('reviews')),
     };
   }
 
@@ -42,8 +43,16 @@ class App extends Component {
     }));
   }
 
+  handleSendReview = (review) => {
+    const reviews = JSON.parse(localStorage.getItem('reviews'));
+    const newReviews = [...reviews, review];
+    localStorage.setItem('reviews', JSON.stringify(newReviews));
+
+    this.setState({ reviews: newReviews });
+  }
+
   render() {
-    const { search, products, cartProducts } = this.state;
+    const { search, products, cartProducts, reviews } = this.state;
 
     return (
       <BrowserRouter>
@@ -72,6 +81,8 @@ class App extends Component {
             render={ (props) => (<ProductPage
               { ...props }
               handleAddToCart={ this.handleAddToCart }
+              handleSendReview={ this.handleSendReview }
+              reviews={ reviews }
             />) }
           />
         </Switch>
