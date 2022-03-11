@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Categories from '../components/Categories';
 import ProductCard from '../components/ProductCard';
@@ -33,6 +34,7 @@ handleCatClick = ({ target: { key } }) => {
 }
 
 render() {
+  const { history } = this.props;
   const { search, products } = this.state;
   return (
     <>
@@ -58,17 +60,25 @@ render() {
         Digite algum termo de pesquisa ou escolha uma categoria.
 
       </p>
-      {products.map(({ id, title, thumbnail, price }) => (
+      {products.map((product) => (
         <ProductCard
-          key={ id }
-          title={ title }
+          key={ product.id }
+          product={ product }
+          /* title={ title }
           thumbnail={ thumbnail }
-          price={ price }
+          price={ price } */
+          history={ history }
         />
       ))}
     </>
   );
 }
 }
+
+Home.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Home;
