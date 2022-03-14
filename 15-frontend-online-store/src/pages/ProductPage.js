@@ -9,8 +9,11 @@ class ProductPage extends Component {
   constructor() {
     super();
 
+    if (!localStorage.getItem('reviews')) localStorage.setItem('reviews', '[]');
+
     this.state = {
       product: {},
+      reviews: JSON.parse(localStorage.getItem('reviews')),
     };
   }
 
@@ -21,10 +24,18 @@ class ProductPage extends Component {
     });
   }
 
+  handleSendReview = (review) => {
+    const reviews = JSON.parse(localStorage.getItem('reviews'));
+    const newReviews = [...reviews, review];
+    localStorage.setItem('reviews', JSON.stringify(newReviews));
+
+    this.setState({ reviews: newReviews });
+  }
+
   render() {
-    const { handleAddToCart, handleSendReview, reviews } = this.props;
+    const { handleAddToCart } = this.props;
     const {
-      product, product: { title, thumbnail, price, attributes, id: btnId },
+      reviews, product, product: { title, thumbnail, price, attributes, id: btnId },
     } = this.state;
 
     return (
@@ -52,7 +63,7 @@ class ProductPage extends Component {
             >
               Adicionar ao carrinho
             </button>
-            <SendReview handleSendReview={ handleSendReview } productId={ btnId } />
+            <SendReview handleSendReview={ this.handleSendReview } productId={ btnId } />
             <Reviews reviews={ reviews } productId={ btnId } />
           </div>
         )
@@ -67,13 +78,6 @@ ProductPage.propTypes = {
     }).isRequired,
   }).isRequired,
   handleAddToCart: PropTypes.func.isRequired,
-  handleSendReview: PropTypes.func.isRequired,
-  reviews: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    stars: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
-  })).isRequired,
 };
 
 export default ProductPage;
