@@ -15,6 +15,7 @@ class App extends Component {
       products: [],
       categoryId: '',
       cartProducts: [],
+      productsAndQuantities: [],
     };
   }
 
@@ -36,14 +37,109 @@ class App extends Component {
 
   handleAddToCart = ({ target: { id } }) => {
     const { products } = this.state;
-    const objToSave = products.find((product) => product.id === id);
+    const foundObj = products.find((product) => product.id === id);
+    const objToSave = {
+      product: foundObj,
+      productName: foundObj.title,
+      quantity: 1,
+      avlQnt: foundObj.available_quantity,
+      btnDisabled: false,
+    };
     this.setState((prevState) => ({
-      cartProducts: [...prevState.cartProducts, objToSave],
+      productsAndQuantities: [...prevState.productsAndQuantities, objToSave],
+    }), this.productCount);
+  }
+
+  productCount = () => {
+    const { productsAndQuantities } = this.state;
+    const prodAndQuant = productsAndQuantities
+      .reduce((acc, curr) => {
+        const { productName, avlQnt } = curr;
+        if (acc[productName]) {
+          acc[productName].count += 1;
+        } else {
+          acc[productName] = {
+            count: 1,
+            avlQnt,
+            fullProduct: curr,
+          };
+        }
+        return acc;
+      }, {});
+
+    const products = Object.keys(prodAndQuant);
+    const quantities = Object.values(prodAndQuant);
+    const pAndQ = products.map((productName, index) => ({
+      productName,
+      quantity: quantities[index].count,
+      avlQnt: quantities[index].avlQnt,
+      product: quantities[index].fullProduct,
+      btnDisabled: quantities[index].count === quantities[index].avlQnt,
     }));
+
+    this.setState({
+      productsAndQuantities: pAndQ,
+    });
+  }
+
+  handleQuantities = (e) => {
+    const { target: { value, name } } = e;
+    let newPnQArray = [];
+    const { productsAndQuantities } = this.state;
+    newPnQArray = productsAndQuantities
+      .reduce((acc, { productName, quantity, avlQnt, product }) => {
+        if (productName === name) {
+          if (value === 'increase') {
+            acc = [...acc, {
+              product,
+              productName,
+              quantity: quantity + 1,
+              avlQnt,
+              btnDisabled: (quantity + 1) === avlQnt,
+            }];
+          } else if (quantity === 1) {
+            this.handleRemoveItem(e);
+          } else {
+            acc = [...acc, {
+              product,
+              productName,
+              quantity: quantity - 1,
+              avlQnt,
+              btnDisabled: quantity === avlQnt,
+            }];
+          }
+        } else {
+          acc = [...acc, {
+            product,
+            productName,
+            quantity,
+            avlQnt,
+            btnDisabled: quantity === avlQnt,
+          }];
+        }
+        return acc;
+      }, []);
+    this.setState({ productsAndQuantities: newPnQArray });
+  }
+
+  handleRemoveItem = ({ target: { name } }) => {
+    const { productsAndQuantities } = this.state;
+    const newPnQArray = productsAndQuantities.reduce((acc, curr) => {
+      if (curr.productName !== name) {
+        return [...acc, curr];
+      }
+      return acc;
+    }, []);
+
+    console.log(newPnQArray);
+
+    this.setState({
+      productsAndQuantities: newPnQArray,
+    });
   }
 
   render() {
-    const { search, products, cartProducts } = this.state;
+    const { search, products, productsAndQuantities } = this.state;
 
     return (
       <BrowserRouter>
@@ -65,7 +161,12 @@ class App extends Component {
           />
           <Route
             path="/cart"
-            render={ (props) => <Cart { ...props } cartProducts={ cartProducts } /> }
+            render={ (props) => (<Cart
+              { ...props }
+              productsAndQuantities={ productsAndQuantities }
+              handleQuantities={ this.handleQuantities }
+              handleRemoveItem={ this.handleRemoveItem }
+            />) }
           />
           <Route
             path="/product/:id"
