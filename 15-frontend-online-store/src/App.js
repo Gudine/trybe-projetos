@@ -54,7 +54,7 @@ class App extends Component {
     const { cartItems } = this.state;
     const prodAndQuant = cartItems
       .reduce((acc, curr) => {
-        const { productName, avlQnt } = curr;
+        const { productName, avlQnt, price } = curr;
         if (acc[productName]) {
           acc[productName].count += 1;
         } else {
