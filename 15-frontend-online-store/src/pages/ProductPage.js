@@ -1,36 +1,72 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import SendReview from '../components/SendReview';
+import Reviews from '../components/Reviews';
+import { getProduct } from '../services/api';
 
 class ProductPage extends Component {
+  constructor() {
+    super();
+
+    if (!localStorage.getItem('reviews')) localStorage.setItem('reviews', '[]');
+
+    this.state = {
+      product: {},
+      reviews: JSON.parse(localStorage.getItem('reviews')),
+    };
+  }
+
+  async componentDidMount() {
+    const { match: { params: { id } } } = this.props;
+    this.setState({
+      product: await getProduct(id),
+    });
+  }
+
+  handleSendReview = (review) => {
+    const reviews = JSON.parse(localStorage.getItem('reviews'));
+    const newReviews = [...reviews, review];
+    localStorage.setItem('reviews', JSON.stringify(newReviews));
+
+    this.setState({ reviews: newReviews });
+  }
+
   render() {
-    const { match: { params: { product } }, handleAddToCart } = this.props;
-    const productObj = JSON.parse(product);
-    const { title, thumbnail_id: thumbnailId, price, attributes, btnId } = productObj;
+    const { handleAddToCart } = this.props;
+    const {
+      reviews, product, product: { title, thumbnail, price, attributes, id: btnId },
+    } = this.state;
 
     return (
-      <div className="product-page">
-        <Link to="/cart" data-testid="shopping-cart-button">icone carrinho</Link>
-        <span data-testid="product-detail-name">{ title }</span>
-        <img
-          src={ `http://http2.mlstatic.com/D_${thumbnailId}-I.jpg` }
-          alt={ title }
-        />
-        <span>{ price }</span>
-        <ul>
-          {attributes.map(({ id, name, value_name: valueName }) => (
-            <li key={ id }>{`${name}: ${valueName}`}</li>
-          ))}
-        </ul>
-        <button
-          data-testid="product-detail-add-to-cart"
-          type="button"
-          id={ btnId }
-          onClick={ handleAddToCart }
-        >
-          Adicionar ao carrinho
-        </button>
-      </div>
+      !Object.keys(product).length
+        ? <div className="product-page" />
+        : (
+          <div className="product-page">
+            <Link to="/cart" data-testid="shopping-cart-button">icone carrinho</Link>
+            <span data-testid="product-detail-name">{ title }</span>
+            <img
+              src={ thumbnail }
+              alt={ title }
+            />
+            <span>{ price }</span>
+            <ul>
+              {attributes.map(({ id, name, value_name: valueName }) => (
+                <li key={ id }>{`${name}: ${valueName}`}</li>
+              ))}
+            </ul>
+            <button
+              data-testid="product-detail-add-to-cart"
+              type="button"
+              id={ btnId }
+              onClick={ handleAddToCart }
+            >
+              Adicionar ao carrinho
+            </button>
+            <SendReview handleSendReview={ this.handleSendReview } productId={ btnId } />
+            <Reviews reviews={ reviews } productId={ btnId } />
+          </div>
+        )
     );
   }
 }
@@ -38,7 +74,7 @@ class ProductPage extends Component {
 ProductPage.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      product: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
   handleAddToCart: PropTypes.func.isRequired,
