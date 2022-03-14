@@ -14,7 +14,6 @@ class App extends Component {
       search: '',
       products: [],
       categoryId: '',
-      cartProducts: [],
       productsAndQuantities: [],
     };
   }
