@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import SendReview from '../components/SendReview';
 import Reviews from '../components/Reviews';
+import SendReview from '../components/SendReview';
 import { getProduct } from '../services/api';
 
 class ProductPage extends Component {
