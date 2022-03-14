@@ -109,7 +109,7 @@ class App extends Component {
               quantity: quantity - 1,
               avlQnt,
               price,
-              btnDisabled: quantity === avlQnt,
+              btnDisabled: quantity - 1 === avlQnt,
             }];
           }
         } else {
