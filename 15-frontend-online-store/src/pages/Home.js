@@ -8,7 +8,7 @@ class Home extends Component {
   render() {
     const {
       history, search, products, handleChange,
-      handleCatClick, handleAddToCart, getProducts,
+      handleCatClick, handleAddToCart, getProducts, cartQnt,
     } = this.props;
     return (
       <>
@@ -27,7 +27,10 @@ class Home extends Component {
         >
           Pesquisar
         </button>
-        <Link to="/cart" data-testid="shopping-cart-button">icone carrinho</Link>
+        <Link to="/cart" data-testid="shopping-cart-button">
+          icone carrinho
+          <span data-testid="shopping-cart-size">{ cartQnt }</span>
+        </Link>
         <p
           data-testid="home-initial-message"
         >
@@ -59,6 +62,7 @@ Home.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  cartQnt: PropTypes.number.isRequired,
 };
 
 export default Home;
