@@ -135,9 +135,6 @@ class App extends Component {
       }
       return acc;
     }, []);
-
-    console.log(newPnQArray);
-
     this.setState({
       cartItems: newPnQArray,
     });
