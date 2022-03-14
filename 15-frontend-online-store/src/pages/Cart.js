@@ -46,7 +46,7 @@ class Cart extends Component {
     let newPnQArray = [];
     const { productsAndQuantities } = this.state;
     newPnQArray = productsAndQuantities
-      .reduce((acc, { product, quantity }) => {       
+      .reduce((acc, { product, quantity }) => {
         if (product === name) {
           if (value === 'increase') {
             acc = [...acc, {
