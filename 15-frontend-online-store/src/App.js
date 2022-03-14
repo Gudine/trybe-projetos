@@ -38,7 +38,7 @@ class App extends Component {
     const { products } = this.state;
     const foundObj = products.find((product) => product.id === id);
     const objToSave = {
-      product: foundObj,
+      productObj: foundObj,
       productName: foundObj.title,
       price: foundObj.price,
       quantity: 1,
@@ -54,12 +54,12 @@ class App extends Component {
     const { cartItems } = this.state;
     const prodAndQuant = cartItems
       .reduce((acc, curr) => {
-        const { productName, avlQnt, price } = curr;
+        const { productName, avlQnt, price, quantity } = curr;
         if (acc[productName]) {
-          acc[productName].count += 1;
+          acc[productName].count += quantity;
         } else {
           acc[productName] = {
-            count: 1,
+            count: quantity,
             avlQnt,
             price,
             fullProduct: curr,
@@ -74,7 +74,7 @@ class App extends Component {
       productName,
       quantity: quantities[index].count,
       avlQnt: quantities[index].avlQnt,
-      product: quantities[index].fullProduct,
+      productObj: quantities[index].fullProduct,
       price: quantities[index].price,
       btnDisabled: quantities[index].count === quantities[index].avlQnt,
     }));
@@ -89,11 +89,11 @@ class App extends Component {
     let newPnQArray = [];
     const { cartItems } = this.state;
     newPnQArray = cartItems
-      .reduce((acc, { productName, quantity, avlQnt, product, price }) => {
+      .reduce((acc, { productName, quantity, avlQnt, productObj, price }) => {
         if (productName === name) {
           if (value === 'increase') {
             acc = [...acc, {
-              product,
+              productObj,
               productName,
               quantity: quantity + 1,
               price,
@@ -104,7 +104,7 @@ class App extends Component {
             this.handleRemoveItem(e);
           } else {
             acc = [...acc, {
-              product,
+              productObj,
               productName,
               quantity: quantity - 1,
               avlQnt,
@@ -114,7 +114,7 @@ class App extends Component {
           }
         } else {
           acc = [...acc, {
-            product,
+            productObj,
             productName,
             quantity,
             avlQnt,
