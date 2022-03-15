@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
 import { getProductsFromCategoryAndQuery } from './services/api';
@@ -175,6 +176,13 @@ class App extends Component {
             render={ (props) => (<ProductPage
               { ...props }
               handleAddToCart={ this.handleAddToCart }
+            />) }
+          />
+          <Route
+            path="/checkout"
+            render={ (props) => (<Checkout
+              { ...props }
+              cartItems={ cartItems }
             />) }
           />
         </Switch>
