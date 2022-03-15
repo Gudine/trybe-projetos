@@ -37,7 +37,7 @@ class ProductPage extends Component {
     const { handleAddToCart } = this.props;
     const {
       reviews, product, product: { title, thumbnail, price, attributes,
-        shipping, id: btnId },
+        shipping = { free_shipping = false }, id: btnId },
     } = this.state;
     const freeShipping = shipping.free_shipping;
 
