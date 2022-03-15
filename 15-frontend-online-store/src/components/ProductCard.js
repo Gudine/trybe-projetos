@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import FreeShipping from './FreeShipping';
 
 class ProductCard extends Component {
   handleCard = () => {
@@ -9,11 +10,13 @@ class ProductCard extends Component {
 
   render() {
     const { product, handleAddToCart, btnId } = this.props;
-    const { title, thumbnail, price } = product;
+    const { title, thumbnail, price, shipping } = product;
+    const freeShipping = shipping.free_shipping;
 
     return (
       <div data-testid="product">
         <img src={ thumbnail } alt={ title } />
+        { freeShipping && <FreeShipping /> }
         <div>{ title }</div>
         <div>{ price }</div>
         <button
@@ -31,6 +34,7 @@ class ProductCard extends Component {
         >
           Detalhes
         </button>
+
       </div>
     );
   }
@@ -41,6 +45,9 @@ ProductCard.propTypes = {
     title: PropTypes.string.isRequired,
     thumbnail: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    shipping: PropTypes.shape({
+      free_shipping: PropTypes.bool.isRequired,
+    }),
     attributes: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
