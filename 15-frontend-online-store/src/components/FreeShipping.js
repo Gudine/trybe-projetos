@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import { BsTruck } from 'react-icons/bs';
+import './FreeShipping.css';
 
 class FreeShipping extends Component {
   render() {
     return (
-      <div data-testid="free-shipping">Frete Grátis</div>
+      <div className="free-shipping">
+        <BsTruck />
+        <div data-testid="free-shipping">Frete Grátis</div>
+      </div>
     );
   }
 }

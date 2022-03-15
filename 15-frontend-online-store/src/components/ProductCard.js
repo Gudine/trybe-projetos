@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import FreeShipping from './FreeShipping';
+import './ProductCard.css';
 
 class ProductCard extends Component {
   handleCard = () => {
@@ -14,11 +15,11 @@ class ProductCard extends Component {
     const freeShipping = shipping.free_shipping;
 
     return (
-      <div data-testid="product">
+      <div data-testid="product" className="product-card">
         <img src={ thumbnail } alt={ title } />
+        <div className="title">{ title }</div>
+        <div>{ `R$${price.toLocaleString('pt-br')}` }</div>
         { freeShipping && <FreeShipping /> }
-        <div>{ title }</div>
-        <div>{ price }</div>
         <button
           data-testid="product-add-to-cart"
           type="button"

@@ -1,0 +1,20 @@
+.product-card {
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 15px;
+  display: flex;
+  flex-basis: 25%;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.product-card .title {
+  font-weight: 600;
+}
+
+.product-card img {
+  max-height: 120px;
+  max-width: 120px;
+}

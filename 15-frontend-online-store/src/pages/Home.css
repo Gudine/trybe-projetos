@@ -1,0 +1,54 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.categories-cont {
+  flex-basis: 30%;
+  margin-right: 10px;
+}
+
+.categories-header {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.all-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.all-categories button {
+  flex-basis: 48%;
+}
+
+header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+main {
+  display: flex;
+  margin: 10px;
+}
+
+.main-products {
+  display: flex;
+  flex-basis: 68%;
+  flex-direction: column;
+}
+
+.cart {
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -23,7 +23,7 @@ class Categories extends Component {
     const { categoriesList } = this.state;
     const { handleCatClick } = this.props;
     return (
-      <>
+      <aside className="categories-cont">
         <p
           className="categories-header"
         >
@@ -42,7 +42,7 @@ class Categories extends Component {
             </button>
           ))}
         </div>
-      </>
+      </aside>
     );
   }
 }
