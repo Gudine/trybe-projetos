@@ -48,11 +48,6 @@ ProductCard.propTypes = {
     shipping: PropTypes.shape({
       free_shipping: PropTypes.bool.isRequired,
     }),
-    attributes: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      value_name: PropTypes.string.isRequired,
-    })).isRequired,
   }).isRequired,
   handleAddToCart: PropTypes.func.isRequired,
   btnId: PropTypes.string.isRequired,

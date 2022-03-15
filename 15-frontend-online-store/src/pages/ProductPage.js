@@ -34,7 +34,7 @@ class ProductPage extends Component {
   }
 
   render() {
-    const { handleAddToCart } = this.props;
+    const { handleAddToCart, cartQnt } = this.props;
     const {
       reviews, product, product: { title, thumbnail, price, attributes,
         shipping = { free_shipping = false }, id: btnId },
@@ -43,10 +43,19 @@ class ProductPage extends Component {
 
     return (
       !Object.keys(product).length
-        ? <div className="product-page" />
+        ? (
+          <div className="product-page">
+            <Link to="/cart" data-testid="shopping-cart-button">
+              icone carrinho
+              <span data-testid="shopping-cart-size">{ cartQnt }</span>
+            </Link>
+          </div>)
         : (
           <div className="product-page">
-            <Link to="/cart" data-testid="shopping-cart-button">icone carrinho</Link>
+            <Link to="/cart" data-testid="shopping-cart-button">
+              icone carrinho
+              <span data-testid="shopping-cart-size">{ cartQnt }</span>
+            </Link>
             <span data-testid="product-detail-name">{ title }</span>
             <img
               src={ thumbnail }
@@ -82,6 +91,7 @@ ProductPage.propTypes = {
     }).isRequired,
   }).isRequired,
   handleAddToCart: PropTypes.func.isRequired,
+  cartQnt: PropTypes.number.isRequired,
 };
 
 export default ProductPage;
