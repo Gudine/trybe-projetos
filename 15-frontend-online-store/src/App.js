@@ -16,7 +16,24 @@ class App extends Component {
       products: [],
       categoryId: '',
       cartItems: [],
+      cartQnt: 0,
     };
+  }
+
+  componentDidMount() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    if (cartItems) {
+      this.setState({
+        cartItems,
+      });
+    }
+  }
+
+  getCartQuant= () => {
+    const { cartItems } = this.state;
+    const sumCartQuant = cartItems.reduce((acc, { quantity }) => acc + quantity, 0);
+
+    this.setState({ cartQnt: sumCartQuant });
   }
 
   handleChange = ({ target: { name, value } }) => {
@@ -80,9 +97,11 @@ class App extends Component {
       btnDisabled: quantities[index].count === quantities[index].avlQnt,
     }));
 
+    localStorage.setItem('cartItems', JSON.stringify(pAndQ));
+
     this.setState({
       cartItems: pAndQ,
-    });
+    }, this.getCartQuant);
   }
 
   handleQuantities = (e) => {
@@ -125,7 +144,7 @@ class App extends Component {
         }
         return acc;
       }, []);
-    this.setState({ cartItems: newPnQArray });
+    this.setState({ cartItems: newPnQArray }, this.productCount);
   }
 
   handleRemoveItem = ({ target: { name } }) => {
@@ -138,11 +157,11 @@ class App extends Component {
     }, []);
     this.setState({
       cartItems: newPnQArray,
-    });
+    }, this.productCount);
   }
 
   render() {
-    const { search, products, cartItems } = this.state;
+    const { search, products, cartItems, cartQnt } = this.state;
 
     return (
       <BrowserRouter>
@@ -159,6 +178,7 @@ class App extends Component {
                 getProducts={ this.getProducts }
                 search={ search }
                 products={ products }
+                cartQnt={ cartQnt }
               />
             ) }
           />
@@ -176,6 +196,7 @@ class App extends Component {
             render={ (props) => (<ProductPage
               { ...props }
               handleAddToCart={ this.handleAddToCart }
+              cartQnt={ cartQnt }
             />) }
           />
           <Route
