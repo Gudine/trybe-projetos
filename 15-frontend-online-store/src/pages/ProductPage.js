@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import FreeShipping from '../components/FreeShipping';
 import Reviews from '../components/Reviews';
 import SendReview from '../components/SendReview';
 import { getProduct } from '../services/api';
@@ -35,8 +36,10 @@ class ProductPage extends Component {
   render() {
     const { handleAddToCart, cartQnt } = this.props;
     const {
-      reviews, product, product: { title, thumbnail, price, attributes, id: btnId },
+      reviews, product, product: { title, thumbnail, price, attributes,
+        shipping = { free_shipping = false }, id: btnId },
     } = this.state;
+    const freeShipping = shipping.free_shipping;
 
     return (
       !Object.keys(product).length
@@ -59,6 +62,7 @@ class ProductPage extends Component {
               alt={ title }
             />
             <span>{ price }</span>
+            { freeShipping && <FreeShipping /> }
             <ul>
               {attributes.map(({ id, name, value_name: valueName }) => (
                 <li key={ id }>{`${name}: ${valueName}`}</li>
