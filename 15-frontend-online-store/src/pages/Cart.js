@@ -18,9 +18,11 @@ class Cart extends Component {
 
   loadCart = () => {
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
-    this.setState({
-      emptyCart: !cartItems.length,
-    });
+    if (cartItems) {
+      this.setState({
+        emptyCart: !cartItems.length,
+      });
+    }
   }
 
   render() {
