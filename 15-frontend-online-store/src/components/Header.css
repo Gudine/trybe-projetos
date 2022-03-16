@@ -29,14 +29,14 @@ header {
 }
 
 .cart-icon {
-  font-size: 2.2rem;
+  font-size: 2.25rem;
   margin-right: 5%;
   position: absolute;
 }
 
 .cart-qnt {
   font-size: 0.9rem;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   position: absolute;
 }
 
