@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import './SendReview.css';
 
 class SendReview extends Component {
@@ -26,9 +27,28 @@ class SendReview extends Component {
   };
 
   render() {
-    const MAX_STARS = 5;
-    const STAR_ARRAY = [...Array(MAX_STARS).keys()].map((num) => num + 1);
     const { email, stars, message } = this.state;
+
+    const genStars = () => {
+      const MAX_STARS = 5;
+      const STAR_ARRAY = [...Array(MAX_STARS).keys()].map((num) => num + 1);
+
+      return STAR_ARRAY.map((num) => (
+        <label key={ num } htmlFor={ `${num}-stars` }>
+          <input
+            data-testid={ `${num}-rating` }
+            type="radio"
+            className="star-radio"
+            id={ `${num}-stars` }
+            name="stars"
+            value={ num }
+            checked={ stars === String(num) }
+            onChange={ this.handleChange }
+          />
+          { num <= Number(stars) ? <AiFillStar /> : <AiOutlineStar /> }
+        </label>
+      ));
+    };
 
     return (
       <div className="send-review">
@@ -46,21 +66,8 @@ class SendReview extends Component {
             onChange={ this.handleChange }
             className="email"
           />
-          <div className="stars-div">
-            {STAR_ARRAY.map((num) => (
-              <label key={ num } htmlFor={ `${num}-stars` }>
-                <input
-                  data-testid={ `${num}-rating` }
-                  type="radio"
-                  id={ `${num}-stars` }
-                  name="stars"
-                  value={ num }
-                  checked={ stars === String(num) }
-                  onChange={ this.handleChange }
-                />
-                ⭐
-              </label>
-            ))}
+          <div className="stars-radio-div">
+            { genStars() }
           </div>
           <textarea
             data-testid="product-detail-evaluation"

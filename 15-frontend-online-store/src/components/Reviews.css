@@ -23,3 +23,8 @@
 .message {
   margin-top: 5px;
 }
+
+.stars-div {
+  color: gold;
+  font-size: 1.5rem;
+}

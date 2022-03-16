@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import './Reviews.css';
+import { AiFillStar } from 'react-icons/ai';
 
 class Reviews extends Component {
   render() {
@@ -10,7 +11,10 @@ class Reviews extends Component {
       .map(({ email, stars, message }, index) => (
         <div className="reviews" key={ index }>
           <div className="rev-email">{ email }</div>
-          <div>{ ''.padStart(Number(stars), '⭐') }</div>
+          <div className="stars-div">
+            {Array(Number(stars)).fill()
+              .map((_, starI) => (<AiFillStar key={ starI } />))}
+          </div>
           <div className="message">{ message }</div>
         </div>
       ));

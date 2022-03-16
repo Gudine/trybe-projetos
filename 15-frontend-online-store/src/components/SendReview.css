@@ -36,3 +36,14 @@
 .review-form input {
   content: '\2606';
 }
+
+.stars-radio-div {
+  color: gold;
+  font-size: 1.5rem;
+}
+
+.star-radio {
+  height: 0;
+  margin: 0;
+  width: 0;
+}
