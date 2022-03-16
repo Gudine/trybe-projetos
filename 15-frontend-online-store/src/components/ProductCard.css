@@ -14,7 +14,7 @@
 }
 
 .product-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .prod-link {
@@ -35,11 +35,14 @@
   background-color: rgba(235, 225, 225, 0.781);
   border: 0;
   border-radius: 5px;
-  padding: 5px;
+  font-family: Segoe UI , Roboto , Oxygen , Ubuntu , Cantarell , Fira Sans , sans-serif;
+  padding: 7px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
 }
 
 .product-card button:hover {
-  background-color: rgba(150, 145, 145, 0.486);
   cursor: pointer;
   transform: scale(1.1);
 }

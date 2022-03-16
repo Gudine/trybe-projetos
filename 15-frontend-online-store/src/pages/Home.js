@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { BsSearch } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
 import Categories from '../components/Categories';
+import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
 import './Home.css';
 
@@ -15,15 +15,7 @@ class Home extends Component {
     } = this.props;
     return (
       <div className="home-page">
-        <header>
-          <h1>Front-end Online Store</h1>
-          <Link to="/cart" className="cart" data-testid="shopping-cart-button">
-            🛒
-            <span data-testid="shopping-cart-size" className="cart-qnt">
-              { cartQnt }
-            </span>
-          </Link>
-        </header>
+        <Header cartQnt={ cartQnt } />
         <main>
           <Categories handleCatClick={ handleCatClick } />
           <section className="main-products">
@@ -43,13 +35,14 @@ class Home extends Component {
                 <BsSearch />
               </button>
             </div>
-            <p
-              data-testid="home-initial-message"
-              className="initial-message"
-            >
-              Digite algum termo de pesquisa ou escolha uma categoria.
+            {!products.length && (
+              <p
+                data-testid="home-initial-message"
+                className="initial-message"
+              >
+                Digite algum termo de pesquisa ou escolha uma categoria.
 
-            </p>
+              </p>)}
             <div className="products-list">
               {products.map((product) => (
                 <ProductCard

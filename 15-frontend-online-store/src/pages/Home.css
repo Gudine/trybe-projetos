@@ -39,16 +39,9 @@
   font-weight: 450;
 }
 
-header {
-  align-items: center;
-  background-color: rgb(187, 182, 182);
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10px;
-}
-
 main {
   display: flex;
+  gap: 40px;
   margin: 10px;
 }
 
@@ -103,4 +96,5 @@ main {
 .products-list {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 10px;
 }

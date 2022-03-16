@@ -1,0 +1,21 @@
+header {
+  align-items: center;
+  background-color: rgb(187, 182, 182);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.home-icon {
+  font-size: 1.2rem;
+}
+
+.home-icon:hover {
+  color: green;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.cart:hover {
+  transform: scale(1.1);
+}

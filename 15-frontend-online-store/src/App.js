@@ -189,6 +189,7 @@ class App extends Component {
               productsAndQuantities={ cartItems }
               handleQuantities={ this.handleQuantities }
               handleRemoveItem={ this.handleRemoveItem }
+              cartQnt={ cartQnt }
             />) }
           />
           <Route

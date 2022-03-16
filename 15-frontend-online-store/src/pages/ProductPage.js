@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import FreeShipping from '../components/FreeShipping';
+import Header from '../components/Header';
 import Reviews from '../components/Reviews';
 import SendReview from '../components/SendReview';
 import { getProduct } from '../services/api';
@@ -44,15 +44,7 @@ class ProductPage extends Component {
 
     return (
       <>
-        <header>
-          <h1>Front-end Online Store</h1>
-          <Link to="/cart" className="cart" data-testid="shopping-cart-button">
-            🛒
-            <span data-testid="shopping-cart-size" className="cart-qnt">
-              { cartQnt }
-            </span>
-          </Link>
-        </header>
+        <Header cartQnt={ cartQnt } />
         {!Object.keys(product).length
           ? (
             <div className="product-page" />)
