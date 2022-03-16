@@ -25,7 +25,7 @@ class App extends Component {
     if (cartItems) {
       this.setState({
         cartItems,
-      });
+      }, this.productCount);
     }
   }
 
@@ -56,7 +56,7 @@ class App extends Component {
     const { products } = this.state;
     const foundObj = products.find((product) => product.id === id);
     const objToSave = {
-      productObj: foundObj,
+      productImg: foundObj.thumbnail,
       productName: foundObj.title,
       price: foundObj.price,
       quantity: 1,
@@ -72,7 +72,7 @@ class App extends Component {
     const { cartItems } = this.state;
     const prodAndQuant = cartItems
       .reduce((acc, curr) => {
-        const { productName, avlQnt, price, quantity } = curr;
+        const { productName, avlQnt, price, quantity, productImg } = curr;
         if (acc[productName]) {
           acc[productName].count += quantity;
         } else {
@@ -80,7 +80,7 @@ class App extends Component {
             count: quantity,
             avlQnt,
             price,
-            fullProduct: curr,
+            productImg,
           };
         }
         return acc;
@@ -90,9 +90,9 @@ class App extends Component {
     const quantities = Object.values(prodAndQuant);
     const pAndQ = products.map((productName, index) => ({
       productName,
+      productImg: quantities[index].productImg,
       quantity: quantities[index].count,
       avlQnt: quantities[index].avlQnt,
-      productObj: quantities[index].fullProduct,
       price: quantities[index].price,
       btnDisabled: quantities[index].count === quantities[index].avlQnt,
     }));
@@ -109,12 +109,12 @@ class App extends Component {
     let newPnQArray = [];
     const { cartItems } = this.state;
     newPnQArray = cartItems
-      .reduce((acc, { productName, quantity, avlQnt, productObj, price }) => {
+      .reduce((acc, { productName, quantity, avlQnt, productImg, price }) => {
         if (productName === name) {
           if (value === 'increase') {
             acc = [...acc, {
-              productObj,
               productName,
+              productImg,
               quantity: quantity + 1,
               price,
               avlQnt,
@@ -124,8 +124,8 @@ class App extends Component {
             this.handleRemoveItem(e);
           } else {
             acc = [...acc, {
-              productObj,
               productName,
+              productImg,
               quantity: quantity - 1,
               avlQnt,
               price,
@@ -134,8 +134,8 @@ class App extends Component {
           }
         } else {
           acc = [...acc, {
-            productObj,
             productName,
+            productImg,
             quantity,
             avlQnt,
             price,

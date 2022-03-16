@@ -17,9 +17,9 @@ class Cart extends Component {
   }
 
   loadCart = () => {
-    const { productsAndQuantities } = this.props;
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
     this.setState({
-      emptyCart: !productsAndQuantities.length,
+      emptyCart: !cartItems.length,
     });
   }
 
@@ -28,8 +28,6 @@ class Cart extends Component {
     const {
       handleQuantities, handleRemoveItem, productsAndQuantities, cartQnt,
     } = this.props;
-
-    console.log(productsAndQuantities);
 
     return (
       <>
@@ -47,7 +45,7 @@ class Cart extends Component {
             <div className="full-cart">
               {productsAndQuantities
                 .map(({
-                  productName, quantity, btnDisabled, productObj: { thumbnail },
+                  productName, quantity, btnDisabled, productImg,
                 }) => (
                   <div className="cart-item" key={ productName }>
                     <button
@@ -57,7 +55,7 @@ class Cart extends Component {
                     >
                       X
                     </button>
-                    <img src={ thumbnail } alt={ productName } />
+                    <img src={ productImg } alt={ productName } />
                     <p data-testid="shopping-cart-product-name">{productName}</p>
                     <button
                       type="button"
