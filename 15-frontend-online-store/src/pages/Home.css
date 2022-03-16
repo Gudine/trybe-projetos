@@ -51,19 +51,6 @@ main {
   flex-direction: column;
 }
 
-.cart {
-  color: black;
-  font-size: 1.4rem;
-  font-weight: 500;
-  margin-bottom: 10px;
-  text-align: right;
-  text-decoration: none;
-}
-
-.cart-qnt {
-  font-size: 1rem;
-}
-
 .search-block {
   display: flex;
   gap: 10px;

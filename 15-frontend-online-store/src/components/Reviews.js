@@ -17,6 +17,7 @@ class Reviews extends Component {
 
     return (
       <>
+        <h3 className="reviews-title">Avaliações</h3>
         {genReviews()}
       </>
     );

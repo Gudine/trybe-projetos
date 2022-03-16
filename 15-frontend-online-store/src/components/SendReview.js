@@ -31,50 +31,53 @@ class SendReview extends Component {
     const { email, stars, message } = this.state;
 
     return (
-      <form
-        onSubmit={ this.handleSubmit }
-        className="review-form"
-      >
-        <input
-          data-testid="product-detail-email"
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={ email }
-          onChange={ this.handleChange }
-          className="email"
-        />
-        <div className="stars-div">
-          {STAR_ARRAY.map((num) => (
-            <label key={ num } htmlFor={ `${num}-stars` }>
-              <input
-                data-testid={ `${num}-rating` }
-                type="radio"
-                id={ `${num}-stars` }
-                name="stars"
-                value={ num }
-                checked={ stars === String(num) }
-                onChange={ this.handleChange }
-              />
-              ⭐
-            </label>
-          ))}
-        </div>
-        <textarea
-          data-testid="product-detail-evaluation"
-          name="message"
-          rows={ 5 }
-          placeholder="Mensagem (opcional)"
-          value={ message }
-          onChange={ this.handleChange }
-        />
-        <button
-          data-testid="submit-review-btn"
-          type="submit"
+      <div className="send-review">
+        <h3>Avalie o produto</h3>
+        <form
+          onSubmit={ this.handleSubmit }
+          className="review-form"
         >
-          Avaliar
-        </button>
-      </form>
+          <input
+            data-testid="product-detail-email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={ email }
+            onChange={ this.handleChange }
+            className="email"
+          />
+          <div className="stars-div">
+            {STAR_ARRAY.map((num) => (
+              <label key={ num } htmlFor={ `${num}-stars` }>
+                <input
+                  data-testid={ `${num}-rating` }
+                  type="radio"
+                  id={ `${num}-stars` }
+                  name="stars"
+                  value={ num }
+                  checked={ stars === String(num) }
+                  onChange={ this.handleChange }
+                />
+                ⭐
+              </label>
+            ))}
+          </div>
+          <textarea
+            data-testid="product-detail-evaluation"
+            name="message"
+            rows={ 5 }
+            placeholder="Mensagem (opcional)"
+            value={ message }
+            onChange={ this.handleChange }
+          />
+          <button
+            data-testid="submit-review-btn"
+            type="submit"
+          >
+            Avaliar
+          </button>
+        </form>
+      </div>
     );
   }
 }

@@ -7,13 +7,37 @@ header {
 }
 
 .home-icon {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .home-icon:hover {
   color: green;
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.cart {
+  align-items: center;
+  color: black;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  position: relative;
+  text-align: right;
+  text-decoration: none;
+  width: 4%;
+}
+
+.cart-icon {
+  font-size: 2.2rem;
+  margin-right: 5%;
+  position: absolute;
+}
+
+.cart-qnt {
+  font-size: 0.9rem;
+  margin-bottom: 5%;
+  position: absolute;
 }
 
 .cart:hover {

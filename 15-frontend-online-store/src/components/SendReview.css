@@ -1,3 +1,14 @@
+.send-review {
+  border-top: 1px solid;
+  margin: 20px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.send-review h3 {
+  margin-left: 8.5%;
+}
+
 .review-form {
   align-items: center;
   border-bottom: 1px solid;
@@ -14,6 +25,7 @@
   border-radius: 5px;
   font-family: Segoe UI , Roboto , Oxygen , Ubuntu , Cantarell , Fira Sans , sans-serif;
   padding: 10px;
+  resize: vertical;
   width: 80%;
 }
 
