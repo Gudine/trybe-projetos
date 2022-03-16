@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import './Reviews.css';
 
 class Reviews extends Component {
   render() {
@@ -7,17 +8,17 @@ class Reviews extends Component {
     const genReviews = () => reviews
       .filter((review) => review.id === productId)
       .map(({ email, stars, message }, index) => (
-        <div key={ index }>
-          <div>{ email }</div>
+        <div className="reviews" key={ index }>
+          <div className="rev-email">{ email }</div>
           <div>{ ''.padStart(Number(stars), '⭐') }</div>
-          <div>{ message }</div>
+          <div className="message">{ message }</div>
         </div>
       ));
 
     return (
-      <div>
+      <>
         {genReviews()}
-      </div>
+      </>
     );
   }
 }

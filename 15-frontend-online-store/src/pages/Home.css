@@ -22,11 +22,26 @@
 }
 
 .all-categories button {
+  border: 0;
+  border-radius: 5px;
   flex-basis: 48%;
+  padding: 10px;
+}
+
+.search-block button {
+  background-color: white;
+  border: 0;
+}
+
+.all-categories button:hover {
+  background-color: rgba(150, 145, 145, 0.781);
+  cursor: pointer;
+  font-weight: 450;
 }
 
 header {
   align-items: center;
+  background-color: rgb(187, 182, 182);
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
@@ -44,8 +59,45 @@ main {
 }
 
 .cart {
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 500;
   margin-bottom: 10px;
   text-align: right;
+  text-decoration: none;
+}
+
+.cart-qnt {
+  font-size: 1rem;
+}
+
+.search-block {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.search-block input {
+  border: 0;
+  border-bottom: 1px solid;
+  font-family: Segoe UI , Roboto , Oxygen , Ubuntu , Cantarell , Fira Sans , sans-serif;
+  font-size: 1rem;
+  padding: 10px;
+  width: 90%;
+}
+
+
+.search-block button:hover {
+  color: green;
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.initial-message {
+  align-self: center;
+  font-size: 1.2rem;
+  margin-top: 100px;
 }
 
 .products-list {

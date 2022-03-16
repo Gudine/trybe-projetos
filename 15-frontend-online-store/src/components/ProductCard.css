@@ -1,13 +1,25 @@
 .product-card {
   align-items: center;
-  border: 2px solid black;
+  background-color: rgba(196, 189, 189, 0.226);
+  border: 0;
   border-radius: 15px;
   display: flex;
   flex-basis: 25%;
   flex-direction: column;
+  gap: 15px;
+  justify-content: center;
   margin: 10px;
   padding: 10px;
   text-align: center;
+}
+
+.product-card:hover {
+  transform: scale(1.1);
+}
+
+.prod-link {
+  color: rgb(53, 50, 50);
+  text-decoration: none;
 }
 
 .product-card .title {
@@ -17,4 +29,17 @@
 .product-card img {
   max-height: 120px;
   max-width: 120px;
+}
+
+.product-card button {
+  background-color: rgba(235, 225, 225, 0.781);
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.product-card button:hover {
+  background-color: rgba(150, 145, 145, 0.486);
+  cursor: pointer;
+  transform: scale(1.1);
 }

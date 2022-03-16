@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import FreeShipping from './FreeShipping';
 import './ProductCard.css';
 
@@ -16,8 +17,10 @@ class ProductCard extends Component {
 
     return (
       <div data-testid="product" className="product-card">
-        <img src={ thumbnail } alt={ title } />
-        <div className="title">{ title }</div>
+        <Link to={ `/product/${btnId}` } className="prod-link">
+          <img src={ thumbnail } alt={ title } />
+          <div className="title">{ title }</div>
+        </Link>
         <div>{ `R$${price.toLocaleString('pt-br')}` }</div>
         { freeShipping && <FreeShipping /> }
         <button

@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-max-depth */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { BsSearch } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import Categories from '../components/Categories';
 import ProductCard from '../components/ProductCard';
@@ -17,28 +19,33 @@ class Home extends Component {
           <h1>Front-end Online Store</h1>
           <Link to="/cart" className="cart" data-testid="shopping-cart-button">
             🛒
-            <span data-testid="shopping-cart-size">{ cartQnt }</span>
+            <span data-testid="shopping-cart-size" className="cart-qnt">
+              { cartQnt }
+            </span>
           </Link>
         </header>
         <main>
           <Categories handleCatClick={ handleCatClick } />
           <section className="main-products">
-            <input
-              type="text"
-              onChange={ handleChange }
-              name="search"
-              value={ search }
-              data-testid="query-input"
-            />
-            <button
-              type="button"
-              data-testid="query-button"
-              onClick={ getProducts }
-            >
-              Pesquisar
-            </button>
+            <div className="search-block">
+              <input
+                type="text"
+                onChange={ handleChange }
+                name="search"
+                value={ search }
+                data-testid="query-input"
+              />
+              <button
+                type="button"
+                data-testid="query-button"
+                onClick={ getProducts }
+              >
+                <BsSearch />
+              </button>
+            </div>
             <p
               data-testid="home-initial-message"
+              className="initial-message"
             >
               Digite algum termo de pesquisa ou escolha uma categoria.
 

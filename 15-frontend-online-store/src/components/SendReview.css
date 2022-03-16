@@ -1,0 +1,26 @@
+.review-form {
+  align-items: center;
+  border-bottom: 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 40px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+.email, .review-form textarea {
+  border: 1px solid;
+  border-radius: 5px;
+  font-family: Segoe UI , Roboto , Oxygen , Ubuntu , Cantarell , Fira Sans , sans-serif;
+  padding: 10px;
+  width: 80%;
+}
+
+.review-form button {
+  width: 25%;
+}
+
+.review-form input {
+  content: '\2606';
+}

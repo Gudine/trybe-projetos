@@ -5,6 +5,7 @@ import FreeShipping from '../components/FreeShipping';
 import Reviews from '../components/Reviews';
 import SendReview from '../components/SendReview';
 import { getProduct } from '../services/api';
+import './ProductPage.css';
 
 class ProductPage extends Component {
   constructor() {
@@ -42,44 +43,51 @@ class ProductPage extends Component {
     const freeShipping = shipping.free_shipping;
 
     return (
-      !Object.keys(product).length
-        ? (
-          <div className="product-page">
-            <Link to="/cart" data-testid="shopping-cart-button">
-              icone carrinho
-              <span data-testid="shopping-cart-size">{ cartQnt }</span>
-            </Link>
-          </div>)
-        : (
-          <div className="product-page">
-            <Link to="/cart" data-testid="shopping-cart-button">
-              icone carrinho
-              <span data-testid="shopping-cart-size">{ cartQnt }</span>
-            </Link>
-            <span data-testid="product-detail-name">{ title }</span>
-            <img
-              src={ thumbnail }
-              alt={ title }
-            />
-            <span>{ price }</span>
-            { freeShipping && <FreeShipping /> }
-            <ul>
-              {attributes.map(({ id, name, value_name: valueName }) => (
-                <li key={ id }>{`${name}: ${valueName}`}</li>
-              ))}
-            </ul>
-            <button
-              data-testid="product-detail-add-to-cart"
-              type="button"
-              id={ btnId }
-              onClick={ handleAddToCart }
-            >
-              Adicionar ao carrinho
-            </button>
-            <SendReview handleSendReview={ this.handleSendReview } productId={ btnId } />
-            <Reviews reviews={ reviews } productId={ btnId } />
-          </div>
-        )
+      <>
+        <header>
+          <h1>Front-end Online Store</h1>
+          <Link to="/cart" className="cart" data-testid="shopping-cart-button">
+            🛒
+            <span data-testid="shopping-cart-size" className="cart-qnt">
+              { cartQnt }
+            </span>
+          </Link>
+        </header>
+        {!Object.keys(product).length
+          ? (
+            <div className="product-page" />)
+          : (
+            <div className="product-page">
+              <div className="product-title">
+                <span data-testid="product-detail-name">{ title }</span>
+                <img
+                  src={ thumbnail }
+                  alt={ title }
+                />
+              </div>
+              <span>{ `R$${price.toLocaleString('pt-br')}` }</span>
+              { freeShipping && <FreeShipping /> }
+              <ul>
+                {attributes.map(({ id, name, value_name: valueName }) => (
+                  <li key={ id }>{`${name}: ${valueName}`}</li>
+                ))}
+              </ul>
+              <button
+                data-testid="product-detail-add-to-cart"
+                type="button"
+                id={ btnId }
+                onClick={ handleAddToCart }
+              >
+                Adicionar ao carrinho
+              </button>
+              <SendReview
+                handleSendReview={ this.handleSendReview }
+                productId={ btnId }
+              />
+              <Reviews reviews={ reviews } productId={ btnId } />
+            </div>
+          )}
+      </>
     );
   }
 }

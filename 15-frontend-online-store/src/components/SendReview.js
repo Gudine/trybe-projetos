@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import './SendReview.css';
 
 class SendReview extends Component {
   constructor() {
@@ -32,6 +33,7 @@ class SendReview extends Component {
     return (
       <form
         onSubmit={ this.handleSubmit }
+        className="review-form"
       >
         <input
           data-testid="product-detail-email"
@@ -40,21 +42,24 @@ class SendReview extends Component {
           placeholder="Email"
           value={ email }
           onChange={ this.handleChange }
+          className="email"
         />
-        {STAR_ARRAY.map((num) => (
-          <label key={ num } htmlFor={ `${num}-stars` }>
-            <input
-              data-testid={ `${num}-rating` }
-              type="radio"
-              id={ `${num}-stars` }
-              name="stars"
-              value={ num }
-              checked={ stars === String(num) }
-              onChange={ this.handleChange }
-            />
-            ⭐
-          </label>
-        ))}
+        <div className="stars-div">
+          {STAR_ARRAY.map((num) => (
+            <label key={ num } htmlFor={ `${num}-stars` }>
+              <input
+                data-testid={ `${num}-rating` }
+                type="radio"
+                id={ `${num}-stars` }
+                name="stars"
+                value={ num }
+                checked={ stars === String(num) }
+                onChange={ this.handleChange }
+              />
+              ⭐
+            </label>
+          ))}
+        </div>
         <textarea
           data-testid="product-detail-evaluation"
           name="message"
