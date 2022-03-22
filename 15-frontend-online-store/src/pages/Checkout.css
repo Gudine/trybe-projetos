@@ -1,0 +1,63 @@
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.checkout-item {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.full-product {
+  align-items: center;
+  display: flex;
+}
+
+.total-price {
+  align-self: flex-end;
+  font-size: 1.4rem;
+  margin-right: 5px;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  font-family: Segoe UI , Roboto , Oxygen , Ubuntu , Cantarell , Fira Sans , sans-serif;
+  gap: 20px;
+  margin: 20px;
+}
+
+.input-label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-label input {
+  border: lightgray 1px solid;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  padding: 10px;
+}
+
+.purchase-btn {
+  background-color: grey;
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  padding: 10px 0;
+}
+
+.purchase-btn:hover {
+  background-color: rgb(73, 71, 71);
+  cursor: pointer;
+}
+
+.purchase-success {
+  color: rgb(73, 71, 71);
+  font-size: xx-large;
+  margin-top: 200px;
+  text-align: center;
+}
