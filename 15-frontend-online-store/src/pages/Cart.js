@@ -1,5 +1,8 @@
+/* eslint-disable react/jsx-max-depth */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
+import { BsTrash } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import './Cart.css';
@@ -45,43 +48,85 @@ class Cart extends Component {
           )
           : (
             <div className="full-cart">
+              <h3>Carrinho</h3>
               {productsAndQuantities
                 .map(({
-                  productName, quantity, btnDisabled, productImg,
+                  productName, quantity, btnDisabled, productImg, price,
                 }) => (
                   <div className="cart-item" key={ productName }>
                     <button
                       type="button"
                       name={ productName }
                       onClick={ handleRemoveItem }
+                      className="trash-icon"
                     >
-                      X
+                      <BsTrash />
                     </button>
-                    <img src={ productImg } alt={ productName } />
-                    <p data-testid="shopping-cart-product-name">{productName}</p>
-                    <button
-                      type="button"
-                      data-testid="product-decrease-quantity"
-                      name={ productName }
-                      value="decrease"
-                      onClick={ handleQuantities }
-                    >
-                      -
-                    </button>
-                    <p data-testid="shopping-cart-product-quantity">{quantity}</p>
-                    <button
-                      type="button"
-                      data-testid="product-increase-quantity"
-                      name={ productName }
-                      value="increase"
-                      onClick={ handleQuantities }
-                      disabled={ btnDisabled }
-                    >
-                      +
-                    </button>
+                    <div className="info-quant">
+                      <div className="img-container">
+                        <img
+                          src={ productImg }
+                          alt={ productName }
+                          className="prod-img"
+                        />
+                      </div>
+                      <div className="product-info">
+                        <p
+                          data-testid="shopping-cart-product-name"
+                          className="product-name"
+                        >
+                          {productName}
+                        </p>
+                        <div className="quantities-board">
+                          <button
+                            type="button"
+                            data-testid="product-decrease-quantity"
+                            name={ productName }
+                            value="decrease"
+                            onClick={ handleQuantities }
+                            className="quantity-icon"
+                          >
+                            <AiOutlineMinusCircle />
+                          </button>
+                          <div
+                            data-testid="shopping-cart-product-quantity"
+                            className="quantity-text"
+                          >
+                            {quantity}
+                          </div>
+                          <button
+                            type="button"
+                            data-testid="product-increase-quantity"
+                            name={ productName }
+                            value="increase"
+                            onClick={ handleQuantities }
+                            disabled={ btnDisabled }
+                            className="quantity-icon"
+                          >
+                            <AiOutlinePlusCircle />
+                          </button>
+                        </div>
+                      </div>
+                      <div />
+                      <div />
+                      <p
+                        data-testid="shopping-cart-product-name"
+                        className="product-price"
+                      >
+                        {`R$${(price * quantity).toLocaleString('pt-br')}`}
+                      </p>
+                    </div>
                   </div>
                 ))}
-              <Link to="/checkout" data-testid="checkout-products">Checkout</Link>
+              <div className="checkout-link-container">
+                <Link
+                  to="/checkout"
+                  data-testid="checkout-products"
+                  className="checkout-link"
+                >
+                  Checkout
+                </Link>
+              </div>
             </div>)}
       </>
     );
