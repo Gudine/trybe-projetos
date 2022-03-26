@@ -5,7 +5,7 @@ class Loading extends Component {
   render() {
     return (
       <div className="loading">
-        Carregando...
+        Loading...
       </div>
     );
   }

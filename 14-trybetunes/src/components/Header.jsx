@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
-import ttLogo from '../img/logo-white.png';
+import ttLogo from '../img/logo.png';
 import defAvatar from '../img/def_circle_green.png';
 import './Header.css';
 

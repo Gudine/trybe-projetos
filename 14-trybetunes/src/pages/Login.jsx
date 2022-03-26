@@ -13,6 +13,10 @@ class Login extends Component {
     };
   }
 
+  componentDidMount() {
+    document.title = 'Login | TrybeTunes';
+  }
+
   handleChange = ({ target }) => {
     const { name, type } = target;
     const value = type === 'checkbox' ? target.checked : target.value;
@@ -48,14 +52,14 @@ class Login extends Component {
             name="username"
             value={ username }
             onChange={ this.handleChange }
-            placeholder="Nome de Usuário"
+            placeholder="Username"
           />
           <button
             data-testid="login-submit-button"
             type="submit"
             disabled={ username.length < MIN_USER_LENGTH }
           >
-            Entrar
+            Login
           </button>
         </form>
       </div>

@@ -1,15 +1,32 @@
+.card-album-img {
+  width: 100%;
+}
+
+.music-name {
+  margin: 0 10px;
+}
+
+.music-preview {
+  justify-self: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.music-favorited {
+  color: red;
+  font-size: 1.3em;
+  margin: 0 10px;
+}
+
 .music-favorited input {
   height: 0;
   opacity: 0;
   width: 0;
 }
 
-.music-favorited .checkmark:after {
-  content: '🤍';
-  position: absolute;
-}
-
-.music-favorited input:checked ~ .checkmark:after {
-  content: '❤️';
-  position: absolute;
+hr {
+  border: none;
+  border-bottom: 2px solid darkgrey;
+  grid-column: 1 / -1;
+  margin: 10px 0;
 }

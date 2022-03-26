@@ -18,10 +18,12 @@ class Profile extends Component {
   }
 
   async componentDidMount() {
+    document.title = 'Profile | TrybeTunes';
     const { startLoading, stopLoading } = this.props;
     startLoading();
 
     const userData = await getUser();
+    document.title = `${userData.name} | TrybeTunes`;
     this.setState({ ...userData }, stopLoading);
   }
 
@@ -34,7 +36,7 @@ class Profile extends Component {
         <div className="profile-card">
           <section>
             <img data-testid="profile-image" src={ pfp } alt={ name } />
-            <Link to="/profile/edit">Editar perfil</Link>
+            <Link to="/profile/edit">Edit profile</Link>
           </section>
           <section>
             <p className="field-name">Name</p>

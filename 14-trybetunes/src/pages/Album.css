@@ -1,6 +1,13 @@
+.page-album {
+  flex-grow: 1;
+}
+
 .album-contents {
+  backdrop-filter: brightness(0.25) blur(20px);
   display: flex;
+  height: 100%;
   justify-content: space-around;
+  padding: 20px 0;
 }
 
 .album-contents .album-data {
@@ -8,8 +15,18 @@
   text-align: center;
 }
 
+.album-contents .album-data * {
+  margin: 6px 0;
+}
+
+.album-contents .album-img {
+  width: 80%;
+}
+
 .album-contents .music-list {
+  align-items: center;
   display: grid;
-  flex-basis: 65%;
-  grid-template-columns: 1fr 1fr 1fr;
+  flex-basis: 800px;
+  grid-template-columns: max-content 1fr max-content;
+  height: max-content;
 }

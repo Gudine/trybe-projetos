@@ -15,6 +15,10 @@ class Search extends Component {
     };
   }
 
+  componentDidMount() {
+    document.title = 'Search | TrybeTunes';
+  }
+
   handleChange = ({ target }) => {
     const { name, type } = target;
     const value = type === 'checkbox' ? target.checked : target.value;
@@ -57,22 +61,22 @@ class Search extends Component {
             name="artist"
             value={ artist }
             onChange={ this.handleChange }
-            placeholder="Nome do Artista"
+            placeholder="Artist Name"
           />
           <button
             data-testid="search-artist-button"
             type="submit"
             disabled={ artist.length < MIN_ARTIST_LENGTH }
           >
-            Pesquisar
+            Search
           </button>
         </form>
         <section className="search-results">
           <h1>
             { searchQuery && (
               searchResults.length
-                ? `Resultado de álbuns de: ${searchQuery}`
-                : 'Nenhum álbum foi encontrado'
+                ? `Album results for: ${searchQuery}`
+                : 'No album was found'
             )}
           </h1>
           <section className="album-list">

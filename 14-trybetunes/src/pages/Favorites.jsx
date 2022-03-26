@@ -14,6 +14,7 @@ class Favorites extends Component {
   }
 
   async componentDidMount() {
+    document.title = 'Favorites | TrybeTunes';
     const { startLoading, stopLoading } = this.props;
     startLoading();
 
@@ -37,11 +38,13 @@ class Favorites extends Component {
   render() {
     const { favSongs } = this.state;
 
-    const generateMusicList = () => favSongs.map((music) => (
+    const generateMusicList = () => favSongs.map((music, index, arr) => (
       <MusicCard
         key={ music.trackId }
         music={ music }
         handleCheckbox={ this.handleCheckbox }
+        favoriteList
+        final={ index === arr.length - 1 }
       />
     ));
 

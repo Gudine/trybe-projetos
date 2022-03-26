@@ -17,7 +17,7 @@ header img {
 
 header .user-section {
   align-items: center;
-  background-color: white;
+  background-color: #121212;
   border-radius: 20px;
   color: black;
   display: flex;
@@ -35,7 +35,7 @@ header .user-section img {
 }
 
 header .user-section span {
-  color: rgb(2, 48, 49);
+  color: rgb(47, 193, 140);
   flex-grow: 1;
   text-align: center;
 }

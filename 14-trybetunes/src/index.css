@@ -11,7 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f9f9f6;
+  background-color: #121212;
+  color: white;
 }
 
 code {
@@ -21,4 +22,31 @@ code {
 
 #root {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  background: #242424;
+  border: 2px solid #444;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  padding: 10px 30px;
+  width: 100%;
+}
+
+button {
+  background-color: rgb(3, 107, 82);
+  border: 2px solid #1f471f;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  width: 100%;
+}
+
+button:disabled {
+  filter: brightness(0.75) grayscale(0.75);
 }

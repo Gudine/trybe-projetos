@@ -30,18 +30,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         {!!loading && <Loading />}
-        <Route
-          exact
-          path={
-            ['/album/:id', '/profile/edit', '/search', '/favorites', '/profile']
-          }
-          render={ (props) => (
-            <Header
-              { ...props }
-              startLoading={ this.startLoading }
-              stopLoading={ this.stopLoading }
-            />
-          ) }
+        <Header
+          startLoading={ this.startLoading }
+          stopLoading={ this.stopLoading }
         />
         <Switch>
           <Route

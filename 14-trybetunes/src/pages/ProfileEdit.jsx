@@ -17,6 +17,7 @@ class ProfileEdit extends Component {
   }
 
   async componentDidMount() {
+    document.title = 'Profile Editing | TrybeTunes';
     const { startLoading, stopLoading } = this.props;
     startLoading();
 
@@ -64,7 +65,7 @@ class ProfileEdit extends Component {
       <div data-testid="page-profile-edit" className="page-profile-edit">
         <form className="profile-edit-card" onSubmit={ this.handleForm }>
           <label htmlFor="pf-edit-name">
-            Nome de usuário:
+            Name:
             <input
               data-testid="edit-input-name"
               id="pf-edit-name"
@@ -75,7 +76,7 @@ class ProfileEdit extends Component {
             />
           </label>
           <label htmlFor="pf-edit-image">
-            URL da Imagem:
+            Image URL:
             <input
               data-testid="edit-input-image"
               id="pf-edit-image"
@@ -97,7 +98,7 @@ class ProfileEdit extends Component {
             />
           </label>
           <label htmlFor="pf-edit-description">
-            Descrição:
+            Description:
             <textarea
               data-testid="edit-input-description"
               id="pf-edit-description"
@@ -112,7 +113,7 @@ class ProfileEdit extends Component {
             type="submit"
             disabled={ btnDisabled }
           >
-            Salvar
+            Save
           </button>
         </form>
       </div>

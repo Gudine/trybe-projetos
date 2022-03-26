@@ -1,4 +1,9 @@
 .page-favorites {
+  align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 50px max-content 1fr max-content;
+  margin: auto;
+  margin-top: 15px;
+  max-width: 800px;
+  width: 100%;
 }

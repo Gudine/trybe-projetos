@@ -16,6 +16,7 @@ class Album extends Component {
   }
 
   async componentDidMount() {
+    document.title = 'Album | TrybeTunes';
     const { match, startLoading, stopLoading } = this.props;
     const { id } = match.params;
 
@@ -25,6 +26,8 @@ class Album extends Component {
       getMusics(id),
       getFavoriteSongs(),
     ]);
+
+    document.title = `${musics[0].collectionName} | TrybeTunes`;
 
     this.setState({
       albumData: musics[0],
@@ -55,20 +58,24 @@ class Album extends Component {
   render() {
     const { albumData, musicList } = this.state;
     const { artistName, artworkUrl100, collectionName } = albumData;
+    const artwork = artworkUrl100?.replace?.('100x100', '600x600');
 
-    const generateMusicList = () => musicList.map((music) => (
+    const generateMusicList = () => musicList.map((music, index, arr) => (
       <MusicCard
         key={ music.trackId }
         music={ music }
         handleCheckbox={ this.handleCheckbox }
+        final={ index === arr.length - 1 }
       />
     ));
 
+    const bgStyle = { background: `url(${artwork}) center/cover` };
+
     return (
-      <div data-testid="page-album">
+      <div className="page-album" style={ bgStyle } data-testid="page-album">
         <section className="album-contents">
           <section className="album-data">
-            <img src={ artworkUrl100 } alt={ collectionName } />
+            <img className="album-img" src={ artwork } alt={ collectionName } />
             <p data-testid="album-name">{collectionName}</p>
             <p data-testid="artist-name">{artistName}</p>
           </section>
