@@ -28,11 +28,18 @@ class App extends React.Component {
     // Fonte do Header: https://stackoverflow.com/a/53074599
 
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/trybe-projetos/14-trybetunes">
         {!!loading && <Loading />}
-        <Header
-          startLoading={ this.startLoading }
-          stopLoading={ this.stopLoading }
+        <Route
+          exact
+          path={ /\/.+/ }
+          render={ (props) => (
+            <Header
+              { ...props }
+              startLoading={ this.startLoading }
+              stopLoading={ this.stopLoading }
+            />
+          ) }
         />
         <Switch>
           <Route
