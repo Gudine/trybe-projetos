@@ -1,0 +1,10 @@
+.album-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.search-bar {
+  padding-bottom: 10px;
+}

@@ -1,0 +1,19 @@
+.page-login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.page-login img {
+  margin: 20px;
+}
+
+.page-login form {
+  background-color: #181818;
+  border-radius: 50px;
+  filter: drop-shadow(0 0 15px grey);
+  margin: 20px 0;
+  padding: 15vh 20vw;
+}
