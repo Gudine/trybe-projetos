@@ -20,6 +20,7 @@ Para acessá-los, clique nos seguintes links:
 12. [Solar System](https://gudine.github.io/trybe-projetos/12-solar-system)
 13. [Tryunfo](https://gudine.github.io/trybe-projetos/13-tryunfo)
 14. [TrybeTunes](https://gudine.github.io/trybe-projetos/14-trybetunes)
+15. [Frontend Online Store](https://gudine.github.io/trybe-projetos/15-frontend-online-store)
 
 ## Projetos sem página web
 
