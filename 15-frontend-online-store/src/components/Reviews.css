@@ -1,0 +1,30 @@
+.reviews-title {
+  align-self: flex-start;
+  margin-left: 8.5%;
+  margin-top: 0;
+}
+
+.reviews {
+  border: 1px solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  margin-top: 10px;
+  padding: 10px;
+  width: 80%;
+}
+
+.rev-email {
+  font-weight: 500;
+}
+
+.message {
+  margin-top: 5px;
+}
+
+.stars-div {
+  color: gold;
+  font-size: 1.5rem;
+}

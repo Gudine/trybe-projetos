@@ -1,0 +1,87 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.categories-cont {
+  flex-basis: 30%;
+  margin-right: 10px;
+}
+
+.categories-header {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.all-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.all-categories button {
+  border: 0;
+  border-radius: 5px;
+  flex-basis: 48%;
+  padding: 10px;
+}
+
+.search-block button {
+  background-color: white;
+  border: 0;
+}
+
+.all-categories button:hover {
+  background-color: rgba(150, 145, 145, 0.781);
+  cursor: pointer;
+  font-weight: 450;
+}
+
+main {
+  display: flex;
+  gap: 40px;
+  margin: 10px;
+}
+
+.main-products {
+  display: flex;
+  flex-basis: 68%;
+  flex-direction: column;
+}
+
+.search-block {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.search-block input {
+  border: 0;
+  border-bottom: 1px solid;
+  font-family: Segoe UI , Roboto , Oxygen , Ubuntu , Cantarell , Fira Sans , sans-serif;
+  font-size: 1rem;
+  padding: 10px;
+  width: 90%;
+}
+
+
+.search-block button:hover {
+  color: green;
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.initial-message {
+  align-self: center;
+  font-size: 1.2rem;
+  margin-top: 100px;
+}
+
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}

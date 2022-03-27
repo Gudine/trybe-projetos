@@ -1,0 +1,6 @@
+.free-shipping {
+  color: rgb(40, 107, 40);
+  display: flex;
+  font-weight: 500;
+  gap: 5px;
+}

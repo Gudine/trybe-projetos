@@ -1,0 +1,49 @@
+.send-review {
+  border-top: 1px solid;
+  margin: 20px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.send-review h3 {
+  margin-left: 8.5%;
+}
+
+.review-form {
+  align-items: center;
+  border-bottom: 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 40px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+.email, .review-form textarea {
+  border: 1px solid;
+  border-radius: 5px;
+  font-family: Segoe UI , Roboto , Oxygen , Ubuntu , Cantarell , Fira Sans , sans-serif;
+  padding: 10px;
+  resize: vertical;
+  width: 80%;
+}
+
+.review-form button {
+  width: 25%;
+}
+
+.review-form input {
+  content: '\2606';
+}
+
+.stars-radio-div {
+  color: gold;
+  font-size: 1.5rem;
+}
+
+.star-radio {
+  height: 0;
+  margin: 0;
+  width: 0;
+}
