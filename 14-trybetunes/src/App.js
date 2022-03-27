@@ -32,7 +32,7 @@ class App extends React.Component {
         {!!loading && <Loading />}
         <Route
           exact
-          path={ /\/.+/ }
+          path={ '/(.+)' }
           render={ (props) => (
             <Header
               { ...props }
