@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "sd-0x-project-frontend-online-store",
   "version": "0.1.0",
   "private": true,

@@ -118,15 +118,13 @@ class Cart extends Component {
                     </div>
                   </div>
                 ))}
-              <div className="checkout-link-container">
-                <Link
-                  to="/checkout"
-                  data-testid="checkout-products"
-                  className="checkout-link"
-                >
-                  Checkout
-                </Link>
-              </div>
+              <Link
+                to="/checkout"
+                data-testid="checkout-products"
+                className="checkout-link"
+              >
+                Checkout
+              </Link>
             </div>)}
       </>
     );

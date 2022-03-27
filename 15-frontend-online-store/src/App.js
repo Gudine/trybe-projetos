@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
@@ -105,7 +105,7 @@ class App extends Component {
   }
 
   handleQuantities = (e) => {
-    const { target: { value, name } } = e;
+    const { currentTarget: { value, name } } = e;
     let newPnQArray = [];
     const { cartItems } = this.state;
     newPnQArray = cartItems
@@ -147,7 +147,7 @@ class App extends Component {
     this.setState({ cartItems: newPnQArray }, this.productCount);
   }
 
-  handleRemoveItem = ({ target: { name } }) => {
+  handleRemoveItem = ({ currentTarget: { name } }) => {
     const { cartItems } = this.state;
     const newPnQArray = cartItems.reduce((acc, curr) => {
       if (curr.productName !== name) {
@@ -164,7 +164,7 @@ class App extends Component {
     const { search, products, cartItems, cartQnt } = this.state;
 
     return (
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route
             exact
@@ -208,7 +208,7 @@ class App extends Component {
             />) }
           />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

@@ -102,22 +102,20 @@
   font-weight: 500;
 }
 
-.checkout-link-container {
+.checkout-link {
   background-color: grey;
   border-radius: 5px;
+  color: white;
+  display: block;
+  font-weight: 600;
   margin-top: 10px;
   padding: 10px 0;
   text-align: center;
+  text-decoration: none;
   width: 100%;
 }
 
-.checkout-link-container:hover {
+.checkout-link:hover {
   background-color: rgb(73, 71, 71);
   cursor: pointer;
-}
-
-.checkout-link {
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
 }
