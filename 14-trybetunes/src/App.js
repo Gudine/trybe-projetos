@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Loading from './components/Loading';
 import Album from './pages/Album';
@@ -28,7 +28,7 @@ class App extends React.Component {
     // Fonte do Header: https://stackoverflow.com/a/53074599
 
     return (
-      <BrowserRouter basename="/trybe-projetos/14-trybetunes">
+      <HashRouter>
         {!!loading && <Loading />}
         <Route
           exact
@@ -114,7 +114,7 @@ class App extends React.Component {
             ) }
           />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
