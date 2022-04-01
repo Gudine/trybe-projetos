@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import MusicCard from '../components/MusicCard';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import './Favorites.css';
+import { connect } from 'react-redux';
+import { startLoading, stopLoading } from '../redux/actions';
 
 class Favorites extends Component {
   constructor() {
@@ -61,4 +63,6 @@ Favorites.propTypes = {
   stopLoading: PropTypes.func.isRequired,
 };
 
-export default Favorites;
+const mapDispatchToProps = { startLoading, stopLoading };
+
+export default connect(null, mapDispatchToProps)(Favorites);

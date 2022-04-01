@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import defAvatar from '../img/def_circle.png';
 import './Profile.css';
+import { connect } from 'react-redux';
+import { startLoading, stopLoading } from '../redux/actions';
 
 class Profile extends Component {
   constructor() {
@@ -61,4 +63,6 @@ Profile.propTypes = {
   stopLoading: PropTypes.func.isRequired,
 };
 
-export default Profile;
+const mapDispatchToProps = { startLoading, stopLoading };
+
+export default connect(null, mapDispatchToProps)(Profile);

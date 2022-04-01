@@ -4,6 +4,8 @@ import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import './Album.css';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import { connect } from 'react-redux';
+import { startLoading, stopLoading } from '../redux/actions';
 
 class Album extends Component {
   constructor() {
@@ -98,4 +100,6 @@ Album.propTypes = {
   stopLoading: PropTypes.func.isRequired,
 };
 
-export default Album;
+const mapDispatchToProps = { startLoading, stopLoading };
+
+export default connect(null, mapDispatchToProps)(Album);

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import AlbumCard from '../components/AlbumCard';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import './Search.css';
+import { connect } from 'react-redux';
+import { startLoading, stopLoading } from '../redux/actions';
 
 class Search extends Component {
   constructor() {
@@ -93,4 +95,6 @@ Search.propTypes = {
   stopLoading: PropTypes.func.isRequired,
 };
 
-export default Search;
+const mapDispatchToProps = { startLoading, stopLoading };
+
+export default connect(null, mapDispatchToProps)(Search);

@@ -1,5 +1,6 @@
 import React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Loading from './components/Loading';
 import Album from './pages/Album';
@@ -9,114 +10,28 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search';
+import { startLoading, stopLoading } from './redux/actions';
 
-class App extends React.Component {
-  constructor() {
-    super();
+const App = ({ loading }) => (
+  <>
+    {!!loading && <Loading />}
+    <Route exact path="/(.+)" component={ Header } />
+    <Switch>
+      <Route path="/album/:id" component={ Album } />
+      <Route path="/profile/edit" component={ ProfileEdit } />
+      <Route path="/search" component={ Search } />
+      <Route path="/favorites" component={ Favorites } />
+      <Route path="/profile" component={ Profile } />
+      <Route exact path="/" component={ Login } />
+      <Route path="*" component={ NotFound } />
+    </Switch>
+  </>
+);
 
-    this.state = {
-      loading: 0,
-    };
-  }
+const mapStateToProps = (state) => ({
+  loading: state.loading.counter,
+});
 
-  startLoading = () => this.setState((prev) => ({ loading: prev.loading + 1 }));
+const mapDispatchToProps = { startLoading, stopLoading };
 
-  stopLoading = () => this.setState((prev) => ({ loading: prev.loading - 1 }));
-
-  render() {
-    const { loading } = this.state;
-    // Fonte do Header: https://stackoverflow.com/a/53074599
-
-    return (
-      <HashRouter>
-        {!!loading && <Loading />}
-        <Route
-          exact
-          path={ '/(.+)' }
-          render={ (props) => (
-            <Header
-              { ...props }
-              startLoading={ this.startLoading }
-              stopLoading={ this.stopLoading }
-            />
-          ) }
-        />
-        <Switch>
-          <Route
-            path="/album/:id"
-            render={ (props) => (
-              <Album
-                { ...props }
-                startLoading={ this.startLoading }
-                stopLoading={ this.stopLoading }
-              />
-            ) }
-          />
-          <Route
-            path="/profile/edit"
-            render={ (props) => (
-              <ProfileEdit
-                { ...props }
-                startLoading={ this.startLoading }
-                stopLoading={ this.stopLoading }
-              />
-            ) }
-          />
-          <Route
-            path="/search"
-            render={ (props) => (
-              <Search
-                { ...props }
-                startLoading={ this.startLoading }
-                stopLoading={ this.stopLoading }
-              />
-            ) }
-          />
-          <Route
-            path="/favorites"
-            render={ (props) => (
-              <Favorites
-                { ...props }
-                startLoading={ this.startLoading }
-                stopLoading={ this.stopLoading }
-              />
-            ) }
-          />
-          <Route
-            path="/profile"
-            render={ (props) => (
-              <Profile
-                { ...props }
-                startLoading={ this.startLoading }
-                stopLoading={ this.stopLoading }
-              />
-            ) }
-          />
-          <Route
-            exact
-            path="/"
-            render={ (props) => (
-              <Login
-                { ...props }
-                startLoading={ this.startLoading }
-                stopLoading={ this.stopLoading }
-              />
-            ) }
-          />
-          <Route
-            path="*"
-            render={ (props) => (
-              <NotFound
-                { ...props }
-                startLoading={ this.startLoading }
-                stopLoading={ this.stopLoading }
-              />
-            ) }
-          />
-        </Switch>
-      </HashRouter>
-    );
-  }
-}
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
