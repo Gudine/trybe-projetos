@@ -5,6 +5,8 @@ import { getUser } from '../services/userAPI';
 import ttLogo from '../img/logo.png';
 import defAvatar from '../img/def_circle_green.png';
 import './Header.css';
+import { connect } from 'react-redux';
+import { startLoading, stopLoading } from '../redux/actions';
 
 class Header extends Component {
   constructor() {
@@ -53,4 +55,6 @@ Header.propTypes = {
   stopLoading: PropTypes.func.isRequired,
 };
 
-export default Header;
+const mapDispatchToProps = { startLoading, stopLoading };
+
+export default connect(null, mapDispatchToProps)(Header);

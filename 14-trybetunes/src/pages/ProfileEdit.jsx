@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getUser, updateUser } from '../services/userAPI';
 import './ProfileEdit.css';
+import { connect } from 'react-redux';
+import { startLoading, stopLoading } from '../redux/actions';
 
 class ProfileEdit extends Component {
   constructor() {
@@ -127,4 +129,6 @@ ProfileEdit.propTypes = {
   stopLoading: PropTypes.func.isRequired,
 };
 
-export default ProfileEdit;
+const mapDispatchToProps = { startLoading, stopLoading };
+
+export default connect(null, mapDispatchToProps)(ProfileEdit);

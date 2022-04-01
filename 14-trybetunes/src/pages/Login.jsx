@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import ttLogo from '../img/logo.png';
 import './Login.css';
+import { connect } from 'react-redux';
+import { startLoading, stopLoading } from '../redux/actions';
 
 class Login extends Component {
   constructor() {
@@ -73,4 +75,6 @@ Login.propTypes = {
   stopLoading: PropTypes.func.isRequired,
 };
 
-export default Login;
+const mapDispatchToProps = { startLoading, stopLoading };
+
+export default connect(null, mapDispatchToProps)(Login);
